@@ -1,0 +1,196 @@
+<html>
+
+<head>
+    <title>server.CZ Binding system</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="binding.css" rel="stylesheet">
+    <link href="btns.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="jquery.sweet-modal.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
+    <script src="binding.js" type="text/javascript"></script>
+    <script src="jquery.sweet-modal.min.js"></script>
+</head>
+
+<body style="display: none;">
+    <div class="middle">
+        <div class="buttons" style="text-align: center;">
+            <div class="btn btn--m btn--blue" id="addBind">Vytvořit nový bind</div>
+            <div class="btn btn--m btn--red" id="removeBind">Smazat bind</div>
+            <div class="btn btn--m btn--white" style="float:right;" id="close">Zavřít</div>
+        </div>
+        <div class="wrapper keyboard" style="clear: both;">
+            <table>
+                <tr>
+                    <td class="disabled"><a href="#">Esc</a></td>
+                    <td class="disabled"><a href="#">F1<br><span
+                                style="color:#5886a6;margin-left:5px;margin-top:2px;position:absolute;">◀</span></a>
+                    </td>
+
+                    <td class="disabled"><a href="#">F2<br><span
+                                style="color:#5886a6;margin-left:5px;margin-top:2px;position:absolute;">▶</span></a>
+                    </td>
+
+                    <td class="disabled"><a href="#">F3<br><span
+                                style="color:#5886a6;margin-left:5px;margin-top:2px;position:absolute;">🗺</span></a>
+                    </td>
+
+                    <td class="disabled"><a href="#">F4<br><span
+                                style="color:#5886a6;margin-left:5px;margin-top:2px;position:absolute;">&#57620;</span></a>
+                    </td>
+
+                    <td class="disabled"><a href="#">F5<br><span
+                                style="color:#5886a6;margin-left:5px;margin-top:2px;position:absolute;">⏮</span></a>
+                    </td>
+
+                    <td class="disabled"><a href="#">F6<br><span
+                                style="color:#5886a6;margin-left:5px;margin-top:2px;position:absolute;">⏭</span></a>
+                    </td>
+
+                    <td class="disabled"><a href="#">F7<br><span
+                                style="color:#5886a6;margin-left:5px;margin-top:2px;position:absolute;">𝅘𝅥𝅮</span></a>
+                    </td>
+
+                    <td class="disabled"><a href="#">F8<br><span
+                                style="color:#5886a6;margin-left:-5px;margin-top:2px;position:absolute;">⏵/⏸</span></a>
+                    </td>
+
+                    <td class="disabled"><a href="#">F9<br><span
+                                style="color:#5886a6;margin-left:5px;margin-top:2px;position:absolute;">⏹</span></a>
+                    </td>
+
+                    <td class="disabled"><a href="#">F10<br><span
+                                style="color:#5886a6;margin-left:5px;margin-top:2px;position:absolute;">🕨</span></a>
+                    </td>
+
+                    <td class="disabled"><a href="#">F11<br><span
+                                style="color:#5886a6;margin-left:5px;margin-top:2px;position:absolute;">🕩</span></a>
+                    </td>
+
+                    <td class="disabled"><a href="#">F12<br><span
+                                style="color:#5886a6;margin-left:5px;margin-top:2px;position:absolute;">🕪</span></a>
+                    </td>
+
+                    <td class="disabled"><a href="#">PrtSc<br>SysRq</a></td>
+                    <td class="disabled"><a href="#">Scroll<br>Lock</a></td>
+                    <td class="disabled"><a href="#">Delete</a></td>
+
+                </tr>
+                <tr>
+                    <td><a href="#" data-key="~">`<br><span>~</span></a></td>
+                    <td><a href="#" data-key="1">1<br><span>!</span></a></td>
+                    <td><a href="#" data-key="2">2<br><span>@</span></a></td>
+                    <td><a href="#" data-key="3">3<br><span>#</span></a></td>
+                    <td><a href="#" data-key="4">4<br><span>$</span></a></td>
+                    <td><a href="#" data-key="5">5<br><span>%</span></a></td>
+                    <td><a href="#" data-key="6">6<br><span>^</span></a></td>
+                    <td><a href="#" data-key="7">7<br><span>&</span></a></td>
+                    <td><a href="#" data-key="8">8<br><span>*</span></a></td>
+                    <td><a href="#" data-key="9">9<br><span>(</span></a></td>
+                    <td><a href="#" data-key="0">0<br><span>)</span></a></td>
+                    <td><a href="#" data-key="-">_<br><span>-</span></a></td>
+                    <td><a href="#" data-key="=">+<br><span>=</span></a></td>
+                    <td class="disabled" colspan="2"><a href="#">◀ BackSpace</a></td>
+                    <td><a href="#" data-key="HOME">Home</a></td>
+
+                </tr>
+                <tr>
+                    <td  colspan="2"><a href="#" data-key="TAB">◀ Tab ▶</a></td>
+                    <td class="disabled"><a href="#">Q</a></td>
+                    <td class="disabled"><a href="#">W</a></td>
+                    <td class="disabled"><a href="#">E</a></td>
+                    <td class="disabled"><a href="#">R</a></td>
+                    <td class="disabled"><a href="#">T</a></td>
+                    <td class="disabled"><a href="#">Y</a></td>
+                    <td><a href="#" data-key="U">U</a></td>
+                    <td><a href="#" data-key="I">I</a></td>
+                    <td><a href="#" data-key="O">O</a></td>
+                    <td><a href="#" data-key="P">P</a></td>
+                    <td><a href="#" data-key="[">{<br>[</a></td>
+                    <td><a href="#" data-key="]">}<br>]</a></td>
+                    <td class="disabled"><a href="#">¦<br>\</a></td>
+                    <td><a href="#" data-key="PAGEUP">PgUp</a></td>
+                </tr>
+                <tr>
+                    <td class="disabled" colspan="2"><a href="#">Caps<br>Lock</a></td>
+                    <td class="disabled"><a href="#">A</a></td>
+                    <td class="disabled"><a href="#">S</a></td>
+                    <td class="disabled"><a href="#">D</a></td>
+                    <td class="disabled"><a href="#">F</a></td>
+                    <td><a href="#" data-key="G">G</a></td>
+                    <td><a href="#" data-key="H">H</a></td>
+                    <td><a href="#" data-key="K">J</a></td>
+                    <td><a href="#" data-key="K">K</a></td>
+                    <td><a href="#" data-key="L">L</a></td>
+                    <td class="disabled"><a href="#">:<br>;</a></td>
+                    <td class="disabled"><a href="#">"<br>'</a></td>
+                    <td class="disabled" colspan="2"><a href="#">◀ Enter</a></td>
+                    <td><a href="#" data-key="PAGEDOWN">PgDn</a></td>
+                </tr>
+                <tr>
+                    <td class="disabled" colspan="3"><a href="#">▲ Shift</a></td>
+                    <td class="disabled"><a href="#">Z</a></td>
+                    <td class="disabled"><a href="#">X</a></td>
+                    <td class="disabled"><a href="#">C</a></td>
+                    <td class="disabled"><a href="#">V</a></td>
+                    <td class="disabled"><a href="#">B</a></td>
+                    <td><a href="#" data-key="N">N</a></td>
+                    <td><a href="#" data-key="M">M</a></td>
+                    <td>
+                        <a href="#" data-key=",">
+                            <br>,
+                        </a>
+                    </td>
+                    <td><a href="#" data-key=".">><br>.</a></td>
+                    <td class="disabled"><a href="#">?<br>/</a></td>
+                    <td class="disabled"><a href="#">▲ Shift</a></td>
+                    <td><a href="#" data-key="ARROWUP">▲</a></td>
+                    <td class="disabled"><a href="#">End</a></td>
+                </tr>
+                <tr>
+                    <td class="disabled" colspan="2"><a style="color:#5886a6;padding-right:40px;" href="#">Fn</a></td>
+                    <td><a href="#" data-key="LEFTCTRL">Ctrl</a></td>
+                    <td class="disabled"><a style="font-family: wingdings" href="#">ÿ</a></td>
+                    <td><a href="#" data-key="LEFTALT">Alt</a></td>
+                    <td class="disabled" colspan="4"><a href="#">Space</a></td>
+                    <td class="disabled"><a href="#">Alt</a></td>
+                    <td class="disabled"><a style="font-family: wingdings" href="#">ÿ</a></td>
+                    <td class="disabled"><a href="#">&#9776;</a></td>
+                    <td><a href="#" data-key="RIGHTCTRL">Ctrl</a></td>
+                    <td><a href="#" data-key="ARROWLEFT">◀</a></td>
+                    <td><a href="#" data-key="ARROWDOWN">▼</a></td>
+                    <td><a href="#" data-key="ARROWRIGHT">▶</a></td>
+                </tr>
+            </table>
+            <table style="float:right; margin-top: 65px;">
+                <tr>
+                    <td class="disabled"><a href="#">Num<br>Lock</a></td>
+                    <td class="disabled"><a href="#">/</a></td>
+                    <td class="disabled"><a href="#">*</a></td>
+                    <td><a href="#" data-key="N-">-</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#" data-key="N7">7<br><span>Home</span></a></td>
+                    <td><a href="#" data-key="N8">8<br><span>▲</span></a></td>
+                    <td><a href="#" data-key="N9">9<br><span>PgUp</span></a></td>
+                    <td rowspan="2"><a href="#" data-key="N+">+</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#" data-key="N4">4<br><span>◀</span></a></td>
+                    <td><a href="#" data-key="N5">5</a></td>
+                    <td><a href="#" data-key="N6">6<br><span>▶</span></a></td>
+                </tr>
+                <tr>
+                    <td class="disabled"><a href="#">1<br><span>End</span></a></td>
+                    <td class="disabled"><a href="#">2<br><span>▼</span></a></td>
+                    <td class="disabled"><a href="#">3<br><span>PgDn</span></a></td>
+                    <td class="disabled" rowspan="2"><a href="#">Enter</a></td>
+                </tr>
+                <tr>
+                    <td class="disabled" colspan="2"><a href="#">0<br><span>Ins</span></a></td>
+                    <td class="disabled"><a href="#">.<br><span>Del</span></a></td>
+                </tr>
+            </table>
+        </div>
+</body>
+
+</html>

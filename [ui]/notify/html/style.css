@@ -1,0 +1,208 @@
+* {
+    color: white;
+    overflow: hidden;
+    font-family: 'Signika', sans-serif;
+}
+
+.alerts-wrapper {
+    display: none;
+    float: right;
+    overflow: hidden;
+}
+
+.content {
+    padding: 3% 2% 0% 3%;
+}
+
+.fas {
+    padding-right: 3px;
+    padding-left: 3px;
+}
+
+#code {
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 4px;
+    background: rgba(209, 21, 99, 1.0);
+    float: left;
+    margin-right: 8px;
+}
+
+#marker {
+    float: right;
+    padding-right: 5%;
+    padding-top: 3%;
+    font-size: xx-large;
+}
+
+#alert-name {
+    letter-spacing: 0.2px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    float: left;
+    text-transform: uppercase;
+}
+
+#alert-name-code {
+    letter-spacing: 0.2px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    float: left;
+    padding-top: 2px;
+}
+
+#alert-info {
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-top: 32px;
+}
+
+.alerts {
+    width: 375px;
+    height: 75px;
+    color: white;
+}
+
+.alerts.warning {
+    box-shadow: -3px 0px 0px 0px rgba(255, 0, 0, 0.75) inset;
+}
+
+.alerts.info {
+    box-shadow: -3px 0px 0px 0px rgba(255, 0, 0, 0.75) inset;
+}
+
+.alerts.error {
+    box-shadow: -3px 0px 0px 0px rgba(255, 0, 0, 0.75) inset;
+}
+
+.alerts.thefuckisthiscalledfor {
+    box-shadow: -3px 0px 0px 0px rgba(255, 0, 0, 0.75) inset;
+}
+
+.template,
+.notification {
+    display: none;
+}
+
+.notif-container {
+    width: 20%;
+    /* was 15% */
+    position: absolute;
+    right: 1%;
+    top: 5%;
+    /* was 15% */
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+}
+
+.notification {
+    width: 375px;
+    height: 75px;
+    padding: 10px;
+    margin: 2px;
+    margin-left: 5px;
+    font: caption;
+    font-size: 12px;
+    font-weight: bold;
+
+}
+
+.move {
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+.error {
+    border-left: 10px solid rgb(160, 17, 48);
+    background: rgba(160, 17, 48, 0.75);
+    color: #fff;
+}
+
+.warning {
+    border-left: 10px solid rgb(151, 120, 34);
+    background: rgba(151, 120, 34, 0.75);
+    color: #fff;
+}
+
+.info {
+    border-left: 10px solid rgb(13, 49, 126);
+    background: rgba(13, 49, 126, 0.75);
+    color: #fff;
+}
+
+.success {
+    border-left: 10px solid rgb(54, 126, 13);
+    background: rgba(54, 126, 13, 0.75);
+    color: #fff;
+}
+
+.extreme {
+    animation: extremeAnim 5s linear 0s infinite alternate;
+}
+
+@keyframes extremeAnim {
+    0% {
+        background-color: rgba(255, 0, 0, 0.75);
+        border-left: 10px solid rgb(255, 0, 0);
+        left: 0px;
+        top: 0px;
+    }
+
+    15% {
+        background-color: rgba(0, 0, 255, 0.75);
+        border-left: 10px solid rgb(0, 0, 255);
+        left: 200px;
+        top: 200px;
+    }
+
+    30% {
+        background-color: rgba(255, 0, 0, 0.75);
+        border-left: 10px solid rgb(255, 0, 0);
+        left: 0px;
+        top: 0px;
+    }
+
+    45% {
+        background-color: rgba(0, 0, 255, 0.75);
+        border-left: 10px solid rgb(0, 0, 255);
+        left: 200px;
+        top: 200px;
+    }
+
+    60% {
+        background-color: rgba(255, 0, 0, 0.75);
+        border-left: 10px solid rgb(255, 0, 0);
+        left: 0px;
+        top: 0px;
+    }
+
+    75% {
+        background-color: rgba(0, 0, 255, 0.75);
+        border-left: 10px solid rgb(0, 0, 255);
+        left: 200px;
+        top: 200px;
+    }
+
+    90% {
+        background-color: rgba(255, 0, 0, 0.75);
+        border-left: 10px solid rgb(255, 0, 0);
+        left: 0px;
+        top: 0px;
+    }
+
+    100% {
+        background-color: rgba(0, 0, 255, 0.75);
+        border-left: 10px solid rgb(0, 0, 255);
+        left: 200px;
+        top: 200px;
+    }
+}
+
+.divider {
+    padding-left: 6px;
+}

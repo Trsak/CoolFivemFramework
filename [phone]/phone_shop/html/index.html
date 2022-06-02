@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.2.9/purify.min.js" integrity="sha512-VOTFfd4vxPpuE98m9UQTN7j2N2/Blw44lZMhRTnZQqA2gOHq7Yvn5bdIDjjAZuFqqkDtppcjMW+dN3GYbhM94g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Phone Store</title>
+
+    <!-- CSS File's -->
+    <link rel="stylesheet" href="./css/main.css">
+
+    <!-- CDN's -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- JQuery -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-color/2.1.2/jquery.color.js"></script>
+    <!-- Color CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xregexp/3.1.1/xregexp-all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <!-- Bootstrap -->
+</head>
+<body>
+
+    <div class="frame" id="frame">
+        <header class="header" id="header">
+            <div class="left-header" id="left-header">
+                <img src="./img/logo.png" alt="logo">
+                <div class="header-store-name">
+
+                </div>
+                <div class="header-store-description">
+
+                </div>
+            </div>
+            <div class="right-header" id="right-header">
+                <div class="right-header-icons" id="right-header-icons">
+                    <i class="fas fa-shopping-basket" id="basket-cashout"></i>
+                    <div class="basket-count">0</div>
+                </div>
+            </div>
+            <div class="bottom-header" id="bottom-header">
+                <div class="header-buttons" id="mobile">
+                    Phones
+                </div>
+                <div class="header-buttons" id="sim">
+                    Sim Cards
+                </div>
+                <div class="header-buttons" id="recovery">
+                    Recovery
+                </div>
+            </div>
+        </header>
+        <div class="content" id="content">
+<!--            <div class="item">
+                <img class="item-img" src="https://i.imgur.com/ybNwFj0.png" alt="logo">
+                <div class="item-buttons">
+                    <div class="item-name">
+                        PEPE
+                    </div>
+                    <i class="fas fa-shopping-basket" id="item-basket"> $ 350</i>
+                </div>
+            </div>-->
+        </div>
+    </div>
+
+    <div class="modal-item-info">
+        <div class="modal-item-img">
+            <img class="item-img" id="item-info-img" src="https://i.imgur.com/ybNwFj0.png" alt="logo">
+            <div class="item-info-name">1</div>
+        </div>
+        <div class="modal-item-description">
+
+        </div>
+    </div>
+
+    <div class="modal-basket">
+        <div class="modal-basket-content">
+            <div class="modal-basket-info">
+                <i class="fas fa-shopping-basket" style="font-size: 15rem;padding-top: 10vh;padding-left:10vw;"></i>
+            </div>
+            <div class="modal-basket-items">
+                    <div>
+                        Products:
+                    </div>
+                    <div class="basket-items">
+                        <div class="basket-item">
+                            <span class="basket-item-id">1</span>
+                            <span class="basket-item-name">asd</span>
+                            <span class="basket-item-price">$1</span>
+                            <span id="cross"><i class="far fa-times-circle" style="color:red; font-size:1rem;"></i></span>
+                        </div>
+                    </div>
+
+                <div>
+                    Recovery:
+                </div>
+                <div class="sync-items">
+                    <div class="sync-item">
+                        <span class="sync-item-id">1</span>
+                        <span class="sync-item-name">asd</span>
+                        <span class="sync-item-price">$1</span>
+                        <span id="crossSync"><i class="far fa-times-circle" style="color:red; font-size:1rem;"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-basket-checkup">
+            <div class="payment">
+
+            </div>
+            <div class="total">
+                Total count:
+                <div class="total-count">$23</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<!-- JavaScript File's -->
+<script src="./js/main.js"></script>
+</html>

@@ -1,0 +1,5 @@
+ServerConfig = {}
+
+ServerConfig.Webhooks = {
+    
+}

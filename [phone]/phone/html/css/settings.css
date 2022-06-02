@@ -1,0 +1,834 @@
+.settings-app {
+    display: none;
+    height: 100%;
+    width: 100%;
+    background: rgb(230, 230, 230);
+    overflow: hidden;
+}
+
+.settings-app-header {
+    position: relative;
+    padding: 5vh 0 0 1.85vh;
+    font-family: 'Samsung Sans Medium';
+    font-size: 2vh;
+}
+
+.settings-app-tab-appereance {
+    position: relative;
+    top: 5vh;
+    width: 100%;
+    padding-bottom: 10vh;
+}
+
+.settings-app-tab-security {
+    position: relative;
+    padding-bottom: 5vh;
+    width: 100%;
+}
+
+.settings-app-tab-information {
+    position: relative;
+    width: 100%;
+    padding-bottom: 10vh;
+}
+
+.phone-application-container-content {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+.phone-application-container-content::-webkit-scrollbar {
+    display: none;
+}
+
+.settings-app-tab {
+    position: relative;
+    width: 100%;
+    height: 6vh;
+    margin: 0 auto;
+    transition: all .1s;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.0);
+}
+
+.settings-app-tab:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.35);
+}
+
+.settings-app-tab-header {
+    position: absolute;
+    top: -2.5vh;
+    height: 2.6vh;
+    font-family: 'Samsung Sans Medium';
+    font-size: 1.5vh;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.17);
+    width: 100%;
+}
+
+.settings-app-tab-header > p {
+    padding-left: 1vh;
+}
+
+.settings-tab-icon {
+    position: absolute;
+    left: 2vh;
+    top: 1.5vh;
+    font-size: 2.3vh;
+}
+
+.settings-tab-icon > img {
+    position: absolute;
+    width: 3.3vh;
+    height: 3.3vh;
+    border-radius: 50%;
+    box-shadow: 0 0 .5vh 0 rgba(0, 0, 0, 0.05);
+    margin-left: -.3vh;
+}
+
+.settings-tab-title {
+    position: absolute;
+    left: 6.2vh;
+    top: 1.2vh;
+    font-size: 1.3vh;
+    font-family: 'Samsung Sans Medium';
+}
+
+.settings-tab-description {
+    position: absolute;
+    left: 6.2vh;
+    top: 3.2vh;
+    font-size: 1.2vh;
+    font-family: 'Samsung Sans Regular';
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.settings-background-tab {
+    display: block;
+    position: absolute;
+    top: -100%;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    right: 0;
+    background: rgb(230, 230, 230);
+}
+
+.settings-security-tab {
+    display: block;
+    position: absolute;
+    top: -100%;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    right: 0;
+    background: rgb(230, 230, 230);
+}
+
+.security-options {
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    top: 13vh;
+}
+
+.security-option {
+    position: relative;
+    width: 100%;
+    height: 25%;
+    background-color: rgb(223, 223, 223);
+}
+
+.security-option-icon {
+    position: absolute;
+    height: 100%;
+    width: 6vh;
+    text-align: center;
+    line-height: 7vh;
+    font-size: 2.3vh;
+    color: #fbc531;
+}
+
+.security-option-title {
+    position: absolute;
+    left: 6vh;
+    top: 1.5vh;
+    text-align: center;
+    font-size: 1vh;
+    color: #030303;
+    font-size: 1.3vh;
+    font-family: 'Samsung Sans Medium';
+}
+
+.security-option-description {
+    position: absolute;
+    left: 6vh;
+    top: 3.6vh;
+    text-align: center;
+    font-size: 1vh;
+    color: #030303b9;
+    font-size: 1.1vh;
+    font-family: 'Samsung Sans Regular';
+}
+
+.security-option-current {
+    position: absolute;
+    right: 3vh;
+    top: 2.5vh;
+    text-align: center;
+    font-size: 1.6vh;
+    color: #030303b9;
+    font-family: 'Samsung Sans Regular';
+}
+
+.security-buttons {
+    position: absolute;
+    bottom: 0;
+    height: 5vh;
+    width: 100%;
+}
+
+.security-button {
+    position: relative;
+    float: left;
+    height: 100%;
+    width: 50%;
+    text-align: center;
+    line-height: 4.7vh;
+    color: black;
+    font-family: 'Samsung Sans Medium';
+    font-size: 1.5vh;
+    transition: .05s;
+    border-top: 2px solid #e8421800;
+}
+
+.background-button:hover {
+    background-color: #dadbdb;
+    border-top: 2px solid #e84118;
+}
+
+.security-custom-title {
+    font-family: 'Samsung Sans Bold';
+    padding: 2vh;
+    font-size: 1.5vh;
+    text-align: center;
+}
+
+.security-custom-description {
+    font-family: 'Samsung Sans Bold';
+    padding: 1vh;
+    font-size: 1vh;
+    text-align: center;
+}
+
+.security-PIN {
+    display: none;
+    position: absolute;
+    height: 40%;
+    width: 80%;
+    background-color: rgb(245, 245, 245);
+    box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.247);
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: -23vh;
+    border-radius: 2vh;
+    overflow: hidden;
+}
+
+.security-PIN-title {
+    font-family: 'Samsung Sans Bold';
+    padding: 2vh;
+    font-size: 1.5vh;
+    text-align: center;
+}
+
+.security-PIN-input {
+    position: absolute;
+    left: 1vh;
+    background: none;
+    border: none;
+    outline: none;
+    height: 3.5vh;
+    width: 21vh;
+    font-family: 'Samsung Sans Regular';
+    background: rgb(235, 235, 235);
+    border-radius: 2vh;
+    text-align: center;
+}
+
+.security-REPIN-input {
+    position: absolute;
+    left: 1vh;
+    background: none;
+    border: none;
+    outline: none;
+    height: 3.5vh;
+    width: 21vh;
+    top:9vh;
+    font-family: 'Samsung Sans Regular';
+    background: rgb(235, 235, 235);
+    border-radius: 2vh;
+    text-align: center;
+}
+
+.security-primary-input {
+    position: absolute;
+    left: 10vh;
+    background: none;
+    border: none;
+    outline: none;
+    top: 85%;
+    font-family: 'Samsung Sans Regular';
+    background: rgb(235, 235, 235);
+    border-radius: 2vh;
+    text-align: center;
+}
+
+.security-primary-class {
+    position: absolute;
+    left: 1vh;
+    background: none;
+    border: none;
+    outline: none;
+    height: 4vh;
+    top: 85%;
+    width: 8vh;
+    font-family: 'Samsung Sans Regular';
+    text-align: center;
+}
+
+.security-setup-buttons {
+    position: absolute;
+    bottom: 2vh;
+    width: 100%;
+    height: 5vh;
+}
+
+.security-setup-button {
+    position: relative;
+    float: left;
+    height: 100%;
+    width: 50%;
+    text-align: center;
+    line-height: 4.1vh;
+    color: black;
+    font-family: 'Samsung Sans Regular';
+    font-size: 1.5vh;
+    transition: .08s;
+    border-bottom: 2px solid #e8421800;
+}
+
+.security-setup-button:hover {
+    background-color: #dadbdb65;
+    border-bottom: 2px solid #e84118;
+}
+
+.security-PW {
+    display: none;
+    position: absolute;
+    height: 40%;
+    width: 80%;
+    background-color: rgb(245, 245, 245);
+    box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.247);
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: -23vh;
+    border-radius: 2vh;
+    overflow: hidden;
+}
+
+.security-PW-input {
+    position: absolute;
+    left: 1vh;
+    background: none;
+    border: none;
+    outline: none;
+    height: 3.5vh;
+    width: 21vh;
+    font-family: 'Samsung Sans Regular';
+    background: rgb(235, 235, 235);
+    border-radius: 2vh;
+    text-align: center;
+}
+
+.security-REPW-input {
+    position: absolute;
+    left: 1vh;
+    background: none;
+    border: none;
+    outline: none;
+    height: 3.5vh;
+    width: 21vh;
+    top:9vh;
+    font-family: 'Samsung Sans Regular';
+    background: rgb(235, 235, 235);
+    border-radius: 2vh;
+    text-align: center;
+}
+
+.security-GESTURE {
+    display: none;
+    position: absolute;
+    height: 80%;
+    width: 100%;
+    background-color: rgb(245, 245, 245);
+    box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.247);
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: -100%;
+    border-radius: 2vh;
+    overflow: hidden;
+}
+
+.security-GESTURE-input {
+    position: absolute;
+    left: 1vh;
+    background: none;
+    border: none;
+    outline: none;
+    height: 3.5vh;
+    width: 21vh;
+    font-family: 'Samsung Sans Regular';
+    background: rgb(235, 235, 235);
+    border-radius: 2vh;
+    text-align: center;
+}
+
+#gesturepwd {
+    position: absolute;
+    left: 3.5vh;
+}
+
+
+.security-FINGERPRINT {
+    display: none;
+    position: absolute;
+    height: 80%;
+    width: 100%;
+    background-color: rgb(245, 245, 245);
+    box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.247);
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: -100%;
+    border-radius: 2vh;
+    overflow: hidden;
+}
+
+.security-FINGERPRINT-input {
+    position: absolute;
+    left: 1vh;
+    background: none;
+    border: none;
+    outline: none;
+    height: 3.5vh;
+    width: 21vh;
+    font-family: 'Samsung Sans Regular';
+    background: rgb(235, 235, 235);
+    border-radius: 2vh;
+    text-align: center;
+}
+
+.security-FACEID {
+    display: none;
+    position: absolute;
+    height: 80%;
+    width: 100%;
+    background-color: rgb(245, 245, 245);
+    box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.247);
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: -100%;
+    border-radius: 2vh;
+    overflow: hidden;
+}
+
+.security-FACEID-input {
+    position: absolute;
+    left: 1vh;
+    background: none;
+    border: none;
+    outline: none;
+    height: 3.5vh;
+    width: 21vh;
+    font-family: 'Samsung Sans Regular';
+    background: rgb(235, 235, 235);
+    border-radius: 2vh;
+    text-align: center;
+}
+
+.settings-lockscreen-tab {
+    display: block;
+    position: absolute;
+    top: -100%;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    right: 0;
+    background: rgb(230, 230, 230);
+}
+
+.background-options {
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    top: 13vh;
+}
+
+.background-option {
+    position: relative;
+    width: 100%;
+    height: 25%;
+    background-color: rgb(223, 223, 223);
+}
+
+.background-option-icon {
+    position: absolute;
+    height: 100%;
+    width: 6vh;
+    text-align: center;
+    line-height: 7vh;
+    font-size: 2.3vh;
+    color: #fbc531;
+}
+
+.background-option-title {
+    position: absolute;
+    left: 6vh;
+    top: 1.5vh;
+    text-align: center;
+    font-size: 1vh;
+    color: #030303;
+    font-size: 1.3vh;
+    font-family: 'Samsung Sans Medium';
+}
+
+.background-option-description {
+    position: absolute;
+    left: 6vh;
+    top: 3.6vh;
+    text-align: center;
+    font-size: 1vh;
+    color: #030303b9;
+    font-size: 1.1vh;
+    font-family: 'Samsung Sans Regular';
+}
+
+.background-option-current {
+    position: absolute;
+    right: 3vh;
+    top: 2.5vh;
+    text-align: center;
+    font-size: 1.6vh;
+    color: #030303b9;
+    font-family: 'Samsung Sans Regular';
+}
+
+.background-buttons {
+    position: absolute;
+    bottom: 0;
+    height: 5vh;
+    width: 100%;
+}
+
+.background-button {
+    position: relative;
+    float: left;
+    height: 100%;
+    width: 50%;
+    text-align: center;
+    line-height: 4.7vh;
+    color: black;
+    font-family: 'Samsung Sans Medium';
+    font-size: 1.5vh;
+    transition: .05s;
+    border-top: 2px solid #e8421800;
+}
+
+.background-button:hover {
+    background-color: #dadbdb;
+    border-top: 2px solid #e84118;
+}
+
+.background-custom {
+    display: none;
+    position: absolute;
+    height: 40%;
+    width: 80%;
+    background-color: rgb(245, 245, 245);
+    box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.247);
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: -23vh;
+    border-radius: 2vh;
+    overflow: hidden;
+}
+
+.background-custom-title {
+    font-family: 'Samsung Sans Bold';
+    padding: 2vh;
+    font-size: 1.5vh;
+    text-align: center;
+}
+
+.custom-background-input {
+    position: absolute;
+    left: 1vh;
+    background: none;
+    border: none;
+    outline: none;
+    height: 3.5vh;
+    width: 21vh;
+    font-family: 'Samsung Sans Regular';
+    background: rgb(235, 235, 235);
+    border-radius: 2vh;
+    text-align: center;
+}
+
+.custom-background-input::placeholder {
+    text-align: center;
+}
+
+.background-custom-buttons {
+    position: absolute;
+    bottom: 2vh;
+    width: 100%;
+    height: 5vh;
+}
+
+.custom-background-button {
+    position: relative;
+    float: left;
+    height: 100%;
+    width: 50%;
+    text-align: center;
+    line-height: 4.1vh;
+    color: black;
+    font-family: 'Samsung Sans Regular';
+    font-size: 1.5vh;
+    transition: .08s;
+    border-bottom: 2px solid #e8421800;
+}
+
+.custom-background-button:hover {
+    background-color: #dadbdb65;
+    border-bottom: 2px solid #e84118;
+}
+
+
+.lockscreen-options {
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    top: 13vh;
+}
+
+.lockscreen-option {
+    position: relative;
+    width: 100%;
+    height: 25%;
+    background-color: rgb(223, 223, 223);
+}
+
+.lockscreen-option-icon {
+    position: absolute;
+    height: 100%;
+    width: 6vh;
+    text-align: center;
+    line-height: 7vh;
+    font-size: 2.3vh;
+    color: #fbc531;
+}
+
+.lockscreen-option-title {
+    position: absolute;
+    left: 6vh;
+    top: 1.5vh;
+    text-align: center;
+    font-size: 1vh;
+    color: #030303;
+    font-size: 1.3vh;
+    font-family: 'Samsung Sans Medium';
+}
+
+.lockscreen-option-description {
+    position: absolute;
+    left: 6vh;
+    top: 3.6vh;
+    text-align: center;
+    font-size: 1vh;
+    color: #030303b9;
+    font-size: 1.1vh;
+    font-family: 'Samsung Sans Regular';
+}
+
+.lockscreen-option-current {
+    position: absolute;
+    right: 3vh;
+    top: 2.5vh;
+    text-align: center;
+    font-size: 1.6vh;
+    color: #030303b9;
+    font-family: 'Samsung Sans Regular';
+}
+
+.lockscreen-buttons {
+    position: absolute;
+    bottom: 0;
+    height: 5vh;
+    width: 100%;
+}
+
+.lockscreen-button {
+    position: relative;
+    float: left;
+    height: 100%;
+    width: 50%;
+    text-align: center;
+    line-height: 4.7vh;
+    color: black;
+    font-family: 'Samsung Sans Medium';
+    font-size: 1.5vh;
+    transition: .05s;
+    border-top: 2px solid #e8421800;
+}
+
+.lockscreen-button:hover {
+    background-color: #dadbdb;
+    border-top: 2px solid #e84118;
+}
+
+.lockscreen-custom {
+    display: none;
+    position: absolute;
+    height: 40%;
+    width: 80%;
+    background-color: rgb(245, 245, 245);
+    box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.247);
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: -23vh;
+    border-radius: 2vh;
+    overflow: hidden;
+}
+
+.lockscreen-custom-title {
+    font-family: 'Samsung Sans Bold';
+    padding: 2vh;
+    font-size: 1.5vh;
+    text-align: center;
+}
+
+.custom-lockscreen-input {
+    position: absolute;
+    left: 1vh;
+    /* lockscreen: none; */
+    border: none;
+    outline: none;
+    height: 3.5vh;
+    width: 21vh;
+    font-family: 'Samsung Sans Regular';
+    /* lockscreen: rgb(235, 235, 235); */
+    border-radius: 2vh;
+    text-align: center;
+}
+
+.custom-lockscreen-input::placeholder {
+    text-align: center;
+}
+
+.lockscreen-custom-buttons {
+    position: absolute;
+    bottom: 2vh;
+    width: 100%;
+    height: 5vh;
+}
+
+.custom-lockscreen-button {
+    position: relative;
+    float: left;
+    height: 100%;
+    width: 50%;
+    text-align: center;
+    line-height: 4.1vh;
+    color: black;
+    font-family: 'Samsung Sans Regular';
+    font-size: 1.5vh;
+    transition: .08s;
+    border-bottom: 2px solid #e8421800;
+}
+
+.custom-lockscreen-button:hover {
+    background-color: #dadbdb65;
+    border-bottom: 2px solid #e84118;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: absolute;
+    /* display: inline-block; */
+    width: 50px;
+    height: 24px;
+    top: 50%;
+    right: 2vh;
+    transform: translateY(-50%);
+}
+  
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+input:checked + .slider {
+    background-color: #2196F3;
+}
+  
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+  
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+  
+/* Rounded sliders */
+.slider.round {
+    border-radius: 24px;
+}
+  
+.slider.round:before {
+    border-radius: 50%;
+}

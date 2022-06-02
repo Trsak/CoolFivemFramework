@@ -1,0 +1,206 @@
+/*@font-face {
+	font-family: klavika;
+	src: url('../fonts/klavika.otf');
+}*/
+
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+.menu {
+	font-family: 'Roboto', sans-serif;
+	min-width: 500px;
+	height: auto;
+	color: #fff;
+	position: absolute;
+	padding: 8px;
+	background-color: rgba(40, 41, 45, 0.95);
+	height: 100%;
+}
+
+.head {
+	display: block;
+	overflow: hidden;
+}
+
+.menu .head {
+	color: #fff;
+	padding: 15px 0;
+	line-height: 60px;
+	font-size: 2vh;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bolder;
+	margin-top: 3vh;
+	margin-bottom: 1.5vh;
+}
+
+.menu .head p {
+	font-size: 1.4vh;
+	font-weight: bold;
+	position: absolute;
+	top: 6.8vh;
+	margin-left: 3vh;
+}
+
+.menu .menu-items {
+	max-height: 90%;
+	overflow-y: auto;
+}
+
+.menu .menu-items .menu-item {
+	display: block;
+	padding: 7px 5px;
+	border-radius: 4px;
+	font-size: 13pt;
+	text-align: left;
+	text-indent: 5px;
+	margin-top: 1px;
+	color: rgb(119, 134, 151);
+}
+
+.menu .menu-items .menu-item .infos {
+	color:white;
+	background-color: rgb(110, 80, 160);
+	display:inline-block;
+	float: right;
+	padding: 2px 5px;
+	border-radius:3px;
+}
+
+.menu .menu-items .menu-item .slider {
+	color:rgb(110, 80, 160);
+	text-align: center;
+	background-color: white;
+	display:inline-block;
+	padding: .20vh .85vh;
+	margin-left: 12.5vh;
+	border-radius:3px;
+}
+
+.menu .menu-items .menu-item #checkbox {
+	color:green;
+	display:inline-block;
+	float: right;
+	padding: 2px 5px;
+	height: 20vh;
+	border-radius:3px;
+}
+
+.success {
+	color: white;
+	background-color: rgb(61, 197, 43) !important;
+}
+
+.warning {
+	color: white;
+	background-color: rgb(208, 109, 36) !important;
+}
+
+.danger {
+	color: white;
+	background-color: rgb(203, 32, 32) !important;
+}
+
+.info {
+	color: white;
+	background-color: rgb(32, 157, 203) !important;
+}
+
+.menu .menu-items .menu-item.selected {
+	background: rgba(110, 80 ,160, 1);
+	color: #fff;
+}
+
+.head > span {
+	left: 3.5%;
+	position: relative;
+	/*border-bottom: 2px solid rgba(110, 80, 160, 1);*/
+	/*display: inline-block;*/
+}
+
+.head > span::before,
+.head > span::after {
+	content: "";
+	position: absolute;
+	top: 52%;
+	width: 9999px;
+	height: 0.5px;
+}
+
+.head > span::before {
+	right: 105%;
+	margin-right: 15px;
+}
+
+.head > span::after {
+	left: 105%;
+	margin-left: 15px;
+}
+
+
+.menu.align-left {
+	right: 40;
+	top: 50%;
+	transform: translate(0, -50%);
+}
+
+.menu.align-top-left {
+	right: 40;
+	top: 40;
+	position: absolute;
+}
+
+.menu.align-top {
+	left: 50%;
+	top: 40;
+	transform: translate(-50%, 0);
+}
+
+.menu.align-top-right {
+	right: 0;
+	top: 40;
+}
+
+.menu.align-right {
+	right: 40;
+	top: 50%;
+	transform: translate(0, -50%);
+}
+
+.menu.align-bottom-right {
+	right: 40;
+	bottom: 40;
+}
+
+.menu.align-bottom {
+	left: 50%;
+	bottom: 40;
+	transform: translate(-50%, 0);
+}
+
+.menu.align-bottom-left {
+	left: 40;
+	bottom: 40;
+}
+
+.menu.align-center {
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/* WebKit scrollbar properties */
+::-webkit-scrollbar {
+	width: 8px;
+	border-left: 4px solid #272733;
+}
+::-webkit-scrollbar-track {
+	background: #272733;
+	border-left: 4px solid #272733;
+}
+::-webkit-scrollbar-thumb {
+	background: #1a242d;
+	border-left: 4px solid #272733;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: #1a242d;
+	border-left: 4px solid #272733;
+}

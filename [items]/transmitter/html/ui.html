@@ -1,0 +1,44 @@
+<!doctype HTML>
+<html>
+
+<head>
+  <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <title>Radio</title>
+</head>
+
+<body>
+  <img id="cursor" src="img/cursor.png">
+  <div id="radio">
+    <img src="./img/radio.png" alt="">
+
+    <div id="onoff">
+      <form id="onoff">
+        <button id="onoff" type="submit" name="onoff"></button>
+      </form>
+    </div>
+    <div class="ekran">
+      <div class="channel">
+        <br>
+        <span>Frekvence</span>
+        <form id="freq-form">
+          <input id="channel" type="number" name="channel" value="" min="1" max="10000"
+            placeholder="1-10000"><br />
+          <button id="submit" type="submit" name="channel">Změnit</button>
+        </form>
+        <!-- 
+          <span class="volumeSpan">Hlasitost</span>
+        <form id="volume-form">
+          <input id="volume" type="number" name="volume" value="" min="0" max="100">
+        </form> -->
+      
+
+        
+      </div>
+    </div>
+
+  </div>
+  <script src="js/script.js" type="text/javascript"></script>
+</body>
+
+</html>

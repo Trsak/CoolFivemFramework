@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Koláčky štěstí</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+  <script src="ui.js" type="text/javascript"></script>
+  <script src="https://kit.fontawesome.com/9586a73469.js" crossorigin="anonymous"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+    .text-center {
+      text-align: center;
+    }
+
+    .basket {
+      font-family: 'Roboto', sans-serif;
+      min-width: 400px;
+      color: #fff;
+      position: absolute;
+      bottom: 150px;
+      border-radius: 25px;
+      left: 300;
+      height: 100px;
+      padding: 8px;
+      background-color: rgba(40, 41, 45, 0.9);
+    }
+
+    .image {
+      background-image: url(https://i.imgur.com/vOoKGvY.png);
+      background-repeat: no-repeat;
+    }
+
+    .text {
+      width: 400px;
+      height: 100px;
+      padding: 0px 0px 0px 70px;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0px;
+      max-height: 530px;
+      overflow: auto;
+    }
+
+    li {
+      font-size: 11pt;
+      padding: 3px 5px;
+      color: White;
+    }
+
+    li.item {
+      position: absolute;
+      font-size: 11pt;
+      right: 20px;
+      bottom: 10px;
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid" style="display:none;">
+
+    <div class="basket">
+      <div class="image">
+        <div class="text">
+          <ul></ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    $(function () {
+      $(document).ready(function () {
+
+
+        window.addEventListener('message', function (event) {
+          var item = event.data;
+
+          if (item.open == true) {
+            $('.container-fluid').css('display', 'block');
+          } else if (item.open == false) {
+            $('.container-fluid').css('display', 'none');
+          }
+
+          if (item.data) {
+            $('ul').empty();
+            $('ul').prepend('<li class="item">' + 'Zmáčkni' + ' ' + '[X]' + ' ' + 'pro zrušení okna' + '</span></li>');
+            $('ul').prepend('<li>' + '#' + item.number + ' - ' + item.data + '</li>');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+@font-face {
+	font-family: 'gs';
+	src: url('fonts/gs.ttf');
+}
+
+html {
+	color: white;
+}
+
+#main{
+	font-family: 'gs';
+	width: 100%;
+	height: 100%;
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+
+#box{
+	color: white;
+	width: 30%;
+	height: 90%;
+	top: 1%;
+	left: 60%;
+	position: absolute;
+	overflow-y: hidden;
+	overflow-x: hidden;
+	text-align: left;
+}
+
+#box li{
+	border-radius: 4px;
+	font-size: small;
+	text-align: center;
+	text-decoration: none;
+	color:white;
+	display: block;
+	padding: 1%;
+	margin-bottom: 0.8px;
+	text-shadow: -1px 1px 1px #000, 1px 1px 1px #000, 1px -1px 1px #000;
+	background-color:rgba(190, 191, 200, 0.753);
+}

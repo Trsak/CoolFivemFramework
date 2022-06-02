@@ -1,0 +1,42 @@
+html,
+body {
+	height: 100%;
+	background: transparent;
+}
+
+body {
+	background-color: rgba(0, 0, 0, 0.35);
+}
+
+.form-group {
+	margin-bottom: 0;
+}
+
+.card-body {
+	padding: 10px;
+}
+
+.btn-block {
+	margin-top: 10px;
+	background-color: #6d50a0;
+	border-color: #6d50a0;
+}
+
+.form-control, .btn, .card {
+	border-radius: 0;
+}
+
+.card {
+	background-color: rgba(44, 44, 44, 0.88);
+	color: white;
+}
+
+.card-header {
+	border-bottom-color: white;
+}
+
+.form-control {
+	transition: none;
+	background-clip: inherit;
+	overflow: hidden;
+}

@@ -1,0 +1,95 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+	<title>server_pdm</title>
+	<link rel="stylesheet" href="build/styles.css">
+	<script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+	<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+	<script src="https://kit.fontawesome.com/9586a73469.js" crossorigin="anonymous"></script>
+
+	<!--
+		server_pdm - Created by NewEdit#8679
+		Libraries used: Alpine js, Tailwind css
+	-->
+
+</head>
+
+<body id ="ui" class="bg-gradient-to-b from-gray-200 to-gray-400 bg-fixed h-full" style="display: none;">
+	<div class="container mx-auto p-4">
+		<div class="relative bg-white pt-6 pb-6">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6">
+				<div class="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
+					<div class="flex justify-start lg:w-0 lg:flex-1">
+						<a href="#">
+							<img class= "w-full h-20 w-auto" src="images/base/default_logo.png" alt="PDM Logo">
+						</a>
+					</div>
+					
+					<span class="w-screen md:w-1/3 h-10 bg-gray-200 cursor-pointer border border-gray-300 text-sm rounded-full flex">
+						<input type="search" name="search" placeholder="Vyhledávání: sportovní, dinka, neon."
+							class="flex-grow px-4 rounded-l-full rounded-r-full text-sm focus:outline-none" id='searchCar'>
+						<i class="fas fa-search m-3 mr-5 text-lg text-gray-700 w-4 h-4"></i>
+					</span>
+					
+	
+					<div id="filter" class="h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-white hover:bg-server-light  hover:duration-300 hover:ease-linear focus:bg-white">
+						<i class="fas fa-sort-numeric-down"></i>
+					</div>
+
+					<div @click.away="open = false" class="z-999 relative" x-data="{ open: false }">
+						<button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+							<span id ='defaultCategory'>Kategorie</span>
+							<svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+						</button>
+
+						<div x-show="open" @click.outside="open = false" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48">
+							<!-- RENDERED VEHICLE CATEGORIES -->
+							<div id = 'categories' class="px-2 py-2 bg-white rounded-md shadow dark-mode:bg-gray-800">
+
+							</div>
+						</div>
+					</div>    
+			
+					<div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+						<a href="#" onclick="closePanel()" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
+							Odejít
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- RENDERED VEHICLE DETAILS -->
+
+		<div id = 'vehicle_detail' class="m-10 mx-auto p-16 sm:p-24 lg:p-30 bg-gray-200" >
+
+		</div>
+
+		  
+
+		<!-- RENDERED VEHICLES -->
+
+		<div id ='vehicle-ui' class="grid gap-4 gap-y-8 md:grid-cols-2 lg:grid-cols-3 mb-16">
+
+		</div>
+
+		<!-- RENDERED NOTIFICATION MESSAGE -->
+
+		<div id = 'notification' class="flex max-w-md bg-white shadow-lg rounded-lg overflow-hidden max-w-7xl mx-auto mt-6" style="display: none;">
+			<div class="w-2 bg-gray-800"></div>
+				<div class="flex items-center px-2 py-3">
+				<img class="w-12 h-12 object-cover rounded-full" src="images/base/npc.png">
+				<div class="mx-3">
+					<h2 class="text-xl font-semibold text-gray-800">Joe</h2>
+					<p id = 'message' class="text-gray-600"></p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/base.js"></script>
+</body>
+</html>

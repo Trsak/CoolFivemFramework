@@ -1,0 +1,193 @@
+@import url('https://use.fontawesome.com/releases/v5.6.3/css/all.css');
+
+.color-0 {
+  color: #ffffff;
+}
+
+.color-1 {
+  color: #ff4444;
+}
+
+.color-2 {
+  color: #99cc00;
+}
+
+.color-3 {
+  color: #ffbb33;
+}
+
+.color-4 {
+  color: #0099cc;
+}
+
+.color-5 {
+  color: #33b5e5;
+}
+
+.color-6 {
+  color: #aa66cc;
+}
+
+.color-8 {
+  color: #cc0000;
+}
+
+.color-9 {
+  color: #cc0068;
+}
+
+.gameColor-w {
+  color: #ffffff;
+}
+
+.gameColor-r {
+  color: #ff4444;
+}
+
+.gameColor-g {
+  color: #99cc00;
+}
+
+.gameColor-y {
+  color: #ffbb33;
+}
+
+.gameColor-b {
+  color: #33b5e5;
+}
+
+/* todo: more game colors */
+
+* {
+  font-family: 'Barlow Condensed', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+.no-grow {
+  flex-grow: 0;
+}
+
+em {
+  font-style: normal;
+}
+
+#app {
+  font-family: 'Barlow Condensed', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: white;
+  background-color: transparent;
+}
+
+.chat-window {
+  position: absolute;
+  left: 5px;
+  width: 38%;
+  height: 30%;
+  background-color: rgba(255, 255, 255, 0);
+  -webkit-animation-duration: 2s;
+}
+
+
+.chat-messages {
+  position: relative;
+  height: 95%;
+  font-size: 16px;
+  margin-top: 15px;
+  display: inline-block;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.msg {
+  margin-bottom: 1px;
+  float: left;
+  padding: 0;
+  margin: 0;
+}
+
+
+.chat-input {
+  font-size: 16px;
+  position: absolute;
+
+  top: 30%;
+  left: 15px;
+  width: 30%;
+}
+
+.prefix {
+  position: absolute;
+  margin-top: 4px;
+  left: 5px;
+}
+
+textarea {
+  font-size: 18px;
+  display: block;
+  box-sizing: border-box;
+  padding: 5px;
+  color: white;
+  background-color: rgba(0, 24, 51, 0.9);
+  width: 70%;
+  overflow: hidden;
+  border: 2px solid rgb(0, 24, 24);
+  padding-left: 24px;
+  height: 34px !important;
+}
+
+.hidden {
+  display: none;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+.multiline {
+  margin-left: 1.5rem;
+  white-space: pre-line;
+}
+
+.suggestions {
+  list-style-type: none;
+  padding: 5px;
+  padding-left: 27px;
+  font-size: 16px;
+  box-sizing: border-box;
+  color: white;
+  background-color: rgba(0, 58, 119, 0.7);
+  width: 70%;
+  margin-top: 4px;
+}
+
+.help {
+  color: #b0bbbd;
+}
+
+.disabled {
+  color: #b0bbbd;
+}
+
+.suggestion {
+  padding-bottom: 2px;
+  padding-top: 2px;
+  margin-bottom: 5px;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.hidden.animated {
+  transition: opacity 1s;
+}
+
+.chat-messages div {
+  max-width: 650px !important;
+  white-space: pre-line;
+  word-wrap: break-word;
+}

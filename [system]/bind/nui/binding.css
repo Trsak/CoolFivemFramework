@@ -1,0 +1,133 @@
+* {
+    text-decoration: none;
+    font-family: 'Nunito', sans-serif;
+}
+
+@font-face {
+    font-family: wingding;
+    src: url("https://www.dropbox.com/pri/get/public/wingding.ttf");
+}
+
+body {
+    background: rgba(38, 38, 38, 0.5);
+}
+
+table {
+    color: white;
+    display: inline-block;
+    border-collapse: separate;
+    border-spacing: 3px 6px;
+}
+
+.wrapper {
+    width: 1220px;
+    box-shadow: 0.5px 3px 1px #262626, inset 0.1px 0.10px 1px white;
+    padding: 10px;
+    background: #696969;
+    margin: 0 auto;
+    border-radius: 10px
+}
+
+td>a>span {
+    font-size: 12px;
+}
+
+td>a {
+    font-size: 15px;
+}
+
+td {
+    background: #262626;
+    padding: 10px;
+    width: 30px;
+    height: 60px;
+    text-align: center;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0.5px 3px 0.2px #262626, inset 0.1px 0.10px 1px white;
+}
+
+td a {
+    color: white;
+}
+
+.middle {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.keyboard td:hover {
+    background: #2022b6;
+    box-shadow: 0.5px 3px 0.2px #2022b6, inset 0.1px 0.10px 1px white;
+}
+
+td.disabled {
+    opacity: 0.5;
+}
+
+.keyboard td {
+    cursor: pointer;
+}
+
+.keyboard td.disabled a:hover,
+.keyboard td.disabled:hover {
+    background: #262626;
+    cursor: default;
+}
+
+.keyboard td.disabled:hover {
+    box-shadow: 0.5px 3px 0.2px #262626, inset 0.1px 0.10px 1px white;
+}
+
+.keyboard td.selected {
+    background: #0d701a!important;
+    box-shadow: 0.5px 3px 0.2px #0d701a, inset 0.1px 0.10px 1px white!important;
+}
+
+.keyboard td.selected:hover {
+    background: #094911!important;
+    box-shadow: 0.5px 3px 0.2px #094911, inset 0.1px 0.10px 1px white!important;
+}
+
+.keyboard td.active {
+    background: #131599;
+    box-shadow: 0.5px 3px 0.2px #131599, inset 0.1px 0.10px 1px white;
+}
+
+.keyboard td.active:hover {
+    background: #0f1179;
+    box-shadow: 0.5px 3px 0.2px #0f1179, inset 0.1px 0.10px 1px white;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.btn--blue {
+    color: #fff !important;
+    background-color: #0074D9;
+    border-color: #0074D9;
+}
+
+.btn--red {
+    color: #fff !important;
+    background-color: rgb(217, 0, 54);
+    border-color: rgb(217, 0, 54);
+}
+
+.btn--red:hover {
+    color: #fff !important;
+    background-color: rgb(184, 3, 48)!important;
+    border-color: rgb(184, 3, 48)!important;
+}
+
+.sweet-modal-content,
+.sweet-modal-content b {
+    color: black !important;
+}
+
+#bindButtons {
+    margin-top: 20px;
+}

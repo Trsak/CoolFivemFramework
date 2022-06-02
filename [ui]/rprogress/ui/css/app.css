@@ -1,0 +1,157 @@
+@font-face {
+    font-family: "ChaletComprime";
+    src: url("../fonts/ChaletComprimeCologneSixty.ttf");
+}
+
+@font-face {
+    font-family: "RobotoMono-Regular";
+    src: url("../fonts/RobotoMono-Regular.ttf");
+}
+
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    font-family: "ChaletComprime";
+    font-size: 30px;
+    overflow: hidden;
+}
+
+.ui-dial {
+    position: absolute;
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.ui-dial svg {
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+.ui-dial svg circle {
+    fill: transparent;
+}
+
+.ui-dial svg circle:nth-child(2) {
+    /* z-index: 11; */
+}
+
+.ui-dial svg circle:last-child {
+    z-index: 10;
+    opacity: 0.8;
+}
+
+.ui-dial.done, .linear-progress.done {
+    -webkit-animation: done 200ms ease 0ms forwards;
+    animation: done 200ms ease 0ms forwards;
+}
+
+.ui-dial .ui-indicator {
+    position: absolute;
+    color: #fff;
+    font-family: "RobotoMono-Regular";
+    font-size: 20px;
+}
+
+.ui-dial .ui-label {
+    position: absolute;
+    color: #fff;
+    min-width: 300px;
+    text-align: center;
+}
+
+.ui-dial.label-bottom .ui-label {
+    top: 100%;
+    margin: 20px 0;
+}
+.ui-dial.label-right .ui-label {
+    left: 100%;
+    margin: 0 20px;
+    text-align: left;
+}
+
+.ui-dial.label-left .ui-label {
+    right: 100%;
+    margin: 0 20px;
+    text-align: right;
+}
+
+.ui-dial.label-top .ui-label {
+    bottom: 100%;
+    margin: 20px 0;
+}
+
+.linear-progress {
+    position: absolute;
+    isolation: isolate;
+}
+
+.linear-progress-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.linear-progress-fg {
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    transform: scale(0, 1);
+    transform-origin: 0 50% 0;
+}
+
+.linear-progress-label {
+    position: absolute;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    mix-blend-mode: difference;
+    font-size: 90%;
+}
+
+@-webkit-keyframes done {
+    from {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+}
+
+@keyframes done {
+    from {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+}

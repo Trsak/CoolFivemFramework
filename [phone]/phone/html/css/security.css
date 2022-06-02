@@ -1,0 +1,343 @@
+/* FINGER PRINT */
+
+.wrap {
+    position: relative;
+    display: flex;
+    height: 50%;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.fingerprintSetup {
+    width: 9.5vw;
+    z-index: 9;
+    cursor: -webkit-grab;
+    cursor: grab;
+}
+
+.success {
+    position: absolute;
+    margin: auto;
+    top: 12vw;
+    width: 25px;
+    opacity: 0;
+    color: #27ae60;
+    transition: opacity 0.2s ease-out;
+}
+.success.active {
+    opacity: 1;
+}
+
+.fingerprintSetup.clone {
+    display: block;
+    margin: auto;
+    width: 10vw;
+    z-index: 8;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transition: opacity 0.75s ease-out;
+    opacity: 1;
+}
+.fingerprintSetup.clone path {
+    transition: fill 0.2s ease-out;
+}
+.fingerprintSetup.clone.active {
+    opacity: 0;
+}
+.fingerprintSetup.clone.hover path {
+    fill: #dbdbdb;
+}
+.fingerprintSetup.clone svg {
+    fill: #FAFAFA;
+}
+
+/* FACEID */
+
+.btn-trigger {
+    background: #03a9f4;
+    border: 1px solid #2196f3;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 1.5vh;
+    letter-spacing: .08em;
+    left:4vw;
+    padding: 1vh 1.5vh;
+    position: relative;
+}
+
+.btn-trigger:hover {
+    background: #2196f3;
+}
+
+.face-id-wrapper {
+    height: 15vh;
+    position: relative;
+    left:30%;
+    width: 6vw;
+}
+
+.face-id-wrapper svg {
+    fill: #aaa;
+}
+
+svg.face-id-checked {
+    fill: #8bc34a;
+}
+
+svg.face-id-error {
+    fill: #f44336;
+}
+
+.scan-bar {
+    height: 100%;
+    position: absolute;
+    -webkit-transition: opacity .2s ease;
+    transition: opacity .2s ease;
+    width: 100%;
+    padding-bottom:2vh;
+}
+
+.scan-bar:before {
+    background: #03a9f4;
+    border: 1px solid #9adefe;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px rgba(51, 51, 51, .3);
+    content: "";
+    height: 8px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 110%;
+    z-index: 2;
+}
+
+.face-id-default,
+.face-id-checked,
+.face-id-error {
+    height: 100%;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    transition: opacity .3s ease-in-out .2s;
+    width: 100%;
+}
+
+.face-id-checked,
+.face-id-error {
+    opacity: 0;
+    transition: opacity .2s ease-in-out 0;
+}
+
+.face-id-wrapper.animate-scan .scan-bar {
+    animation: scaning 2s linear;
+    animation-direction: alternate;
+    animation-iteration-count: 4;
+}
+
+@-webkit-keyframes scaning {
+    0% { transform: translateY(0); }
+    30% { transform: translateY(-50%); }
+    70% { transform: translateY(50%); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes scaning {
+    0% { transform: translateY(0); }
+    30% { transform: translateY(-50%); }
+    70% { transform: translateY(50%); }
+    100% { transform: translateY(0); }
+}
+
+.face-id-wrapper.scan-success .face-id-checked,
+.face-id-wrapper.scan-error .face-id-error {
+    opacity: 1;
+}
+
+.face-id-wrapper.scan-success .face-id-default,
+.face-id-wrapper.scan-success .scan-bar,
+.face-id-wrapper.scan-error .face-id-default,
+.face-id-wrapper.scan-error .scan-bar {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.security {
+    position: absolute;
+    width:100%;
+    height:50%;
+    top:35%;
+}
+
+.PIN {
+    display: none;
+    position:absolute;
+    left:10%;
+}
+
+.phone-PIN-keys {
+    position: relative;
+    width: 23vh;
+    height: 27vh;
+}
+
+.phone-PIN-key {
+    position: relative;
+    float: left;
+    height: 23%;
+    width: 33.33%;
+    text-align: center;
+    line-height: 5vh;
+    font-family: 'Samsung Sans Regular';
+    font-size: 2vh;
+    color: black;
+    border-bottom: 2px solid rgba(0, 0, 0, 0);
+    transition: .1s;
+}
+
+.phone-PIN-key:hover {
+    color: #6e6e6e;
+    border-bottom: 2px solid #e74c3c;
+}
+
+.input-PIN {
+    padding: 10px;
+    border: 1px solid #ddd;
+    width: 5px;
+    height: 5px;
+    border-radius: 50px;
+    margin-right: 15px;
+    margin-left: 15px;
+    text-align: center;
+    font-size: 60px;
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.dot {
+    background-color: rgba(255, 255, 255, 0.50);
+    color: rgba(255, 255, 255, 0);
+}
+
+.input-PIN:focus {
+    background-color: rgba(255, 255, 255, 0.25);
+    border: 2px solid rgb(255, 255, 255);
+}
+
+.PW {
+    display: none;
+    position:absolute;
+    left:10%;
+    top:20%;
+}
+
+.PW-INPUT {
+    padding: 10px;
+    width: 80%;
+    height: 10%;
+    border-radius: 50px;
+    margin-right: 15px;
+    margin-left: 15px;
+    text-align: center;
+    font-size: 2rem;
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.GESTURE {
+    display: none;
+    position:absolute;
+    left:13%;
+    top:10%;
+}
+
+.FINGERPRINT {
+    display: none;
+    position:absolute;
+    left:20%;
+    top:20%;
+}
+
+.FINGERPRINT-wrap {
+    position: relative;
+    display: flex;
+    height: 50%;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.FINGERPRINTSetup {
+    width: 9.5vw;
+    z-index: 9;
+    cursor: -webkit-grab;
+    cursor: grab;
+}
+
+.FINGERPRINT-success {
+    position: absolute;
+    margin: auto;
+    top: 12vw;
+    width: 25px;
+    opacity: 0;
+    color: #27ae60;
+    transition: opacity 0.2s ease-out;
+}
+.FINGERPRINT-success.active {
+    opacity: 1;
+}
+
+.FINGERPRINT-error {
+    position: absolute;
+    margin: auto;
+    top: 12vw;
+    width: 25px;
+    opacity: 0;
+    color: #ae2727;
+    transition: opacity 0.2s ease-out;
+}
+.FINGERPRINT-error.active {
+    opacity: 1;
+}
+
+.FINGERPRINTSetup.FINGERPRINT-clone {
+    display: block;
+    margin: auto;
+    width: 10vw;
+    z-index: 8;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transition: opacity 0.75s ease-out;
+    opacity: 1;
+}
+.FINGERPRINTSetup.FINGERPRINT-clone path {
+    transition: fill 0.2s ease-out;
+}
+.FINGERPRINTSetup.FINGERPRINT-clone.active {
+    opacity: 0;
+}
+.FINGERPRINTSetup.FINGERPRINT-clone.hover path {
+    fill: #dbdbdb;
+}
+.FINGERPRINTSetup.FINGERPRINT-clone svg {
+    fill: #FAFAFA;
+}
+
+.FACEID {
+    display: none;
+    position:absolute;
+    left:32%;
+    top:25%;
+    font-size: 10rem;
+}

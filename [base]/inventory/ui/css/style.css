@@ -1,0 +1,510 @@
+*.unselectable {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+
+    -ms-user-select: none;
+    user-select: none;
+}
+
+body {
+    font-family: 'Signika', sans-serif;
+    text-transform: uppercase;
+    text-shadow: -0.5px -0.5px 0 #000,
+    0.5px -0.5px 0 #000,
+    -0.5px 0.5px 0 #000,
+    0.5px 0.5px 0 #000;
+}
+
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+body {
+    background-color: rgba(0, 0, 0, 0.55);
+    background-size: 200% 200%;
+    color: #ffffff;
+    display: none;
+}
+
+.inventory {
+    background-color: transparent;
+    margin: 5px;
+    padding: 0;
+}
+
+.inventoryData {
+    text-align: left;
+    padding: 10px 20px;
+}
+
+.inventoryGrid {
+    width: 100%;
+    height: 500px;
+    margin: 0;
+    position: relative;
+    overflow-y: visible;
+    overflow-x: hidden;
+    max-height: 500px;
+}
+
+.inventoryGrid::-webkit-scrollbar-track {
+    background-color: rgba(53, 47, 43, 0.7);
+}
+
+.inventoryGrid::-webkit-scrollbar {
+    width: 12px;
+}
+
+.inventoryGrid::-webkit-scrollbar-thumb {
+    background-color: rgb(37, 33, 31);
+}
+
+.inventorySlot {
+    width: 18%;
+    height: 30%;
+    margin: 0.9%;
+    position: relative;
+    font-size: 12px;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    border: 1px solid rgba(220, 240, 220, 0.05);
+
+    background-color: rgba(255, 255, 255, 0.03);
+    box-shadow: inset 0 0 15px rgba(18, 18, 18, 0.05);
+}
+
+.inventorySlot:before {
+    content: '';
+    display: block;
+    width: 100%;
+    padding-top: 100%;
+}
+
+.inventorySlot.noitem {
+    background-color: rgba(18, 18, 18, 0.05);
+    box-shadow: inset 0 0 15px rgba(18, 18, 18, 0.05);
+}
+
+.inventorySlot.noitem .itemLabel {
+    display: none;
+}
+
+.inventorySlot.noitem:hover,
+.inventorySlot.noitem.hoverControl {
+    background-color: rgba(235, 235, 235, 0.05);
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.05);
+}
+
+.inventorySlot:hover {
+    background-color: rgba(235, 235, 235, 0.05);
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.05);
+}
+
+.inventorySearch .form-control {
+    height: 45px;
+}
+
+.weight {
+    margin-left: 15px;
+    float: right;
+}
+
+.info {
+    margin-left: 15px;
+    float: right;
+}
+
+.storage {
+    margin-left: 15px;
+    float: right;
+}
+
+.secondInventoryBlur {
+    position: absolute;
+    font-size: 24px;
+    top: 50%;
+    left: 50%;
+    z-index: 1000;
+}
+
+.secondInventoryBlurText {
+    position: relative;
+    top: -50%;
+    left: -50%;
+    white-space: nowrap;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+
+.blur .inventoryData,
+.blur .inventoryGrid {
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
+
+.blur .inventoryGrid,
+.blur .inventoryGrid {
+    overflow: hidden;
+}
+
+.blur .inventorySlot.noitem:hover {
+    background-color: rgba(233, 224, 220, 0.1);
+}
+
+.removeAction,
+.useAction {
+    margin: 5px;
+    font-size: 26px;
+}
+
+.itemImage {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.itemLabel {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background-color: rgba(25, 30, 37, 0.55);
+    padding: 2px;
+    min-height: 25px;
+    font-size: 12px;
+    z-index: 10;
+}
+
+.itemLabel.rarity-1 {
+    background-color: rgba(176, 141, 87, 0.55);
+}
+
+.itemLabel.rarity-2 {
+    background-color: rgba(192, 192, 192, 0.55);
+}
+
+.itemLabel.rarity-3 {
+    background-color: rgba(255, 223, 0, 0.55);
+}
+
+.itemLabelText {
+    padding-top: 3px;
+}
+
+.itemCounts {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    padding: 2px;
+}
+
+.itemCountsData {
+    width: 100%;
+    display: flex;
+}
+
+.itemCount {
+    flex: 1 1 30%;
+    width: 33%;
+    text-align: left;
+    padding-left: 3px;
+}
+
+.itemBind {
+    flex: 1;
+    padding: 0 3px 3px;
+    width: 33%;
+    text-align: center;
+    background-color: rgba(25, 30, 37, 0.55);
+}
+
+.itemWeight {
+    flex: 1 1 30%;
+    width: 33%;
+    text-align: right;
+    padding-right: 3px;
+}
+
+.modal-dialog {
+    min-height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: auto;
+}
+
+@media (max-width: 768px) {
+    .modal-dialog {
+        min-height: calc(100vh - 20px);
+    }
+}
+
+.bulletImg {
+    width: 10px;
+    padding-right: 2px;
+}
+
+.activeItem {
+    color: rgb(216, 193, 63);
+}
+
+.inventory {
+    z-index: 100;
+}
+
+.modal-content {
+    border-radius: 0;
+    border: 1px solid rgb(92, 87, 85);
+    background-color: rgba(53, 47, 43, 0.6);
+}
+
+.form-control {
+    border-radius: 0;
+    background-clip: inherit;
+    border: 1px solid rgb(92, 87, 85);
+    background-color: rgba(53, 47, 43, 1.0);
+    color: white;
+}
+
+.form-control:focus {
+    border-radius: 0;
+    background-clip: inherit;
+    border: 1px solid rgb(92, 87, 85);
+    background-color: rgb(73, 65, 60);
+    color: white;
+}
+
+.modal-footer {
+    border: 0;
+    padding-top: 0;
+}
+
+.modal .btn-secondary {
+    border-radius: 0;
+}
+
+.modal .btn-primary {
+    border-radius: 0;
+    width: 100%;
+}
+
+.itemDataLabel {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.itemDataLabelText {
+    position: relative;
+    left: -50%;
+    width: 140px;
+}
+
+.item:hover .itemDataLabel {
+    display: block;
+}
+
+.item.hasLabel .itemImage {
+    display: block;
+}
+
+.item:hover.hasLabel .itemImage {
+    display: none;
+}
+
+form {
+    width: 100%;
+}
+
+div[data-tippy-root] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translateX(50%) !important;
+}
+
+.tippy-box {
+    background-color: transparent;
+    color: white;
+    border: none;
+    position: absolute;
+    bottom: 2.5%;
+    max-width: 400px;
+}
+
+.tippy-box,
+.tippy-content {
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+}
+
+.tippy-box[data-placement^='top'] > .tippy-arrow::before {
+    display: none;
+}
+
+.tippy-box[data-placement^='bottom'] > .tippy-arrow::before {
+    display: none;
+}
+
+.tippy-box[data-placement^='left'] > .tippy-arrow::before {
+    display: none;
+}
+
+.tippy-box[data-placement^='right'] > .tippy-arrow::before {
+    display: none;
+}
+
+.special-tooltip-header {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 4px 7px;
+    width: 100%;
+    text-align: center;
+}
+
+.special-tooltip-content {
+    padding: 10px;
+    font-size: 12px;
+    text-transform: none;
+}
+
+.tippy-box::before {
+    display: none;
+}
+
+.tippy-content {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    left: -50% !important;
+}
+
+#craftingGrid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+}
+
+#craftingText {
+    position: relative;
+    width: 100%;
+    top: -50%;
+    left: -50%;
+}
+
+.craftingRow {
+    text-align: left;
+    font-size: 18px;
+    padding: 4px 5px;
+    position: relative;
+    width: 100%;
+    min-height: 35px;
+    background-color: rgba(53, 47, 43, 0.55);
+    margin-bottom: 10px;
+}
+
+.craftingRow:hover {
+    background-color: rgba(53, 47, 43, 0.7);
+}
+
+.craftingResult {
+    top: -75px !important;
+}
+
+@media (max-width: 1399px) {
+    .inventorySlot {
+        font-size: 10px;
+    }
+
+    .itemLabel {
+        font-size: 10px;
+    }
+
+    .itemImage {
+        background-size: contain;
+    }
+}
+
+
+@media screen and (min-width: 2500px) {
+    .inventorySlot {
+        width: 13.5% !important;
+        height: 26% !important;
+        margin: 0.27% !important;
+    }
+}
+
+@font-face {
+    font-family: "Plate-Font";
+    src: url("../fonts/plate-font.ttf");
+}
+
+@font-face {
+    font-family: "Plate-Font-Hilite";
+    src: url("../fonts/plate-font-hilite.ttf");
+}
+
+@font-face {
+    font-family: "Plate-Font-Lolite";
+    src: url("../fonts/plate-font-lolite.ttf");
+}
+
+@font-face {
+    font-family: "Plate-Font-Shadow";
+    src: url("../fonts/plate-font-Shadow.ttf");
+}
+
+.plate_blue {
+    color: rgb(0, 0, 163);
+}
+
+.plate_yellow {
+    color: rgb(255, 255, 0);
+}
+
+.plateText {
+    font-family: "Plate-Font";
+    font-size: 26px;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.plateSpanText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.cardText {
+    font-size: 16px;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px #616161;
+}
+
+.cardSpanText {
+    width: 100%;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+}

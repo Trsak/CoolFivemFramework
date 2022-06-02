@@ -1,0 +1,1957 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.2.9/purify.min.js" integrity="sha512-VOTFfd4vxPpuE98m9UQTN7j2N2/Blw44lZMhRTnZQqA2gOHq7Yvn5bdIDjjAZuFqqkDtppcjMW+dN3GYbhM94g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>QB Phone Rework</title>
+
+    <!-- CSS File's -->
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/tooltip.css">
+    <link rel="stylesheet" href="./css/settings.css">
+    <link rel="stylesheet" href="./css/phone.css">
+    <link rel="stylesheet" href="./css/twitter.css">
+    <link rel="stylesheet" href="./css/bank.css">
+    <link rel="stylesheet" href="./css/whatsapp.css">
+    <link rel="stylesheet" href="./css/garage.css">
+    <link rel="stylesheet" href="./css/mail.css">
+    <link rel="stylesheet" href="./css/meos.css">
+    <link rel="stylesheet" href="./css/crypto.css">
+    <link rel="stylesheet" href="./css/racing.css">
+    <link rel="stylesheet" href="./css/houses.css">
+    <link rel="stylesheet" href="./css/services.css">
+    <link rel="stylesheet" href="./css/qstore.css">
+    <link rel="stylesheet" href="./css/trucker.css">
+    <link rel="stylesheet" href="./css/security.css">
+
+    <!-- CDN's -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- JQuery -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src='https://cdn.jsdelivr.net/vivus/latest/vivus.min.js'></script>
+    <!-- Bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-color/2.1.2/jquery.color.js"></script>
+    <!-- Color CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xregexp/3.1.1/xregexp-all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- Bootstrap -->
+</head>
+
+<body style="background-color: transparent !important" ;>
+    <div class="container disableSelection">
+        <div class="frame">
+        </div>
+        <div class="phone-container phone-background">
+            <!-- Phone Header -->
+            <div class="phone-header">
+                <div id="phone-time">08:05</div>
+                <div id="phone-icons">
+                </div>
+            </div>
+
+            <!-- Phone Notification -->
+            <div class="phone-notification-container">
+                <div class="notification-icon"></div>
+                <div class="notification-title"></div>
+                <div class="notification-text"></div>
+            </div>
+
+            <!-- Home Applications -->
+            <div class="phone-lock phone-lockBackground">
+                <div id="lock-screen">
+                    <div class="lock-open">
+                        <i class="fas fa-lock-open"></i>
+                    </div>
+                    <div id="lock-time" class="lock-time"></div>
+                    <div id="lock-date" class="lock-date"></div>
+                    <div id="security" class="security">
+
+                        <div id="PIN" class="PIN">
+                            <div class='inputBoxes'></div>
+                            <div class="phone-PIN-keys">
+                                <div class="phone-PIN-key" data-keypadvalue="1">1</div>
+                                <div class="phone-PIN-key" data-keypadvalue="2">2</div>
+                                <div class="phone-PIN-key" data-keypadvalue="3">3</div>
+                                <div class="phone-PIN-key" data-keypadvalue="4">4</div>
+                                <div class="phone-PIN-key" data-keypadvalue="5">5</div>
+                                <div class="phone-PIN-key" data-keypadvalue="6">6</div>
+                                <div class="phone-PIN-key" data-keypadvalue="7">7</div>
+                                <div class="phone-PIN-key" data-keypadvalue="8">8</div>
+                                <div class="phone-PIN-key" data-keypadvalue="9">9</div>
+                                <div class="phone-PIN-key" data-keypadvalue="dellAll"><i class="fa fa-times" aria-hidden="true"></i></div>
+                                <div class="phone-PIN-key" data-keypadvalue="0">0</div>
+                                <div class="phone-PIN-key" data-keypadvalue="dell"><i class="fas fa-backspace" aria-hidden="true"></i></div>
+                            </div>
+                        </div>
+
+                        <div id="PW" class="PW">
+                            <input type="password" class="PW-INPUT" id="PW-INPUT" placeholder="PASSWORD" spellcheck="false">
+                        </div>
+
+                        <div id="GESTURE" class="GESTURE">
+                            <input type="hidden" id="GESTURE-INPUT" spellcheck="false">
+                            <div id="GESTURE-BOX"></div>
+                        </div>
+
+                        <div id="FINGERPRINT" class="FINGERPRINT">
+                            <div class="FINGERPRINT-wrap">
+                                <svg class="FINGERPRINTSetup FINGERPRINT-clone" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve"><g><path id="inner" fill="#eae9e9" d="M51.5,5c-0.9-0.2-1.9,0.4-2.1,1.3c-0.2,0.9,0.4,1.9,1.3,2.1C66.3,12.1,77.2,26,77.2,42.1v15.8c0,11.1-9,20.1-20,20.1   c-11,0-20-9-20-20.1V42.1c0-3.1,2.5-5.6,5.5-5.6c3,0,5.5,2.5,5.5,5.6v15.8V58c0,0,0,0.1,0,0.1c0.1,4.9,4.1,8.9,9,8.9   c4.9,0,8.9-4,9-8.9c0,0,0-0.1,0-0.1V42.1c0-13-10.5-23.6-23.5-23.6c-12.9,0-23.4,10.5-23.5,23.4c0,0,0,0,0,0v15.9   c0,17.7,12,32.9,29.2,37c0.1,0,0.3,0,0.4,0c0.8,0,1.5-0.5,1.7-1.3c0.2-0.9-0.4-1.9-1.3-2.1C33.7,87.9,22.8,74,22.8,57.9V42.1   c0-11.1,9-20.1,20-20.1c11,0,20,9,20,20.1v15.8c0,3.1-2.5,5.6-5.5,5.6c-3,0-5.5-2.5-5.5-5.6V42.1V42c0,0,0-0.1,0-0.1   c-0.1-4.9-4.1-8.9-9-8.9c-4.9,0-8.9,4-9,8.9c0,0,0,0.1,0,0.1v15.9c0,13,10.5,23.6,23.5,23.6c12.9,0,23.4-10.5,23.5-23.4   c0,0,0,0,0,0V42.1C80.7,24.4,68.7,9.1,51.5,5z"></path><path id="outer" fill="#eae9e9"  d="M28.8,18.6c4.2-2.5,9-3.9,13.9-3.9C57.8,14.7,70,27,70,42.1v15.8c0,7.1-5.7,12.8-12.7,12.8c-7,0-12.7-5.8-12.7-12.8V42   c0-1-0.8-1.7-1.7-1.7c-1,0-1.7,0.8-1.7,1.7v15.9c0,9,7.3,16.3,16.2,16.3c8.9,0,16.1-7.2,16.2-16.1c0,0,0-0.1,0-0.1V42.1   c0-17-13.8-30.8-30.7-30.8c-5.5,0-11,1.5-15.7,4.3c-0.8,0.5-1.1,1.6-0.6,2.4S28,19.1,28.8,18.6z"></path><path id="outermost" fill="#eae9e9" d="M71.2,81.4c-4.2,2.5-9,3.9-13.9,3.9C42.2,85.3,30,73,30,57.9V42.1c0-7.1,5.7-12.8,12.7-12.8c7,0,12.7,5.8,12.7,12.8V58   c0,1,0.8,1.7,1.7,1.7c1,0,1.7-0.8,1.7-1.7V42.1c0-9-7.3-16.3-16.2-16.3c-8.9,0-16.1,7.2-16.2,16.1c0,0,0,0.1,0,0.1v15.9   c0,17,13.8,30.8,30.7,30.8c5.5,0,11-1.5,15.7-4.3c0.8-0.5,1.1-1.6,0.6-2.4C73.1,81.2,72,80.9,71.2,81.4z"></path></g></svg>
+                                <svg id="FINGERPRINTSetup" class="FINGERPRINTSetup" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve"><g><path id="inner" stroke="#c0392b" stroke-linecap="round" stroke-width="2" fill="none" d="M51.5,5c-0.9-0.2-1.9,0.4-2.1,1.3c-0.2,0.9,0.4,1.9,1.3,2.1C66.3,12.1,77.2,26,77.2,42.1v15.8c0,11.1-9,20.1-20,20.1   c-11,0-20-9-20-20.1V42.1c0-3.1,2.5-5.6,5.5-5.6c3,0,5.5,2.5,5.5,5.6v15.8V58c0,0,0,0.1,0,0.1c0.1,4.9,4.1,8.9,9,8.9   c4.9,0,8.9-4,9-8.9c0,0,0-0.1,0-0.1V42.1c0-13-10.5-23.6-23.5-23.6c-12.9,0-23.4,10.5-23.5,23.4c0,0,0,0,0,0v15.9   c0,17.7,12,32.9,29.2,37c0.1,0,0.3,0,0.4,0c0.8,0,1.5-0.5,1.7-1.3c0.2-0.9-0.4-1.9-1.3-2.1C33.7,87.9,22.8,74,22.8,57.9V42.1   c0-11.1,9-20.1,20-20.1c11,0,20,9,20,20.1v15.8c0,3.1-2.5,5.6-5.5,5.6c-3,0-5.5-2.5-5.5-5.6V42.1V42c0,0,0-0.1,0-0.1   c-0.1-4.9-4.1-8.9-9-8.9c-4.9,0-8.9,4-9,8.9c0,0,0,0.1,0,0.1v15.9c0,13,10.5,23.6,23.5,23.6c12.9,0,23.4-10.5,23.5-23.4   c0,0,0,0,0,0V42.1C80.7,24.4,68.7,9.1,51.5,5z"></path><path id="outer" fill="none" stroke="#c0392b" stroke-width="2" d="M28.8,18.6c4.2-2.5,9-3.9,13.9-3.9C57.8,14.7,70,27,70,42.1v15.8c0,7.1-5.7,12.8-12.7,12.8c-7,0-12.7-5.8-12.7-12.8V42   c0-1-0.8-1.7-1.7-1.7c-1,0-1.7,0.8-1.7,1.7v15.9c0,9,7.3,16.3,16.2,16.3c8.9,0,16.1-7.2,16.2-16.1c0,0,0-0.1,0-0.1V42.1   c0-17-13.8-30.8-30.7-30.8c-5.5,0-11,1.5-15.7,4.3c-0.8,0.5-1.1,1.6-0.6,2.4S28,19.1,28.8,18.6z"></path><path id="outermost" stroke="#c0392b" stroke-width="2" fill="none" d="M71.2,81.4c-4.2,2.5-9,3.9-13.9,3.9C42.2,85.3,30,73,30,57.9V42.1c0-7.1,5.7-12.8,12.7-12.8c7,0,12.7,5.8,12.7,12.8V58   c0,1,0.8,1.7,1.7,1.7c1,0,1.7-0.8,1.7-1.7V42.1c0-9-7.3-16.3-16.2-16.3c-8.9,0-16.1,7.2-16.2,16.1c0,0,0,0.1,0,0.1v15.9   c0,17,13.8,30.8,30.7,30.8c5.5,0,11-1.5,15.7-4.3c0.8-0.5,1.1-1.6,0.6-2.4C73.1,81.2,72,80.9,71.2,81.4z"></path></g></svg>
+                                <i class="FINGERPRINT-success fa fa-check-circle fa-2x"></i>
+                                <i class="FINGERPRINT-error fas fa-times fa-2x"></i>
+                            </div>
+                        </div>
+
+                        <div id="FACEID" class="FACEID">
+
+                        </div>
+
+                    </div>
+
+                    <div class="icon flashlight-icon">
+                        <i class="fas fa-phone-alt" style="margin-top:12px;"></i>
+                    </div>
+                    <div class="icon camera-icon">
+                        <i class="fas fa-camera" style="margin-top:12px;"></i>
+                    </div>
+                    <div class="bottom-bar"></div>
+                </div>
+            </div>
+
+            <!-- Home Applications -->
+            <div class="phone-applications">
+                <div class="phone-footer-applications">
+                    <div class="phone-application" data-toggle="tooltip" data-placement="bottom" title="" data-appslot="1"></div>
+                    <div class="phone-application" data-toggle="tooltip" data-placement="bottom" title="" data-appslot="2"></div>
+                    <div class="phone-application" data-toggle="tooltip" data-placement="bottom" title="" data-appslot="3"></div>
+                    <div class="phone-application" data-toggle="tooltip" data-placement="bottom" title="" data-appslot="4"></div>
+                </div>
+
+                <div class="phone-home-applications">
+                    <div class="phone-application" data-toggle="tooltip" data-placement="bottom" title="" data-appslot="5"></div>
+                    <div class="phone-application" data-toggle="tooltip" data-placement="bottom" title="" data-appslot="6"></div>
+                    <div class="phone-application" data-toggle="tooltip" data-placement="bottom" title="" data-appslot="7"></div>
+                    <div class="phone-application" data-toggle="tooltip" data-placement="bottom" title="" data-appslot="8"></div>
+
+                    <div class="phone-application" data-toggle="tooltip" data-placement="bottom" title="" data-appslot="9"></div>
+                    <div class="phone-application" data-toggle="tooltip" data-placement="bottom" title="" data-appslot="10"></div>
+                    <div class="phone-application" data-toggle="tooltip" data-placement="bottom" title="" data-appslot="11"></div>
+                    <div class="phone-application" data-toggle="tooltip" data-placement="bottom" title="" data-appslot="12"></div>
+
+                    <div class="phone-application" data-toggle="tooltip" data-placement="bottom" title="" data-appslot="13"></div>
+                    <div class="phone-application" data-toggle="tooltip" data-placement="bottom" title="" data-appslot="14"></div>
+                    <div class="phone-application" data-toggle="tooltip" data-placement="bottom" title="" data-appslot="15"></div>
+                    <div class="phone-application" data-toggle="tooltip" data-placement="bottom" title="" data-appslot="16"></div>
+
+                    <div class="phone-application" data-toggle="tooltip" data-placement="bottom" title="" data-appslot="17"></div>
+                    <div class="phone-application" data-toggle="tooltip" data-placement="bottom" title="" data-appslot="18"></div>
+                    <div class="phone-application" data-toggle="tooltip" data-placement="bottom" title="" data-appslot="19"></div>
+                    <div class="phone-application" data-toggle="tooltip" data-placement="bottom" title="" data-appslot="20"></div>
+                </div>
+            </div>
+
+
+            <!-- Unread Alerts -->
+            <!-- <div class="app-unread-alerts">1</div> -->
+
+            <!-- Container for all application's -->
+            <div class="phone-application-container">
+                <div class="settings-app">
+                    <div class="settings-app-header">
+                        <p>Settings</p>
+                    </div>
+                    <div class="phone-application-container-content">
+                        <div class="settings-app-tab-appereance">
+                            <div class="settings-app-tab-header">
+                                <p>Appearance</p>
+                            </div>
+                            <div class="settings-app-tab" data-settingstab="background">
+                                <div class="settings-tab-icon"><i class="fas fa-palette" style="color: #9b59b6;"></i></div>
+                                <div class="settings-tab-title">
+                                    <p>Background</p>
+                                </div>
+                                <div class="settings-tab-description">
+                                    <p>Default</p>
+                                </div>
+                            </div>
+                            <div class="settings-app-tab" data-settingstab="lockscreen">
+                                <div class="settings-tab-icon"></div>
+                                <div class="settings-tab-icon"><i class="fas fa-palette" style="color: #9b59b6;"></i></div>
+                                <div class="settings-tab-title">
+                                    <p>Lockscreen Background</p>
+                                </div>
+                                <div class="settings-tab-description">
+                                    <p>Default</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="settings-app-tab-security">
+                            <div class="settings-app-tab-header">
+                                <p>Security</p>
+                            </div>
+                            <div class="settings-app-tab" data-settingstab="security">
+                                <div class="settings-tab-icon" id="security-tab-icon"><i class="fas fa-unlock" style="color: red;"></i></div>
+                                <div class="settings-tab-title">
+                                    <p>Password</p>
+                                </div>
+                                <div class="settings-tab-description">
+                                    <p id="primary-security">None</p>
+                                </div>
+                            </div>
+                            <div class="settings-app-tab secondTab" data-settingstab="numberrecognition">
+                                <!-- Rounded switch -->
+                                <label class="switch">
+                                    <input class="numberrec-box" type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+
+                                <div class="settings-tab-icon"><i class="fas fa-user-slash" style="color: #e67e22;"></i></div>
+                                <div class="settings-tab-title">
+                                    <p>Call Anonymously</p>
+                                </div>
+                                <div class="settings-tab-description" id="numberrecognition">
+                                    <p>Off</p>
+                                </div>
+                            </div>
+                            <div class="settings-app-tab secondTab" data-settingstab="iprecognition">
+                                <!-- Rounded switch -->
+                                <label class="switch">
+                                    <input class="ip-box" type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+
+                                <div class="settings-tab-icon"><i class="fas fa-user-slash" style="color: #e67e22;"></i></div>
+                                <div class="settings-tab-title">
+                                    <p>Hide IP</p>
+                                </div>
+                                <div class="settings-tab-description" id="iprecognition">
+                                    <p>Off</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="settings-app-tab-information">
+                            <div class="settings-app-tab-header">
+                                <p>Infomation</p>
+                            </div>
+                            <div class="settings-app-tab secondTab" data-settingstab="myPhone">
+                                <div class="settings-tab-icon"><i class="fas fa-phone-alt" style="color: #e67e22;"></i></div>
+                                <div class="settings-tab-title">
+                                    <p>My phone number</p>
+                                </div>
+                                <div class="settings-tab-description" id="myPhoneNumber">
+                                    <p>Sim Not Found</p>
+                                </div>
+                            </div>
+                            <div class="settings-app-tab secondTab" data-settingstab="serialNumber">
+                                <div class="settings-tab-icon"><i class="fas fa-phone-alt" style="color: #e67e22;"></i></div>
+                                <div class="settings-tab-title">
+                                    <p>Serial Number</p>
+                                </div>
+                                <div class="settings-tab-description" id="mySerialNumber">
+                                    <p>0612345678</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-background-tab">
+                        <div class="settings-app-header">
+                            <p>Background</p>
+                        </div>
+
+                        <div class="background-options">
+                            <div class="background-option" data-background="default-qbus">
+                                <div class="background-option-icon"> <i class="fas fa-paint-brush"></i> </div>
+                                <div class="background-option-title"> Default </div>
+                                <div class="background-option-description"> This is the default background.</div>
+                                <div class="background-option-current"><i class="fas fa-check-circle"></i></div>
+                            </div>
+                            <div class="background-option" data-background="custom-background">
+                                <div class="background-option-icon"><i class="fas fa-paint-brush"></i></div>
+                                <div class="background-option-title">Personalized</div>
+                                <div class="background-option-description"> Your own personalized background from a URL.</div>
+                            </div>
+                        </div>
+
+                        <div class="background-buttons">
+                            <div class="background-button" id="accept-background">
+                                <p>Confirm</p>
+                            </div>
+                            <div class="background-button" id="cancel-background">
+                                <p>Cancel</p>
+                            </div>
+                        </div>
+
+                        <div class="background-custom">
+                            <div class="background-custom-title">Personalized Background</div>
+                            <input type="text" class="custom-background-input" placeholder="URL (.jpg/.png)" spellcheck="false">
+
+                            <div class="background-custom-buttons">
+                                <div class="custom-background-button" id="accept-custom-background">
+                                    <p>Confirm</p>
+                                </div>
+                                <div class="custom-background-button" id="cancel-custom-background">
+                                    <p>Cancel</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-security-tab">
+                        <div class="settings-app-header">
+                            <p>Security Passwords</p>
+                        </div>
+                            <div class="security-options">
+                                <div class="security-option" data-security="PIN">
+                                    <div class="security-option-icon"><i class="fas fa-lock"></i></div>
+                                    <div class="security-option-title"> PIN </div>
+                                    <div class="security-option-description"> Setup PIN</div>
+                                    <div class="security-option-current" id="current-PIN"></div>
+                                </div>
+                                <div class="security-option" data-security="PW">
+                                    <div class="security-option-icon"><i class="fas fa-key"></i></div>
+                                    <div class="security-option-title">Password</div>
+                                    <div class="security-option-description">Setup password</div>
+                                    <div class="security-option-current" id="current-PW"></div>
+                                </div>
+                                <div class="security-option" data-security="GESTURE">
+                                    <div class="security-option-icon"><i class="fas fa-circle"></i></div>
+                                    <div class="security-option-title">Gesture</div>
+                                    <div class="security-option-description">Setup gesture</div>
+                                    <div class="security-option-current" id="current-GESTURE"></div>
+                                </div>
+                                <div class="security-option" data-security="FINGERPRINT">
+                                    <div class="security-option-icon"><i class="fas fa-fingerprint"></i></div>
+                                    <div class="security-option-title">Fingerprint</div>
+                                    <div class="security-option-description">Setup Fingerprint</div>
+                                    <div class="security-option-current" id="current-FINGERPRINT"></div>
+                                </div>
+                                <div class="security-option" data-security="FACEID">
+                                    <div class="security-option-icon"><i class="fas fa-smile-wink"></i></div>
+                                    <div class="security-option-title">FaceID</div>
+                                    <div class="security-option-description"> Setup FaceID</div>
+                                    <div class="security-option-current" id="current-FACEID"></div>
+                                </div>
+                            </div>
+
+                        <div class="security-buttons">
+                            <div class="security-button" id="accept-security">
+                                <p>Confirm</p>
+                            </div>
+                            <div class="security-button" id="cancel-security">
+                                <p>Cancel</p>
+                            </div>
+                        </div>
+
+                        <div class="security-PIN">
+                            <div class="security-custom-title">Setup PIN</div>
+                            <input type="password" class="security-PIN-input" placeholder="4-6 Digit PIN" spellcheck="false">
+                            <input type="password" class="security-REPIN-input" placeholder="RePIN" spellcheck="false">
+
+                            <input type="checkbox" class="security-primary-input" id="security-primary-PIN" name="PIN">
+                            <label class="security-primary-class" for="security-primary-PIN">Primary:</label>
+
+                            <div class="security-setup-buttons">
+                                <div class="security-setup-button" id="accept-PIN">
+                                    <p>Confirm</p>
+                                </div>
+                                <div class="security-setup-button" id="cancel-PIN">
+                                    <p>Cancel</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="security-PW">
+                            <div class="security-custom-title">Setup Password</div>
+                            <input type="password" class="security-PW-input" placeholder="6-12 Letters Password" spellcheck="false">
+                            <input type="password" class="security-REPW-input" placeholder="REPassword" spellcheck="false">
+
+                            <input type="checkbox" class="security-primary-input" id="security-primary-PW" name="PW">
+                            <label class="security-primary-class" for="security-primary-PIN">Primary:</label>
+
+                            <div class="security-setup-buttons">
+                                <div class="security-setup-button" id="accept-PW">
+                                    <p>Confirm</p>
+                                </div>
+                                <div class="security-setup-button" id="cancel-PW">
+                                    <p>Cancel</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="security-GESTURE">
+                            <div class="security-custom-title">Setup GESTURE</div>
+                            <div class="security-custom-description"></div>
+                            <input type="hidden" class="security-GESTURE-input" spellcheck="false">
+                            <div id="gesturepwd"></div>
+                            <input type="checkbox" class="security-primary-input" id="security-primary-GESTURE" name="GESTURE">
+                            <label class="security-primary-class" for="security-primary-PIN">Primary:</label>
+
+                            <div class="security-setup-buttons">
+                                <div class="security-setup-button" id="accept-GESTURE">
+                                    <p>Confirm</p>
+                                </div>
+                                <div class="security-setup-button" id="cancel-GESTURE">
+                                    <p>Cancel</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="security-FINGERPRINT">
+                            <div class="security-custom-title">Setup Fingerprint</div>
+                            <div class="security-custom-description"></div>
+                            <input type="hidden" class="security-FINGERPRINT-input" spellcheck="false">
+
+                            <div class="wrap">
+                                <svg class="fingerprintSetup clone" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve"><g><path id="inner" fill="#eae9e9" d="M51.5,5c-0.9-0.2-1.9,0.4-2.1,1.3c-0.2,0.9,0.4,1.9,1.3,2.1C66.3,12.1,77.2,26,77.2,42.1v15.8c0,11.1-9,20.1-20,20.1   c-11,0-20-9-20-20.1V42.1c0-3.1,2.5-5.6,5.5-5.6c3,0,5.5,2.5,5.5,5.6v15.8V58c0,0,0,0.1,0,0.1c0.1,4.9,4.1,8.9,9,8.9   c4.9,0,8.9-4,9-8.9c0,0,0-0.1,0-0.1V42.1c0-13-10.5-23.6-23.5-23.6c-12.9,0-23.4,10.5-23.5,23.4c0,0,0,0,0,0v15.9   c0,17.7,12,32.9,29.2,37c0.1,0,0.3,0,0.4,0c0.8,0,1.5-0.5,1.7-1.3c0.2-0.9-0.4-1.9-1.3-2.1C33.7,87.9,22.8,74,22.8,57.9V42.1   c0-11.1,9-20.1,20-20.1c11,0,20,9,20,20.1v15.8c0,3.1-2.5,5.6-5.5,5.6c-3,0-5.5-2.5-5.5-5.6V42.1V42c0,0,0-0.1,0-0.1   c-0.1-4.9-4.1-8.9-9-8.9c-4.9,0-8.9,4-9,8.9c0,0,0,0.1,0,0.1v15.9c0,13,10.5,23.6,23.5,23.6c12.9,0,23.4-10.5,23.5-23.4   c0,0,0,0,0,0V42.1C80.7,24.4,68.7,9.1,51.5,5z"></path><path id="outer" fill="#eae9e9"  d="M28.8,18.6c4.2-2.5,9-3.9,13.9-3.9C57.8,14.7,70,27,70,42.1v15.8c0,7.1-5.7,12.8-12.7,12.8c-7,0-12.7-5.8-12.7-12.8V42   c0-1-0.8-1.7-1.7-1.7c-1,0-1.7,0.8-1.7,1.7v15.9c0,9,7.3,16.3,16.2,16.3c8.9,0,16.1-7.2,16.2-16.1c0,0,0-0.1,0-0.1V42.1   c0-17-13.8-30.8-30.7-30.8c-5.5,0-11,1.5-15.7,4.3c-0.8,0.5-1.1,1.6-0.6,2.4S28,19.1,28.8,18.6z"></path><path id="outermost" fill="#eae9e9" d="M71.2,81.4c-4.2,2.5-9,3.9-13.9,3.9C42.2,85.3,30,73,30,57.9V42.1c0-7.1,5.7-12.8,12.7-12.8c7,0,12.7,5.8,12.7,12.8V58   c0,1,0.8,1.7,1.7,1.7c1,0,1.7-0.8,1.7-1.7V42.1c0-9-7.3-16.3-16.2-16.3c-8.9,0-16.1,7.2-16.2,16.1c0,0,0,0.1,0,0.1v15.9   c0,17,13.8,30.8,30.7,30.8c5.5,0,11-1.5,15.7-4.3c0.8-0.5,1.1-1.6,0.6-2.4C73.1,81.2,72,80.9,71.2,81.4z"></path></g></svg>
+                                <svg id="fingerprintSetup" class="fingerprintSetup" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve"><g><path id="inner" stroke="#c0392b" stroke-linecap="round" stroke-width="2" fill="none" d="M51.5,5c-0.9-0.2-1.9,0.4-2.1,1.3c-0.2,0.9,0.4,1.9,1.3,2.1C66.3,12.1,77.2,26,77.2,42.1v15.8c0,11.1-9,20.1-20,20.1   c-11,0-20-9-20-20.1V42.1c0-3.1,2.5-5.6,5.5-5.6c3,0,5.5,2.5,5.5,5.6v15.8V58c0,0,0,0.1,0,0.1c0.1,4.9,4.1,8.9,9,8.9   c4.9,0,8.9-4,9-8.9c0,0,0-0.1,0-0.1V42.1c0-13-10.5-23.6-23.5-23.6c-12.9,0-23.4,10.5-23.5,23.4c0,0,0,0,0,0v15.9   c0,17.7,12,32.9,29.2,37c0.1,0,0.3,0,0.4,0c0.8,0,1.5-0.5,1.7-1.3c0.2-0.9-0.4-1.9-1.3-2.1C33.7,87.9,22.8,74,22.8,57.9V42.1   c0-11.1,9-20.1,20-20.1c11,0,20,9,20,20.1v15.8c0,3.1-2.5,5.6-5.5,5.6c-3,0-5.5-2.5-5.5-5.6V42.1V42c0,0,0-0.1,0-0.1   c-0.1-4.9-4.1-8.9-9-8.9c-4.9,0-8.9,4-9,8.9c0,0,0,0.1,0,0.1v15.9c0,13,10.5,23.6,23.5,23.6c12.9,0,23.4-10.5,23.5-23.4   c0,0,0,0,0,0V42.1C80.7,24.4,68.7,9.1,51.5,5z"></path><path id="outer" fill="none" stroke="#c0392b" stroke-width="2" d="M28.8,18.6c4.2-2.5,9-3.9,13.9-3.9C57.8,14.7,70,27,70,42.1v15.8c0,7.1-5.7,12.8-12.7,12.8c-7,0-12.7-5.8-12.7-12.8V42   c0-1-0.8-1.7-1.7-1.7c-1,0-1.7,0.8-1.7,1.7v15.9c0,9,7.3,16.3,16.2,16.3c8.9,0,16.1-7.2,16.2-16.1c0,0,0-0.1,0-0.1V42.1   c0-17-13.8-30.8-30.7-30.8c-5.5,0-11,1.5-15.7,4.3c-0.8,0.5-1.1,1.6-0.6,2.4S28,19.1,28.8,18.6z"></path><path id="outermost" stroke="#c0392b" stroke-width="2" fill="none" d="M71.2,81.4c-4.2,2.5-9,3.9-13.9,3.9C42.2,85.3,30,73,30,57.9V42.1c0-7.1,5.7-12.8,12.7-12.8c7,0,12.7,5.8,12.7,12.8V58   c0,1,0.8,1.7,1.7,1.7c1,0,1.7-0.8,1.7-1.7V42.1c0-9-7.3-16.3-16.2-16.3c-8.9,0-16.1,7.2-16.2,16.1c0,0,0,0.1,0,0.1v15.9   c0,17,13.8,30.8,30.7,30.8c5.5,0,11-1.5,15.7-4.3c0.8-0.5,1.1-1.6,0.6-2.4C73.1,81.2,72,80.9,71.2,81.4z"></path></g></svg>
+                                <i class="success fa fa-check-circle fa-2x"></i>
+                            </div>
+
+                            <input type="checkbox" class="security-primary-input" id="security-primary-FINGERPRINT" name="FINGERPRINT">
+                            <label class="security-primary-class" for="security-primary-PIN">Primary:</label>
+
+                            <div class="security-setup-buttons">
+                                <div class="security-setup-button" id="accept-FINGERPRINT">
+                                    <p>Confirm</p>
+                                </div>
+                                <div class="security-setup-button" id="cancel-FINGERPRINT">
+                                    <p>Cancel</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="security-FACEID">
+                            <div class="security-custom-title">Setup FaceID</div>
+                            <div class="security-custom-description"></div>
+                            <input type="hidden" class="security-FINGERPRINT-input" spellcheck="false">
+
+                            <div class="face-id-wrapper">
+                                <svg class="face-id-default" enable-background="new 0 0 91 91" height="91px" id="Layer_1" version="1.1" viewBox="0 0 91 91" width="91px">
+                                    <g>
+                                        <path d="M53.561,66.82c-6.977,1.621-15.125,0.238-15.207,0.225c-1.371-0.238-2.668,0.678-2.906,2.043      c-0.238,1.367,0.674,2.668,2.041,2.906c0.23,0.041,3.746,0.643,8.297,0.643c2.757,0,5.896-0.221,8.914-0.922      c1.352-0.314,2.192-1.666,1.879-3.018S54.912,66.504,53.561,66.82z"/>
+                                        <path d="M81.23,37.238c-0.004-0.332,0.002-0.662,0.008-0.99c0.01-0.6,0.018-1.199-0.012-1.801      c-0.281-5.872-2.088-11.524-5.373-16.801C72.736,12.634,68.6,8.535,63.561,5.46c-5.156-3.146-10.758-4.838-16.649-5.029      c-5.744-0.189-11.285,1.043-16.453,3.656c-6.607,3.344-11.824,8.342-15.504,14.854c-2.902,5.145-4.432,10.541-4.551,16.04      c-0.082,3.902,0.088,7.844,0.506,11.717c0.723,6.692,2.018,12.549,3.963,17.897c3.328,9.148,9.785,15.926,14.615,20.002      c4.035,3.406,7.309,5.098,12.693,5.98c1.221,0.199,2.359,0.297,3.479,0.297c4.856,0,8.603-1.18,11.925-3.311      c8.402-5.381,14.986-13.229,18.541-22.092C79.543,56.947,81.213,47.723,81.23,37.238z M54.873,83.334      c-4.834,3.098-7.609,2.982-11.88,2.285c-4.133-0.678-6.635-1.797-10.266-4.861c-4.363-3.682-10.184-9.773-13.133-17.879      c-1.805-4.965-3.012-10.434-3.689-16.721c-0.395-3.66-0.555-7.385-0.479-11.07c0.102-4.663,1.414-9.264,3.902-13.676      c3.184-5.633,7.691-9.953,13.396-12.842c4.111-2.078,8.496-3.133,13.035-3.133c0.328,0,0.656,0.006,0.988,0.016      c5.012,0.164,9.789,1.609,14.194,4.299c4.363,2.66,7.943,6.209,10.646,10.549c2.826,4.541,4.381,9.383,4.619,14.389      c0.024,0.494,0.017,0.984,0.008,1.475c-0.008,0.375-0.014,0.752-0.01,1.098c-0.017,9.803-1.567,18.418-4.744,26.34 C68.293,71.504,62.402,78.512,54.873,83.334z"/>
+                                        <path d="M42.311,62.016c0.455,0.844,1.32,1.32,2.213,1.32c0.404,0,0.813-0.096,1.191-0.301c2.623-1.416,4.889-2.807,4.984-2.865      c1.182-0.729,1.549-2.275,0.822-3.457c-0.729-1.182-2.275-1.549-3.457-0.822c-0.021,0.014-2.236,1.373-4.734,2.724 C42.108,59.271,41.653,60.795,42.311,62.016z"/>
+                                        <path d="M41.139,44.154c0.672,0,1.344-0.27,1.838-0.801c0.947-1.014,0.891-2.604-0.125-3.551      c-7.838-7.307-17.375-4.771-21.322-2.412c-1.191,0.713-1.578,2.256-0.867,3.447c0.713,1.189,2.256,1.576,3.447,0.865      c0.08-0.049,8.25-4.809,15.316,1.775C39.911,43.93,40.526,44.154,41.139,44.154z"/>
+                                        <path d="M69.711,37.311c-0.369-0.188-9.098-4.557-16.709-0.723c-6.434,3.236-6.973,10.004-6.816,14.814      c0.043,1.358,1.158,2.432,2.508,2.432c0.027,0,0.058-0.002,0.084-0.002c1.388-0.045,2.476-1.205,2.431-2.592      c-0.185-5.678,0.992-8.623,4.054-10.164c5.319-2.678,12.102,0.676,12.17,0.711c1.233,0.631,2.743,0.137,3.375-1.096 C71.436,39.455,70.945,37.941,69.711,37.311z"/>
+                                        <path d="M2.84,18.222c1.389,0,2.514-1.125,2.514-2.514V5.437h10.27c1.389,0,2.514-1.125,2.514-2.514      c0-1.387-1.125-2.512-2.514-2.512H2.84c-1.387,0-2.512,1.125-2.512,2.512v12.785C0.329,17.097,1.454,18.222,2.84,18.222z"/>
+                                        <path d="M88.334,0.412H75.551c-1.389,0-2.514,1.125-2.514,2.512c0,1.389,1.125,2.514,2.514,2.514h10.27v10.271      c0,1.389,1.125,2.514,2.515,2.514c1.388,0,2.513-1.125,2.513-2.514V2.923C90.846,1.537,89.721,0.412,88.334,0.412z"/>
+                                        <path d="M15.624,85.768H5.354V75.496c0-1.389-1.125-2.514-2.514-2.514c-1.387,0-2.512,1.125-2.512,2.514v12.785      c0,1.387,1.125,2.512,2.512,2.512h12.783c1.389,0,2.514-1.125,2.514-2.512C18.137,86.893,17.012,85.768,15.624,85.768z"/>
+                                        <path d="M88.334,72.982c-1.389,0-2.514,1.125-2.514,2.514v10.271H75.55c-1.389,0-2.514,1.125-2.514,2.514      c0,1.387,1.125,2.512,2.514,2.512h12.783c1.388,0,2.513-1.125,2.513-2.512V75.496C90.846,74.107,89.721,72.982,88.334,72.982z"/>
+                                    </g>
+                                </svg>
+                                <svg class="face-id-checked" enable-background="new 0 0 91 91" height="91px" id="Layer_1" version="1.1" viewBox="0 0 91 91" width="91px">
+                                    <g>
+                                        <path d="M2.669,18.273c1.388,0,2.513-1.125,2.513-2.513V5.488h10.271c1.388,0,2.513-1.125,2.513-2.513s-1.125-2.513-2.513-2.513   H2.669c-1.388,0-2.513,1.125-2.513,2.513V15.76C0.156,17.148,1.281,18.273,2.669,18.273z"/>
+                                        <path d="M88.163,0.462H75.38c-1.389,0-2.514,1.125-2.514,2.513s1.125,2.513,2.514,2.513h10.27V15.76   c0,1.388,1.125,2.513,2.514,2.513c1.387,0,2.512-1.125,2.512-2.513V2.975C90.675,1.587,89.55,0.462,88.163,0.462z"/>
+                                        <path d="M15.452,85.818H5.182V75.547c0-1.388-1.125-2.513-2.513-2.513s-2.513,1.125-2.513,2.513v12.784   c0,1.388,1.125,2.513,2.513,2.513h12.783c1.388,0,2.513-1.125,2.513-2.513S16.84,85.818,15.452,85.818z"/>
+                                        <path d="M88.163,73.034c-1.389,0-2.514,1.125-2.514,2.513v10.271H75.38c-1.389,0-2.514,1.125-2.514,2.513s1.125,2.513,2.514,2.513   h12.783c1.387,0,2.512-1.125,2.512-2.513V75.547C90.675,74.159,89.55,73.034,88.163,73.034z"/>
+                                        <path d="M64.739,27.448c-1.023-0.935-2.613-0.862-3.549,0.163l-21.336,23.39l-5.68-6.096c-0.943-1.014-2.534-1.07-3.551-0.125   c-1.015,0.946-1.071,2.536-0.125,3.551l7.537,8.09c0.475,0.51,1.141,0.8,1.838,0.8c0.004,0,0.009,0,0.014,0   c0.701-0.004,1.369-0.301,1.843-0.819l23.173-25.404C65.837,29.972,65.765,28.383,64.739,27.448z"/>
+                                        <path d="M67.331,85.843c-1.951-0.275-3.305-1.038-4.139-2.331c-1.803-2.799-0.963-7.625-0.486-9.252   c0.002-0.005,0.002-0.009,0.004-0.014c4.549-4.255,8.139-9.403,10.385-15.005c3.082-7.684,4.588-16,4.604-25.457   c-0.004-0.298,0.002-0.596,0.006-0.894c0.01-0.539,0.018-1.078-0.01-1.619c-0.254-5.314-1.891-10.433-4.863-15.213   c-2.822-4.534-6.566-8.243-11.125-11.024c-4.67-2.848-9.742-4.38-15.076-4.554c-5.207-0.166-10.223,0.944-14.902,3.31   c-5.979,3.028-10.699,7.551-14.03,13.444c-2.625,4.655-4.011,9.542-4.118,14.523c-0.074,3.522,0.079,7.073,0.456,10.552   c0.649,6.027,1.818,11.305,3.574,16.135c2.521,6.927,7.02,12.341,10.978,16.081c0.292,1.172,1.34,6.027-0.551,8.975   c-0.833,1.3-2.189,2.066-4.145,2.342c-1.374,0.194-2.331,1.466-2.137,2.84c0.177,1.255,1.252,2.161,2.485,2.161   c0.117,0,0.235-0.008,0.354-0.024c3.395-0.479,6.048-2.072,7.672-4.605c1.406-2.192,1.858-4.749,1.898-7.045   c2.379,1.704,4.821,2.938,8.167,3.484c1.11,0.182,2.146,0.271,3.166,0.271c4.43,0,7.832-1.789,10.848-3.723   c0.24-0.153,0.473-0.314,0.707-0.473c-0.012,2.404,0.408,5.151,1.904,7.485c1.625,2.533,4.277,4.126,7.672,4.605   c0.119,0.017,0.238,0.024,0.355,0.024c1.232,0,2.307-0.906,2.484-2.161C69.661,87.309,68.706,86.037,67.331,85.843z M53.634,74.971   c-4.283,2.745-6.717,3.342-10.491,2.724c-3.719-0.607-5.877-2.303-9.093-5.019c-3.895-3.286-9.088-8.721-11.719-15.948   c-1.615-4.443-2.695-9.336-3.3-14.956c-0.354-3.267-0.498-6.601-0.428-9.906c0.09-4.144,1.258-8.236,3.471-12.16   c2.833-5.013,6.844-8.859,11.922-11.431c3.655-1.849,7.557-2.786,11.594-2.786c0.291,0,0.582,0.005,0.875,0.015   c4.457,0.145,8.703,1.43,12.623,3.821c3.885,2.369,7.072,5.528,9.475,9.389c2.516,4.043,3.9,8.349,4.111,12.798   c0.021,0.434,0.014,0.865,0.006,1.296c-0.006,0.345-0.012,0.69-0.008,1.002c-0.014,8.772-1.402,16.48-4.242,23.562   C65.606,64.415,60.351,70.666,53.634,74.971z"/>
+                                    </g>
+                                </svg>
+                                <svg class="face-id-error" enable-background="new 0 0 91 91" height="91px" id="Layer_1" version="1.1" viewBox="0 0 91 91" width="91px">
+                                    <g>
+                                        <path d="M2.682,18.273c1.387,0,2.512-1.125,2.512-2.513V5.488h10.271c1.387,0,2.512-1.125,2.512-2.513s-1.125-2.513-2.512-2.513   H2.682c-1.389,0-2.514,1.125-2.514,2.513V15.76C0.168,17.148,1.293,18.273,2.682,18.273z"/>
+                                        <path d="M88.174,0.462H75.391c-1.387,0-2.512,1.125-2.512,2.513s1.125,2.513,2.512,2.513h10.271V15.76   c0,1.388,1.125,2.513,2.512,2.513c1.389,0,2.514-1.125,2.514-2.513V2.975C90.688,1.587,89.563,0.462,88.174,0.462z"/>
+                                        <path d="M15.465,85.818H5.193V75.547c0-1.388-1.125-2.513-2.512-2.513c-1.389,0-2.514,1.125-2.514,2.513v12.784   c0,1.388,1.125,2.513,2.514,2.513h12.783c1.387,0,2.512-1.125,2.512-2.513S16.852,85.818,15.465,85.818z"/>
+                                        <path d="M88.174,73.034c-1.387,0-2.512,1.125-2.512,2.513v10.271H75.391c-1.387,0-2.512,1.125-2.512,2.513s1.125,2.513,2.512,2.513   h12.783c1.389,0,2.514-1.125,2.514-2.513V75.547C90.688,74.159,89.563,73.034,88.174,73.034z"/>
+                                        <path d="M67.344,85.843c-1.951-0.275-3.305-1.038-4.139-2.331c-1.805-2.799-0.963-7.625-0.486-9.252c0-0.005,0-0.009,0.002-0.014   c4.551-4.255,8.141-9.403,10.387-15.005c3.082-7.686,4.588-16.002,4.604-25.457c-0.004-0.298,0.002-0.595,0.006-0.892   c0.01-0.54,0.016-1.079-0.01-1.621c-0.254-5.314-1.891-10.433-4.865-15.213c-2.82-4.534-6.564-8.243-11.123-11.024   c-4.67-2.848-9.742-4.38-15.076-4.554c-5.211-0.168-10.225,0.945-14.902,3.31c-5.98,3.028-10.699,7.55-14.029,13.444   c-2.627,4.656-4.012,9.542-4.119,14.523c-0.074,3.521,0.078,7.072,0.455,10.553c0.648,6.025,1.818,11.303,3.574,16.135   c2.521,6.929,7.021,12.344,10.98,16.084c0.48,1.835,1.156,6.321-0.559,8.981c-0.834,1.294-2.188,2.057-4.141,2.332   c-1.373,0.194-2.33,1.466-2.137,2.84c0.178,1.255,1.254,2.161,2.486,2.161c0.115,0,0.234-0.008,0.354-0.024   c3.395-0.479,6.049-2.072,7.674-4.605c1.406-2.192,1.857-4.749,1.898-7.045c2.377,1.704,4.82,2.938,8.166,3.484   c1.111,0.182,2.146,0.271,3.166,0.271c4.43,0,7.832-1.789,10.848-3.723c0.238-0.153,0.471-0.314,0.707-0.473   c-0.014,2.404,0.406,5.151,1.904,7.485c1.623,2.533,4.277,4.126,7.672,4.605c0.119,0.017,0.238,0.024,0.354,0.024   c1.232,0,2.309-0.906,2.486-2.161C69.674,87.309,68.717,86.037,67.344,85.843z M53.646,74.971   c-4.285,2.746-6.721,3.343-10.49,2.724c-3.721-0.607-5.879-2.303-9.094-5.019c-3.895-3.286-9.088-8.721-11.719-15.948   c-1.615-4.445-2.695-9.338-3.301-14.956c-0.354-3.269-0.496-6.602-0.428-9.906c0.09-4.144,1.258-8.236,3.471-12.161   c2.832-5.013,6.844-8.859,11.924-11.43c3.654-1.849,7.555-2.786,11.594-2.786c0.291,0,0.582,0.005,0.875,0.015   c4.455,0.145,8.703,1.43,12.623,3.821c3.885,2.369,7.072,5.528,9.475,9.389c2.516,4.043,3.898,8.349,4.111,12.798   c0.021,0.436,0.012,0.868,0.006,1.301c-0.006,0.344-0.012,0.687-0.008,0.997c-0.014,8.771-1.402,16.478-4.242,23.562   C65.619,64.415,60.363,70.666,53.646,74.971z"/>
+                                        <path d="M62.539,58.896c0.982-0.981,0.982-2.572,0-3.554L49.201,42.005l13.338-13.338c0.982-0.981,0.982-2.572,0-3.553   c-0.98-0.981-2.572-0.981-3.553,0L45.648,38.453L32.311,25.115c-0.98-0.981-2.572-0.981-3.553,0c-0.98,0.981-0.98,2.572,0,3.553   l13.338,13.338L28.758,55.343c-0.98,0.981-0.98,2.572,0,3.554c0.49,0.49,1.135,0.735,1.777,0.735s1.285-0.245,1.775-0.735   l13.338-13.338l13.338,13.338c0.49,0.49,1.135,0.735,1.777,0.735S62.049,59.387,62.539,58.896z"/>
+                                    </g>
+                                </svg>
+                                <div class="scan-bar"></div>
+                            </div>
+
+                            <button class="btn-trigger">Start Scanning</button>
+
+                            <input type="checkbox" class="security-primary-input" id="security-primary-FACEID" name="FACEID">
+                            <label class="security-primary-class" for="security-primary-PIN">Primary:</label>
+
+                            <div class="security-setup-buttons">
+                                <div class="security-setup-button" id="accept-FACEID">
+                                    <p>Confirm</p>
+                                </div>
+                                <div class="security-setup-button" id="cancel-FACEID">
+                                    <p>Cancel</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="settings-lockscreen-tab">
+                        <div class="settings-app-header">
+                            <p>Lockscreen Background</p>
+                        </div>
+
+                        <div class="lockscreen-options">
+                            <div class="lockscreen-option" data-lockscreen="background-1">
+                                <div class="lockscreen-option-icon"> <i class="fas fa-paint-brush"></i> </div>
+                                <div class="lockscreen-option-title"> Default </div>
+                                <div class="lockscreen-option-description"> Default Lockscreen background.</div>
+                                <div class="lockscreen-option-current"><i class="fas fa-check-circle"></i></div>
+                            </div>
+                            <div class="lockscreen-option" data-lockscreen="custom-lockscreen">
+                                <div class="lockscreen-option-icon"><i class="fas fa-paint-brush"></i></div>
+                                <div class="lockscreen-option-title">Personalized</div>
+                                <div class="lockscreen-option-description"> Your own personalized Lockscreen background from a URL.</div>
+                            </div>
+                        </div>
+
+                        <div class="lockscreen-buttons">
+                            <div class="lockscreen-button" id="accept-lockscreen">
+                                <p>Confirm</p>
+                            </div>
+                            <div class="lockscreen-button" id="cancel-lockscreen">
+                                <p>Cancel</p>
+                            </div>
+                        </div>
+
+                        <div class="lockscreen-custom">
+                            <div class="lockscreen-custom-title">Personalized Lockscreen</div>
+                            <input type="text" class="custom-lockscreen-input" placeholder="URL (.jpg/.png)" spellcheck="false">
+
+                            <div class="lockscreen-custom-buttons">
+                                <div class="custom-lockscreen-button" id="accept-custom-lockscreen">
+                                    <p>Confirm</p>
+                                </div>
+                                <div class="custom-lockscreen-button" id="cancel-custom-lockscreen">
+                                    <p>Cancel</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phone-call-app">
+                    <div class="phone-call-incoming">
+                        <div class="phone-call-incoming-title">Incoming Call</div>
+                        <div class="phone-call-incoming-caller">Test Yeey</div>
+                        <div class="phone-call-incoming-picture"></div>
+
+                        <i class="fas fa-phone" id="incoming-answer"></i>
+                        <i class="fas fa-phone" id="incoming-deny"></i>
+                    </div>
+
+                    <div class="phone-call-outgoing">
+                        <div class="phone-call-outgoing-title">Calling...</div>
+                        <div class="phone-call-outgoing-caller">Test Yeey</div>
+                        <div class="phone-call-outgoing-picture"></div>
+
+                        <i class="fas fa-phone" id="outgoing-cancel"></i>
+                    </div>
+
+                    <div class="phone-call-ongoing">
+                        <div class="phone-call-ongoing-title">Ongoing</div>
+                        <div class="phone-call-ongoing-caller">Test Yeey</div>
+                        <div class="phone-call-ongoing-picture"></div>
+                        <div class="phone-call-ongoing-time">05:05</div>
+
+                        <i class="fas fa-phone" id="ongoing-cancel"></i>
+                    </div>
+                </div>
+
+                <div class="phone-app">
+                    <div class="phone-app-header">
+                        <p>Phone</p>
+                        <span id="total-contacts">0 contacts</span>
+                    </div>
+
+                    <div class="phone-contacts">
+                        <div class="phone-contacts-header">
+                            <input type="text" id="contact-search" placeholder="Contact name" spellcheck="false">
+                            <i id="phone-search-icon" class="fas fa-search"></i>
+                            <i id="phone-plus-icon" class="fas fa-plus"></i>
+                        </div>
+
+                        <div class="phone-contact-list">
+                            <!-- <div class="phone-contact" data-contactid="1">
+                                    <div class="phone-contact-firstletter">P</div>
+                                    <div class="phone-contact-name">Pieter Post</div>
+                                    <div class="phone-contact-actions"><i class="fas fa-sort-down"></i></div>
+
+                                    <div class="phone-contact-action-buttons">
+                                        <i class="fas fa-phone-volume"></i>
+                                        <i class="fas fa-comment"></i>
+                                        <i class="fas fa-user-edit"></i>
+                                    </div>
+                                </div>-->
+                        </div>
+                    </div>
+
+                    <div class="phone-recent">
+                        <div class="phone-recent-header">
+                            <p>Phone</p>
+                        </div>
+
+                        <div class="phone-recent-calls">
+                            <!-- <div class="phone-recent-call"> <div class="phone-recent-call-image">P</div> <div class="phone-recent-call-name">Pieter Post</div> <div class="phone-recent-call-type"><i class="fas fa-phone-slash"></i></div> <div class="phone-recent-call-time">12:05</div> </div> -->
+                        </div>
+                    </div>
+
+                    <div class="phone-suggestedcontacts">
+                        <div class="phone-suggestedcontacts-header">
+                            Suggested Contacts
+                            <p class="amount-of-suggested-contacts">0 contacts</p>
+                        </div>
+
+                        <div class="suggested-contacts">
+                            <!-- <div class="suggested-contact"> <i class="fas fa-exclamation-circle"></i> <span class="suggested-name">Jay Nandes &middot; <span class="suggested-number">0612345678</span></span> </div> -->
+                            <!-- <div class="suggested-contact">
+                                    <i class="fas fa-exclamation-circle"></i>
+                                    <span class="suggested-name">Jay Nandes &middot; <span class="suggested-number">0612345678</span></span>
+                                </div> -->
+                        </div>
+                    </div>
+
+                    <div class="phone-keypad noselect">
+                        <div class="phone-keypad-header">
+                            <p>Phone</p>
+                        </div>
+                        <div id="phone-keypad-input"></div>
+
+                        <div class="phone-keypad-keys">
+                            <div class="phone-keypad-key" data-keypadvalue="1">1</div>
+                            <div class="phone-keypad-key" data-keypadvalue="2">2</div>
+                            <div class="phone-keypad-key" data-keypadvalue="3">3</div>
+                            <div class="phone-keypad-key" data-keypadvalue="4">4</div>
+                            <div class="phone-keypad-key" data-keypadvalue="5">5</div>
+                            <div class="phone-keypad-key" data-keypadvalue="6">6</div>
+                            <div class="phone-keypad-key" data-keypadvalue="7">7</div>
+                            <div class="phone-keypad-key" data-keypadvalue="8">8</div>
+                            <div class="phone-keypad-key" data-keypadvalue="9">9</div>
+                            <div class="phone-keypad-key" data-keypadvalue="*">*</div>
+                            <div class="phone-keypad-key" data-keypadvalue="0">0</div>
+                            <div class="phone-keypad-key" data-keypadvalue="#">#</div>
+                        </div>
+                        <div class="phone-keypad-key-call"><i class="fas fa-phone-alt"></i></div>
+                    </div>
+
+                    <div class="phone-add-contact">
+                        <div class="phone-add-contact-header">
+                            <p>Add Contact</p>
+                        </div>
+
+                        <i id="phone-add-contact-name-icon" class="fas fa-user"></i>
+                        <input type="text" class="phone-add-contact-name" placeholder="Contact Name" required spellcheck="false">
+
+                        <i id="phone-add-contact-number-icon" class="fas fa-phone-alt"></i>
+                        <input type="number" class="phone-add-contact-number" placeholder="Phone number" required spellcheck="false">
+
+                        <i id="phone-add-contact-iban-icon" class="fas fa-money-check"></i>
+                        <input type="text" class="phone-add-contact-iban" placeholder="Bank nr. (Not required)" required spellcheck="false">
+
+                        <i id="phone-add-contact-image-icon" class="fas fa-image"></i>
+                        <input type="url" class="phone-add-contact-image" placeholder="image (Not required)" required spellcheck="false" value="default">
+
+                        <div class="phone-add-contact-buttons">
+                            <div class="phone-add-contact-button" id="add-contact-save">
+                                <p>Save</p>
+                            </div>
+                            <div class="phone-add-contact-button" id="add-contact-cancel">
+                                <p>Cancel</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phone-edit-contact">
+                        <div class="phone-edit-contact-header">
+                            <p>Add Contact</p>
+                        </div>
+
+                        <i id="phone-edit-contact-name-icon" class="fas fa-user"></i>
+                        <input type="text" class="phone-edit-contact-name" placeholder="Contact Name" required spellcheck="false">
+
+                        <i id="phone-edit-contact-number-icon" class="fas fa-phone-alt"></i>
+                        <input type="number" class="phone-edit-contact-number" placeholder="Phone number" required spellcheck="false">
+
+                        <i id="phone-edit-contact-iban-icon" class="fas fa-money-check"></i>
+                        <input type="text" class="phone-edit-contact-iban" placeholder="Bank nr. (Not required)" required spellcheck="false">
+
+                        <i id="phone-edit-image-icon" class="fas fa-image"></i>
+                        <input type="text" class="phone-edit-contact-image" placeholder="image (Not required)" required spellcheck="false" value="default">
+
+                        <div class="phone-edit-contact-buttons">
+                            <div class="phone-edit-contact-button" id="edit-contact-save">
+                                <p>Save</p>
+                            </div>
+                            <div class="phone-edit-contact-button" id="edit-contact-delete">
+                                <p>Delete</p>
+                            </div>
+                            <div class="phone-edit-contact-button" id="edit-contact-cancel">
+                                <p>Cancel</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phone-app-footer">
+                        <div class="phone-app-footer-button" data-phonefootertab="suggestedcontacts">
+                            <p>Suggested</p>
+                        </div>
+                        <div class="phone-app-footer-button" data-phonefootertab="keypad">
+                            <p>Keypad</p>
+                        </div>
+                        <div class="phone-app-footer-button" data-phonefootertab="recent">
+                            <p>Recent</p>
+                        </div>
+                        <div class="phone-app-footer-button phone-selected-footer-tab" data-phonefootertab="contacts">
+                            <p>Contacts</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Camera -->
+                <input type="text" class="camera-app" id="camera-url" required spellcheck="false">
+
+
+
+                <div class="houses-app">
+                    <div class="houses-app-header">
+                        <div class="houses-app-header-tab houses-app-header-tab-selected" data-housetab="myhouses">
+                            <p>My Houses</p>
+                        </div>
+                        <div class="houses-app-header-tab" data-housetab="mykeys">
+                            <p>My Keys</p>
+                        </div>
+                    </div>
+
+                    <div class="house-app-myhouses-container">
+                        <div class="myhouses-house">
+                            <div class="myhouse-house-icon"><i class="fas fa-home"></i></div>
+                            <div class="myhouse-house-titel">Grove St. 1 | Tier 1</div>
+                            <div class="myhouse-house-details"><i class="fas fa-key"></i>&nbsp;&nbsp;5</div>
+                        </div>
+                    </div>
+
+                    <div class="house-app-mykeys-container">
+                        <!-- <div class="mykeys-key"> <span class="mykeys-key-label">Test</span> <span class="mykeys-key-sub">Klik om GPS in te stellen</span> </div> -->
+                        <!-- <div class="mykeys-key">
+                                <span class="mykeys-key-label">Test</span>
+                                <span class="mykeys-key-sub">Klik om GPS in te stellen</span>
+                           </div> -->
+                    </div>
+
+                    <div class="myhouses-options-container">
+                        <div class="myhouses-options">
+                            <div class="myhouses-options-header">Grove St. 1</div>
+                            <div class="myhouses-option" id="myhouse-option-transfer">TRANSFER</div>
+                            <div class="myhouses-option" id="myhouse-option-keys">KEYS</div>
+                            <br>
+                            <br>
+                            <div class="myhouses-option" id="myhouse-option-close">CLOSE</div>
+                        </div>
+
+                        <div class="myhouse-option-transfer-container">
+                            <div class="myhouse-option-transfer-container-header">Transfer House</div>
+                            <input class="myhouse-option-transfer-container-citizenid" type="text" spellcheck="false" placeholder="CSN" required>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <div class="myhouses-option" id="myhouse-option-transfer-confirm">CONFIRM</div>
+                            <div class="myhouses-option" id="myhouse-option-transfer-back">RETURN</div>
+                        </div>
+
+                        <div class="myhouse-option-keys-container">
+                            <div class="keys-container">
+                                <!-- <div class="house-key"> <span class="house-key-holder">Test Test</span> <div class="house-key-delete"><i class="fas fa-trash"></i></div> </div> -->
+                                <!-- <div class="house-key">
+                                        <span class="house-key-holder">Test Test</span>
+                                        <div class="house-key-delete"><i class="fas fa-trash"></i></div>
+                                    </div> -->
+                            </div>
+                            <div class="myhouses-option" id="myhouse-option-keys-back">RETURN</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="garage-app">
+                    <div class="garage-app-header">
+                        Vozidla
+                    </div>
+                    <div class="garage-homescreen">
+                        <div class="garage-vehicles">
+                            <!-- <div class="garage-vehicle">
+                                    <span class="garage-vehicle-firstletter">B</span>
+                                    <span class="garage-vehicle-name">BMW M5</span>
+                                </div> -->
+                        </div>
+                    </div>
+
+                    <div class="garage-detailscreen">
+                        <div class="garage-cardetails">
+                            <div class="vehicle-brand"><span class="vehicle-detail">Značka</span><span class="vehicle-answer">BMW M5</span></div>
+                            <div class="vehicle-model"><span class="vehicle-detail">Model</span><span class="vehicle-answer">BMW M5</span></div>
+                            <div class="vehicle-plate"><span class="vehicle-detail">SPZ</span><span class="vehicle-answer">BMW M5</span></div>
+                            <div class="vehicle-garage"><span class="vehicle-detail">Garáž</span><span class="vehicle-answer">BMW M5</span></div>
+                            <div class="vehicle-status"><span class="vehicle-detail">Status</span><span class="vehicle-answer">BMW M5</span></div>
+                            &nbsp;
+                            <div class="vehicle-fuel"><span class="vehicle-detail">Palivo</span><span class="vehicle-answer">BMW M5</span></div>
+                            <div class="vehicle-engine"><span class="vehicle-detail">Motor</span><span class="vehicle-answer">BMW M5</span></div>
+                            <div class="vehicle-body"><span class="vehicle-detail">Karosérie</span><span class="vehicle-answer">BMW M5</span></div>
+
+                            <div class="garage-cardetails-footer">
+                                Zpět
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trucker-app">
+                    <div class="trucker-header">
+                        <span class="trucker-header-name"><span style="font-size: 1vh; color: rgba(255, 255, 255, 0.6);">Welcome</span><br><span id="trucker-name">Jay Yay</span></span>
+                        <div class="trucker-header-progress">
+                            <div class="trucker-header-progress-fill"></div>
+                            <span class="trucker-header-progress-text" id="trucker-header-progress-current" style="float: left;">Current: 100 REP</span>
+                            <span class="trucker-header-progress-text" id="trucker-header-progress-next" style="float: right;">Next: 200 REP</span>
+                        </div>
+                        <!-- <div class="trucker-header-currentlevel">1</div> -->
+                        <span class="trucker-header-description">Your current progression<br><span id="trucker-header-tier">Tier 1</span></span>
+                    </div>
+
+                    <div class="trucker-jobinfo">
+                        <div class="trucker-jobinfo-nojob">
+                            <i class="fas fa-ban"></i>
+                            <span id="trucker-jobinfo-nojob-text">You are currently not working</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="services-app">
+                    <div class="services-header">
+                        <p>Services</p>
+                        <div class="services-header-tab">
+                        </div>
+                    </div>
+
+                    <div class="services-list-tab">
+<!--                         <div class="service-list">
+                            <div class="service-list-firstletter">J</div>
+                            <div class="service-list-fullname">Jay Nandes</div>
+                            <div class="service-list-call"><i class="fas fa-phone"></i></div>
+                        </div>
+                        <div class="service-list">
+                            <div class="service-list-firstletter">J</div>
+                            <div class="service-list-fullname">Jay Nandes</div>
+                            <div class="service-list-call"><i class="fas fa-phone"></i></div>
+                        </div>
+                        <div class="service-list">
+                            <div class="service-list-firstletter">J</div>
+                            <div class="service-list-fullname">Jay Nandes</div>
+                            <div class="service-list-call"><i class="fas fa-phone"></i></div>
+                        </div>-->
+                    </div>
+
+                    <div class="new-services-message">
+                        <div class="new-services-message-header">
+                            <span id="new-services-message-header-text">New report</span>
+                            <span id="new-services-message-header-subtext">Create new report</span>
+                        </div>
+
+                        <textarea class="new-services-message-textarea" spellcheck="false" required></textarea>
+                        <div class="new-services-message-counters">
+                            <p id="word_left_services">255</p>
+                        </div>
+
+                        <div class="new-services-message-footer">
+                            <div class="new-services-message-footer-item" id="new-services-message-submit">
+                                <i class="fas fa-check-circle new-services-message-icon"></i>
+                            </div>
+                            <div class="new-services-message-footer-item" id="new-services-message-back">
+                                <i class="fas fa-arrow-circle-left new-services-message-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="services-messages-tab">
+                        <!--<div class="service-message">
+                            <div class="service-message-fullname">Jay Nandes</div>
+                            <div class="service-message-call"><i class="fas fa-phone"></i></div>
+                            <div class="service-message-call"><i class="fas fa-phone"></i></div>
+                        </div>
+                        <div class="service-message">
+                            <div class="service-message-firstletter">J</div>
+                            <div class="service-message-fullname">Jay Nandes</div>
+                            <div class="service-message-call"><i class="fas fa-phone"></i></div>
+                        </div>
+                        <div class="service-message">
+                            <div class="service-message-firstletter">J</div>
+                            <div class="service-message-fullname">Jay Nandes</div>
+                            <div class="service-message-call"><i class="fas fa-phone"></i></div>
+                        </div>-->
+                    </div>
+
+                    <div class="services-settings-tab">
+                        <div>Prozatimní info</div>
+                        <div id="services-settings-info"></div>
+                    </div>
+                </div>
+
+                <div class="crypto-app">
+                    <div class="crypto-header">
+
+                        <img src="./img/qbit.png" class="crypto-header-picture">
+
+                        <div class="crypto-header-values">
+                            <div class="crypto-header-value crypto-portofolio">
+                                <span>Wallet</span>
+                                <p>0.2555</p>
+                            </div>
+                            <div class="crypto-header-value crypto-course">
+                                <span>Course</span>
+                                <p>$9000</p>
+                            </div>
+                            <div class="crypto-header-value crypto-volume">
+                                <span>Volume</span>
+                                <p>$2299.5‬</p>
+                            </div>
+                        </div>
+
+                        <div class="crypto-header-footer">
+                            <div class="crypto-header-footer-item" data-cryptotab="general">
+                                General
+                            </div>
+                            <div class="crypto-header-footer-item" data-cryptotab="transactions">
+                                Transactions
+                            </div>
+                            <div class="crypto-header-footer-item" data-cryptotab="course">
+                                Course
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="crypto-action-page">
+                        <div class="crypto-action-page-buy-crypto">
+
+                            <div class="crypto-action-page-header">Buy Qbit</div>
+
+                            <div class="crypto-action-page-wallet">Wallet: 1.000500 Qbit('s)</div>
+
+                            <i class="crypto-action-page-buy-crypto-input-coins-icon fas fa-coins"></i>
+                            <input type="number" oninput="this.value = Math.abs(this.value)" class="crypto-action-page-buy-crypto-input-coins" required spellcheck="false" placeholder="1.000000" step="0.000001" min="0">
+
+                            <i class="crypto-action-page-buy-crypto-input-money-icon fas fa-dollar-sign"></i>
+                            <input type="number" oninput="this.value = Math.abs(this.value)" class="crypto-action-page-buy-crypto-input-money" required spellcheck="false" placeholder="1000" step="1.0" min="0">
+
+                            <div class="crypto-action-page-buy-crypto-footer">
+                                <div class="crypto-action-page-buy-crypto-footer-button" id="buy-crypto">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="crypto-action-page-buy-crypto-footer-button" id="cancel-crypto">
+                                    <i class="fas fa-times-circle"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="crypto-action-page-sell-crypto">
+
+                            <div class="crypto-action-page-header">Sell Qbit</div>
+
+                            <div class="crypto-action-page-wallet">Wallet: 1.000500 Qbit('s)</div>
+
+                            <i class="crypto-action-page-sell-crypto-input-coins-icon fas fa-coins"></i>
+                            <input type="number" oninput="this.value = Math.abs(this.value)" class="crypto-action-page-sell-crypto-input-coins" required spellcheck="false" placeholder="1.000000" step="0.000001" min="0">
+
+                            <i class="crypto-action-page-sell-crypto-input-money-icon fas fa-dollar-sign"></i>
+                            <input type="number" oninput="this.value = Math.abs(this.value)" class="crypto-action-page-sell-crypto-input-money" required spellcheck="false" placeholder="1000" step="1.0" min="0">
+
+                            <div class="crypto-action-page-buy-crypto-footer">
+                                <div class="crypto-action-page-buy-crypto-footer-button" id="sell-crypto">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="crypto-action-page-buy-crypto-footer-button" id="cancel-crypto">
+                                    <i class="fas fa-times-circle"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="crypto-action-page-transfer-crypto">
+
+                            <div class="crypto-action-page-header">Transfer Qbit</div>
+
+                            <div class="crypto-action-page-wallet">Wallet: 0 Qbit('s)</div>
+
+                            <i class="crypto-action-page-transfer-crypto-input-coins-icon fas fa-coins"></i>
+                            <input type="number" oninput="this.value = Math.abs(this.value)" class="crypto-action-page-transfer-crypto-input-coins" required spellcheck="false" placeholder="1.000000" step="0.000001" min="0">
+
+                            <i class="crypto-action-page-transfer-crypto-input-money-icon fas fa-address-book"></i>
+                            <input type="texts" class="crypto-action-page-transfer-crypto-input-walletid" required spellcheck="false" placeholder="QB-12345678">
+
+                            <div class="crypto-action-page-buy-crypto-footer">
+                                <div class="crypto-action-page-buy-crypto-footer-button" id="transfer-crypto">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="crypto-action-page-buy-crypto-footer-button" id="cancel-crypto">
+                                    <i class="fas fa-times-circle"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="crypto-page">
+                        <div class="cryptotab-general">
+                            <div class="cryptotab-general-actions">
+                                <div class="cryptotab-general-action" data-action="buy-crypto">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                    <span class="cryptotab-general-action-title">BUY</span>
+                                    <span class="cryptotab-general-action-description">You can buy crypto here.</span>
+                                </div>
+                                <div class="cryptotab-general-action" data-action="sell-crypto">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                    <span class="cryptotab-general-action-title">SELL</span>
+                                    <span class="cryptotab-general-action-description">You can sell crypto here.</span>
+                                </div>
+                                <div class="cryptotab-general-action" data-action="transfer-crypto">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                    <span class="cryptotab-general-action-title">TRANSFER</span>
+                                    <span class="cryptotab-general-action-description">You can transfer crypto here.</span>
+                                </div>
+                            </div>
+                            <span class="crypto-walletid">Wallet ID: QB-12345678</span>
+                        </div>
+
+                        <div class="cryptotab-transactions">
+                            <div class="cryptotab-transactions-list">
+                                <!-- <div class="cryptotab-transactions-block">
+                                        <i class="fas fa-exchange-alt"></i>
+                                        <span class="cryptotab-transactions-block-title" style="color: green !important;">Deposit</span>
+                                        <span class="cryptotab-transactions-block-happening">There is &#36;1000,- deposited</span>
+                                    </div> -->
+                            </div>
+                        </div>
+
+                        <div class="cryptotab-course">
+                            <div class="cryptotab-course-list">
+                                <!-- <div class="cryptotab-course-block">
+                                        <i class="fas fa-chart-line"></i>
+                                        <span class="cryptotab-course-block-title">Course change</span>
+                                        <span class="cryptotab-course-block-happening"><span style="font-size: 1.3vh;">$1000</span> naar <span style="font-size: 1.3vh;">$2000</span><span style="color: green;" class="crypto-percentage-change"><i style="color: green;" class="fas fa-arrow-right"></i> +(100%)</span></span>
+                                    </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="meos-app">
+                    <input type="text" id="testerino">
+                    <div class="meos-app-header">
+                        <span id="meos-app-title">MDT</span>
+                        <span id="meos-app-name">Welcome Jay Nandes</span>
+                    </div>
+
+                    <div class="meos-homescreen">
+                        <div class="meos-blocks">
+                            <div class="meos-block" data-meosblock="person">
+                                <i class="fas fa-user"></i>
+                                <p>Person</p>
+                            </div>
+                            <div class="meos-block" data-meosblock="vehicle">
+                                <i class="fas fa-car"></i>
+                                <p>Vehicle</p>
+                            </div>
+                            <div class="meos-block" data-meosblock="houses">
+                                <i class="fas fa-house-user"></i>
+                                <p>House</p>
+                            </div>
+                            <div class="meos-block" data-meosblock="alerts">
+                                <i class="fas fa-bell"></i>
+                                <p>Alerts</p>
+                            </div>
+                        </div>
+
+                        <span class="meos-recent-header">Most recent alert</span>
+                        <div class="meos-recent-alerts">
+                            <div class="meos-recent-alert"> <span class="meos-recent-alert-title">You don't have any alerts!</span></div>
+                        </div>
+                    </div>
+
+                    <div class="meos-tabs">
+                        <div class="meos-person-page">
+                            <input class="person-search-input" type="text" spellcheck="false" required>
+                            <div class="confirm-search-person-test" id="search-pers">
+                                <i class="fas fa-search"></i>
+                            </div>
+
+                            <div class="person-search-results">
+                            </div>
+                        </div>
+
+                        <div class="meos-houses-page">
+                            <input class="person-search-input-house" type="text" spellcheck="false" required>
+                            <div class="confirm-search-person-house">
+                                <i class="fas fa-search"></i>
+                            </div>
+
+                            <div class="person-search-results">
+
+                            </div>
+                        </div>
+
+                        <div class="meos-vehicle-page">
+                            <input class="vehicle-search-input" type="text" spellcheck="false" required>
+                            <div class="confirm-search-vehicle">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div class="scan-search-vehicle">
+                                <i class="fas fa-barcode"></i>
+                            </div>
+
+                            <div class="vehicle-search-results">
+                                <!-- <div class="vehicle-search-result"> <div class="vehicle-search-result-name">T20</div> <div class="vehicle-search-result-plate">Kenteken: NL123456</div> <div class="vehicle-opensplit"></div> &nbsp; <div class="vehicle-search-result-owner">Eigenaar: Jay Nandes</div> &nbsp; <div class="vehicle-search-result-apk">APK: Ja</div> <div class="vehicle-search-result-warrant">Gesignaleerd: Ja</div> </div> -->
+                            </div>
+                        </div>
+
+                        <div class="meos-alerts-page">
+                            <div class="meos-clear-alerts">CLEAR</div>
+                            <div class="meos-alerts">
+                                <!-- <div class="meos-alert"> <span class="meos-alert-new" style="margin-bottom: 1vh;">NIEUW</span>
+                                        <p class="meos-alert-type">Melding: Test</p>
+                                        <p class="meos-alert-description">Melding: Test</p>
+                                        <hr>
+                                        <div class="meos-location-button">LOCATIE</div>
+                                    </div> -->
+                            </div>
+                        </div>
+
+                        <div class="meos-tabs-footer">
+                            <i class="fas fa-undo-alt" id="back-meos"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="advert-app">
+                    <div class="advert-home">
+                        <div class="advert-header">
+                            <span id="advert-header-text">Advertisements</span>
+                            <span id="advert-header-name"></span>
+                        </div>
+
+                        <div class="advert-list">
+                            <!-- <div class="advert">
+                                    <span class="advert-sender">@JayNandes | 0612345678</span>
+                                    <p>Dit is een test advert Dit is een test advert Dit is een test advert Dit is een test advert Dit is een test advert</p>
+                                </div> -->
+                        </div>
+
+                        <div class="test-slet">
+                            <i class="fas fa-plus test-icon"></i>
+                        </div>
+                    </div>
+
+                    <div class="new-advert">
+                        <div class="new-advert-header">
+                            <span id="new-advert-header-text">New advertisement</span>
+                            <span id="new-advert-header-subtext">Create New advertisement for 7 days</span>
+                        </div>
+
+                        <textarea class="new-advert-textarea" spellcheck="false" required></textarea>
+                        <div class="new-advert-counters">
+                            <p id="word_left">255</p>
+                        </div>
+
+                        <div class="new-advert-footer">
+                            <div class="new-advert-footer-item" id="new-advert-submit">
+                                <i class="fas fa-check-circle new-advert-icon"></i>
+                            </div>
+                            <div class="new-advert-footer-item" id="new-advert-back">
+                                <i class="fas fa-arrow-circle-left new-advert-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mail-create">
+                    <div class="phone-add-contact-header">
+                        <p>Create new mail</p>
+                    </div>
+
+                    <i id="mail-create-name-icon" class="fas fa-user"></i>
+                    <input type="text" class="mail-create-name" id="mail-create-name" placeholder="Email Address" required spellcheck="false">
+                    <select name="prefix" class="mail-create-prefix" id="mail-create-prefix">
+                            <option value="@gmail.com">@gmail.com</option>
+                            <option value="@mail.com">@mail.com</option>
+                        </select>
+                    <i id="mail-create-pw-icon" class="fas fa-lock"></i>
+                    <input type="password" class="mail-create-pw" id="mail-create-pw" placeholder="Password" required spellcheck="false">
+                    <input type="password" class="mail-create-repw" id="mail-create-repw" placeholder="Confirm your password" required spellcheck="false">
+
+                    <i id="mail-create-phone-icon" class="fas fa-phone-alt"></i>
+                    <input type="number" class="mail-create-phone" id="mail-create-phone" placeholder="Phone number" required spellcheck="false">
+
+                    <div class="phone-add-contact-buttons">
+                        <div class="phone-add-contact-button" id="mail-add-create">
+                            <p>Create</p>
+                        </div>
+                        <div class="phone-add-contact-button" id="mail-cancel">
+                            <p>Cancel</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mail-sign">
+                    <div class="phone-add-contact-header">
+                        <p>Log in</p>
+                    </div>
+
+                    <i id="mail-create-name-icon" class="fas fa-user"></i>
+                    <input type="text" class="mail-create-name" id="mail-login-name" placeholder="Email Address" required spellcheck="false">
+                    <select name="prefix" class="mail-create-prefix" id="mail-login-prefix">
+                            <option value="@gmail.com">@gmail.com</option>
+                            <option value="@mail.com">@mail.com</option>
+                        </select>
+                    <i id="mail-create-pw-icon" class="fas fa-lock"></i>
+                    <input type="password" class="mail-create-pw" id="mail-login-pw" placeholder="Password" required spellcheck="false">
+
+                    <div class="phone-add-contact-buttons">
+                        <div class="phone-add-contact-button" id="mail-login">
+                            <p>Log in</p>
+                        </div>
+                        <div class="phone-add-contact-button" id="mail-login-cancel">
+                            <p>Cancel</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mail-settings">
+                    <div class="mail-settings-header">
+                        <p>Settings</p>
+                    </div>
+                    <div class="mail-settings-secondTab" data-mailsettings="popup-notification">
+                        <!-- Rounded switch -->
+                        <label class="switch">
+                                <input class="settings-all-notification" type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+
+                        <div class="settings-tab-icon"><i class="fas fa-user-slash" style="color: #e67e22;"></i></div>
+                        <div class="settings-tab-title">
+                            <p>All Notification</p>
+                        </div>
+                        <div class="settings-tab-description" id="popup-notification">
+                            <p>Off</p>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="mail-settings-secondTab" data-mailsettings="notificated">
+                        <!-- Rounded switch -->
+                        <label class="switch">
+                                <input class="settings-all-notification" type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+
+                        <div class="settings-tab-icon"><i class="fas fa-user-slash" style="color: #e67e22;"></i></div>
+                        <div class="settings-tab-title">
+                            <p>All Notification</p>
+                        </div>
+                        <div class="settings-tab-description" id="notificated">
+                            <p>Off</p>
+                        </div>
+                    </div>
+                    <div class="mail-account-buttons">
+                        <div class="mail-account-button" id="mail-save-settings">
+                            <p>Save</p>
+                        </div>
+                        <div class="mail-account-button" id="mail-cancel-settings">
+                            <p>Cancel</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mail-app">
+                    <div class="mail-home">
+                        <div class="mail-header">
+                            <span id="mail-header-text">Inbox</span>
+                            <span id="mail-header-mail">Email not logged</span>
+                            <span id="mail-header-lastsync">Create new email</span>
+                        </div>
+
+                        <div class="mail-list">
+                            <!-- <div class="mail">
+                                    <span class="mail-sender">Instagram</span>
+                                    <div class="mail-text"><p>Dit is een test mail en wordt dus niet volledig weergeven want dat is het gene wat ik aan het testen ben</p></div>
+                                    <div class="mail-time">18:31</div>
+                                </div> -->
+                        </div>
+                        <div class="mail-inbox">
+                            <i class="fas fa-inbox mail-inbox-icon"></i>
+                        </div>
+                        <div class="new-email">
+                            <i class="fas fa-plus new-email-icon"></i>
+                        </div>
+                        <div class="mail-sent">
+                            <i class="fas fa-caret-right mail-sent-icon"></i>
+                        </div>
+                    </div>
+
+                    <div class="opened-mail">
+                        <div class="opened-mail-header">
+                            <div class="mail-back"><i class="fas fa-chevron-left" id="mail-back"></i></div>
+                            <div class="mail-subject">
+                                <p>Subject</p>
+                            </div>
+                            <div class="mail-date">
+                                <p>19 February 2019 &nbsp; 08:19</p>
+                            </div>
+                            <div class="mail-spacing"></div>
+                            <div class="mail-content">
+                                <p>
+                                    This is a test mail and will not be fully shown because thats what I'm testing.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="opened-mail-footer">
+                            <div class="opened-mail-footer-item">
+                                <i class="fas fa-check-circle" id="accept-mail"></i>
+                            </div>
+                            <div class="opened-mail-footer-item">
+                                <i class="fas fa-trash-alt" id="remove-mail"></i>
+                            </div>
+                            <div class="opened-mail-footer-item">
+                                <i class="fas fa-reply" id="reply-mail"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="new-mail">
+                        <div class="new-mail-header">
+                            <span id="new-mail-header-text">Send email</span>
+                        </div>
+
+                        <input type="email" class="new-mail-reciever" placeholder="Send to" required spellcheck="false">
+
+                        <input type="text" class="new-mail-subject" placeholder="Subject" required spellcheck="false">
+
+                        <textarea class="new-mail-textarea" spellcheck="false" required></textarea>
+
+
+                        <div class="new-mail-footer">
+                            <div class="new-mail-footer-item" id="new-mail-submit">
+                                <i class="fas fa-check-circle new-mail-icon"></i>
+                            </div>
+                            <div class="new-mail-footer-item" id="new-mail-back">
+                                <i class="fas fa-arrow-circle-left new-mail-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="store-app">
+                    <div class="store-header">
+                        <p>App Store</p>
+                    </div>
+                    <div class="store-apps">
+                        <div class="storeapp" data-app="territory">
+                            <div class="storeapp-icon">
+                                <i class="fas fa-globe-europe"></i>
+                            </div>
+                            <div class="storeapp-title">
+                                Territory
+                            </div>
+                            <div class="storeapp-creator">
+                                Qbus
+                            </div>
+                            <div class="storeapp-download">
+                                <i class="fas fa-download"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="download-password-container">
+                        <div class="download-password">
+                            <span id="download-password-title">Security</span>
+                            <span id="download-password-disclaimer">To download this application you must enter a password.</span>
+                            <input type="text" class="download-password-input" spellcheck="false" required>
+
+                            <div class="download-password-buttons">
+                                <div class="download-password-accept"><i class="fas fa-check"></i></div>
+                                <div class="download-password-deny"><i class="fas fa-times"></i></div>
+                            </div>
+
+                            <div class="download-progressbar">
+                                <div class="download-progressbar-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="racing-app">
+                    <div class="racing-overview">
+                        <div class="racing-app-header">
+                            Racing - Overview
+                        </div>
+
+                        <div class="racing-races">
+                             <div class="racing-race">
+                                    <span class="race-name"><i class="fas fa-flag-checkered"></i> Prison</span>
+                                    <span class="race-track"><i class="fas fa-unlock"></i> Joinable</span>
+                                    <div class="race-infomation">
+                                        <div class="race-infomation-tab" id="race-information-laps">0 Laps</div>
+                                        <div class="race-infomation-tab" id="race-information-distance">0 m</div>
+                                        <div class="race-infomation-tab" id="race-information-player"><i class="fas fa-user"></i> 0</div>
+                                    </div>
+                                    <div class="race-buttons">
+                                        <div class="race-button" id="join-race" data-toggle="tooltip" data-placement="left" title="Join"><i class="fas fa-sign-in-alt"></i></div>
+                                        <div class="race-button" id="quit-race" data-toggle="tooltip" data-placement="right" title="Quit"><i class="fas fa-sign-out-alt"></i></div>
+                                    </div>
+                                </div>
+                             <div class="racing-race"> <span class="race-name"><i class="fas fa-flag-checkered"></i> Prison</span> <span class="race-track"><i class="fas fa-unlock"></i> Joinable</span> <div class="race-infomation"> <div class="race-infomation-tab" id="race-information-laps">0 Laps</div> <div class="race-infomation-tab" id="race-information-distance">0 m</div> <div class="race-infomation-tab" id="race-information-player"><i class="fas fa-user"></i> 0</div> </div> <div class="race-buttons"> <div class="race-button" id="join-race" data-toggle="tooltip" data-placement="left" title="Join"><i class="fas fa-sign-in-alt"></i></div> <div class="race-button" id="quit-race" data-toggle="tooltip" data-placement="right" title="Quit"><i class="fas fa-sign-out-alt"></i></div> </div> </div>
+                        </div>
+
+                        <div class="racing-buttons">
+                            <div class="racing-button" id="setup-race">
+                                <i class="fas fa-flag-checkered"></i> Setup
+                            </div>
+                            <div class="racing-button" id="leaderboards-race">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="racing-button" id="create-race">
+                                <i class="fas fa-plus"></i> Create
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="racing-setup">
+                        <div class="racing-app-header">
+                            Racing - Setup
+                        </div>
+
+                        <span id="racing-setup-trackheader">Race Track</span>
+                        <div class="dropdown">
+                            <div class="select">
+                                <span>Select a Track</span>
+                                <i class="fa fa-chevron-left"></i>
+                            </div>
+                            <input type="hidden" name="gender">
+                            <ul class="dropdown-menu"></ul>
+                        </div>
+
+                        <span id="racing-setup-lapsheader">Laps</span>
+                        <input type="number" min="0" oninput="this.value = Math.abs(this.value)" class="racing-setup-laps" required spellcheck="false" placeholder="Number of laps (0 is Sprint)">
+
+                        <span id="racing-setup-informationheader">Race Information</span>
+                        <div class="racing-setup-information-distance">Select a Track</div>
+                        <div class="racing-setup-information-creator">Select a Track</div>
+                        <div class="racing-setup-information-wr">Select a Track</div>
+
+                        <div class="racing-setup-buttons">
+                            <div class="racing-setup-button" id="setup-race-accept" data-toggle="race-setup" data-placement="bottom" title="Accept">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="racing-setup-button" id="setup-race-cancel" data-toggle="race-setup" data-placement="bottom" title="Cancel">
+                                <i class="fas fa-times-circle"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="racing-create">
+                        <div class="racing-create-block">
+                            <span id="racing-create-tracknameheader">Track Name</span>
+                            <input type="text" class="racing-create-trackname" required spellcheck="false" placeholder="Name of your track">
+
+                            <div class="racing-create-buttons">
+                                <div class="racing-create-button" id="racing-create-accept">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="racing-create-button" id="racing-create-cancel">
+                                    <i class="fas fa-times-circle"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="racing-leaderboard">
+                        <div class="racing-app-header">
+                            Racing - Leaderboards
+                        </div>
+
+                        <span id="racing-leaderboards-header">Last Tracks</span>
+                        <div class="racing-leaderboards">
+                             <div class="racing-leaderboard-item">
+                                    <span class="racing-leaderboard-item-name"><i class="fas fa-flag-checkered"></i> Prison</span>
+                                    <span class="racing-leaderboard-item-info">Klik voor meer details</span>
+                                </div>
+                             <div class="racing-leaderboard-item"> <span class="racing-leaderboard-item-name"><i class="fas fa-flag-checkered"></i> Prison</span> <span class="racing-leaderboard-item-info">Klik voor meer details</span> </div>
+                        </div>
+
+                        <div class="racing-leaderboard-details">
+                            <div class="racing-leaderboard-details-block">
+                                <div class="racing-leaderboard-details-back"><i class="fas fa-times-circle"></i></div>
+                                <div class="racing-leaderboard-details-block-trackname"><i class="fas fa-flag-checkered"></i> Prison</div>
+                                <span id="leaderboard-list-header"><span style="float: left;">Racer</span><span style="margin-left: 5.55vh;"><i class="fas fa-stopwatch"></i></span><span style="float: right; margin-right: 2vh;">#</span></span>
+                                <div class="racing-leaderboard-details-block-list">
+                                     <div class="row"> <div class="name">Jay Nandes</div><div class="time">00:04:55</div><div class="score">1</div> </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="racing-leaderboards-button">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="twitter-app">
+
+                    <div class="twitter-home-tab">
+                        <!-- <div class="twitter-tweet" data-twthandler="@'+TwitterHandle.replace(" ", "_")+'">
+                                <div class="tweet-reply"><i class="fas fa-reply"></i></div>
+                                <div class="tweet-tweeter">'+Tweet.firstName+' '+Tweet.lastName+' &nbsp;<span>@'+TwitterHandle.replace(" ", "_")+' &middot; '+TimeAgo+'</span></div>
+                                <div class="tweet-message">@JAY</div>
+                                <div class="twt-img" style="top: 1vh;"><img src="'+PictureUrl+'" class="tweeter-image"></div>
+                            </div> -->
+                        <div class="twitter-no-tweets">
+                            <p>No Tweets have been posted yet.. :(</p>
+                        </div>
+                    </div>
+
+                    <div class="twitter-hotTweets-tab">
+
+                        <div class="twitter-no-tweets">
+                            <p>No Hot Tweets have been posted yet.. :(</p>
+                        </div>
+                    </div>
+
+                    <div class="twitter-mentions-tab">
+                        <!-- <div class="twitter-mentioned-tweet"> 
+                                <div class="tweet-tweeter">Test &nbsp;<span>@Test &middot; 2 m</span></div>
+                                <div class="tweet-message">Dit is test tweet yeey. :) ggggggggggggggggggggggggggg gggggggggggggggggg</div>
+                                <div class="twt-img" style="top: 1vh;"><img src="'+PictureUrl+'" class="tweeter-image"></div>
+                            </div> -->
+                        <div class="twitter-no-tweets">
+                            <p>You haven't been mentioned yet.. :(</p>
+                        </div>
+                    </div>
+
+                    <div class="twitter-hashtags-tab">
+                        <div class="twitter-hashtag-tweets">
+                            <div class="twitter-tweet">
+                                <!-- <div class="tweet-tweeter">Test &nbsp;<span>@Test &middot; 2 m</span></div>
+                                    <div class="tweet-message">Dit is test tweet yeey. :) ggggggggggggggggggggggggggg gggggggggggggggggg</div>
+                                    <div class="twt-img" style="top: 1vh;"><img src="'+PictureUrl+'" class="tweeter-image"></div> -->
+                            </div>
+                        </div>
+                        <div class="twitter-hashtags">
+                            <!-- <div class="twitter-hashtag">
+                                    <div class="twitter-hashtag-status">Niet trending in Qbus</div>
+                                    <div class="twitter-hashtag-tag">#Test</div>
+                                    <div class="twitter-hashtag-messages">5 Tweets</div>
+                                </div> -->
+                            <div class="twitter-no-tweets">
+                                <p>There are no hashtags yet #SAD.. :(</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="twitter-new-acc-tab">
+                        <div class="twitter-new-acc-header" id="twitter-new-acc-header">
+                            <p>New Account</p>
+                        </div>
+                        <form id="new">
+                            <i id="twitter-new-acc-text" class="fas fa-user"></i>
+                            <br>
+                            <input id="twitter-new-acc-input" type="text" name="name" placeholder="username" required>
+                            <br>
+                            <i id="twitter-new-acc-text2" class="fas fa-lock"></i>
+                            <br>
+                            <input id="twitter-new-acc-input2" type="password" name="password" placeholder="password" required>
+                            <br>
+                            <input id="twitter-new-acc-input3" type="password" name="repassword" placeholder="repeat password" required>
+                            <br>
+                            <i id="twitter-new-acc-text4" class="fas fa-image"></i>
+                            <br>
+                            <input id="twitter-new-acc-input4" type="url" name="profilepicture" placeholder="url/default" required>
+                            <br>
+                            <i id="twitter-new-acc-text5" class="fas fa-envelope"></i>
+                            <br>
+                            <input id="twitter-new-acc-input5" type="email" name="email" placeholder="email" required>
+                        </form>
+
+                        <div class="twitter-new-acc-buttons" id="twitter-new-acc-buttons">
+
+                        </div>
+                    </div>
+
+                    <div class="twitter-login-tab">
+                        <div class="twitter-new-acc-header">
+                            <p>Log In</p>
+                        </div>
+                        <form id="login">
+                            <i id="twitter-log-acc-text" class="fas fa-user"></i>
+                            <br>
+                            <input id="twitter-log-acc-input" type="text" name="name" placeholder="username" required>
+                            <br>
+                            <i id="twitter-log-acc-text2" class="fas fa-lock"></i>
+                            <br>
+                            <input id="twitter-log-acc-input2" type="password" name="password" placeholder="password" required>
+                        </form>
+
+                        <div class="twitter-new-acc-buttons">
+                            <div class="twitter-new-acc-button" id="login-twitter">
+                                <p>Log In</p>
+                            </div>
+                            <div class="twitter-new-acc-button" id="cancel-twitter">
+                                <p>Cancel</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="twitter-acc-tab">
+                        <div class="twitter-acc-profilepicture" data-twitteracctab="default">
+                            <div class="twitter-acc-icon"></div>
+                            <div class="twitter-acc-username"></div>
+                        </div>
+
+
+                        <div class="twitter-acc-buttons">
+                            <div class="twitter-acc-button" id="twitter-login">
+                                <p>Log In</p>
+                            </div>
+                            <div class="twitter-acc-button" id="twitter-sign">
+                                <p>Create</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="twitter-settings-tab">
+                        <div class="twitter-settings-header">
+                            <p>Settings</p>
+                        </div>
+                        <div class="twitter-settings-secondTab" data-twittersettingstab="all-notification">
+                            <!-- Rounded switch -->
+                            <label class="switch">
+                                    <input class="settings-all-notification" type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+
+                            <div class="settings-tab-icon"><i class="fas fa-user-slash" style="color: #e67e22;"></i></div>
+                            <div class="settings-tab-title">
+                                <p>All Notification</p>
+                            </div>
+                            <div class="settings-tab-description" id="all-notification">
+                                <p>Off</p>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="twitter-settings-secondTab" data-twittersettingstab="mention-notification">
+                            <!-- Rounded switch -->
+                            <label class="switch">
+                                    <input class="settings-mention-notification" type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+
+                            <div class="settings-tab-icon"><i class="fas fa-user-slash" style="color: #e67e22;"></i></div>
+                            <div class="settings-tab-title">
+                                <p>Metion Notification</p>
+                            </div>
+                            <div class="settings-tab-description" id="mention-notification">
+                                <p>Off</p>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="twitter-settings-secondTab" data-twittersettingstab="email-notification">
+                            <!-- Rounded switch -->
+                            <label class="switch">
+                                    <input class="settings-email-notification" type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+
+                            <div class="settings-tab-icon"><i class="fas fa-user-slash" style="color: #e67e22;"></i></div>
+                            <div class="settings-tab-title">
+                                <p>Email Notification</p>
+                            </div>
+                            <div class="settings-tab-description" id="email-notification">
+                                <p>Off</p>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="twitter-new-tweet-buttons">
+                            <div class="twitter-new-tweet-button" id="save-settings">
+                                <p>Save</p>
+                            </div>
+                            <div class="twitter-new-tweet-button" id="reset-settings">
+                                <p>Reset</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="twitter-new-tweet">
+                        <i class="fas fa-feather-alt"></i>
+                    </div>
+
+                    <div class="twitter-new-tweet-tab">
+                        <div class="twitter-new-tweet-header">
+                            <p>New Tweet</p>
+                        </div>
+
+                        <textarea id="tweet-new-message" placeholder="Twitter message" cols="30" rows="10" spellcheck="false" required></textarea>
+
+                        <div class="twitter-new-tweet-buttons">
+                            <div class="twitter-new-tweet-button" id="send-tweet">
+                                <p>Send</p>
+                            </div>
+                            <div class="twitter-new-tweet-button" id="cancel-tweet">
+                                <p>Cancel</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="twitter-header">
+                        <div id="twitter-home" data-twittertab="twitter-home" class="twitter-header-tab selected-twitter-header-tab"><i class="fas fa-home"></i></div>
+                        <div id="twitter-hotTweets" data-twittertab="twitter-hotTweets" class="twitter-header-tab"><i class="fas fa-fire"></i></div>
+                        <div id="twitter-mentions" data-twittertab="twitter-mentions" class="twitter-header-tab"><i class="fas fa-at"></i></div>
+                        <div id="twitter-hashtags" data-twittertab="twitter-hashtags" class="twitter-header-tab"><i class="fas fa-hashtag"></i></div>
+                        <div id="twitter-acc" data-twittertab="twitter-acc" class="twitter-header-tab"><i class="fas fa-user-circle"></i></i>
+                        </div>
+                        <div id="twitter-settings" data-twittertab="twitter-settings" class="twitter-header-tab"><i class="fas fa-cog"></i></div>
+                    </div>
+                </div>
+
+                <div class="bank-app">
+                    <div class="bank-app-loading">
+                        <img src="../html/img/apps/bank-logo.png" class="qbank-logo">
+                        <span id="qbank-text">Bank</span>
+                    </div>
+                    <div class="bank-app-loaded">
+                        <div class="bank-app-header">
+                            <div data-headertype="accounts" class="bank-app-header-button bank-app-header-button-selected"> <i class="fas fa-align-left"></i>
+                                <p>Accounts</p>
+                            </div>
+                            <div data-headertype="invoices" class="bank-app-header-button"> <i class="fas fa-file-invoice"></i>
+                                <p>Invoices</p>
+                            </div>
+                            <div data-headertype="fines" class="bank-app-header-button"> <i class="fas fa-receipt"></i>
+                                <p>Fines</p>
+                            </div>
+                        </div>
+
+                        <div class="bank-app-accounts">
+
+                        </div>
+
+                        <div class="bank-app-account-actions">
+                            <i id="transfer-money" class="fas fa-exchange-alt bank-app-account-action-transfer"></i>
+                        </div>
+
+                        <div class="bank-app-transfer">
+                            <div class="bank-app-transfer-header">Transfer Money</div>
+                            <div id="bank-select">
+                                <i class="fab fa-cc-visa bank-app-transfer-select-icon"></i>
+
+                            </div>
+
+                            <i class="bank-transfer-iban-icon fas fa-credit-card"></i>
+                            <input type="text" id="bank-transfer-iban" class="bank-transfer-input" placeholder="iban" required spellcheck="false">
+
+                            <i class="bank-transfer-amount-icon fas fa-dollar-sign"></i>
+                            <input type="number" min="0" placeholder="Money" oninput="this.value = Math.abs(this.value)" id="bank-transfer-amount" class="bank-transfer-input" required spellcheck="false">
+
+                            <div class="bank-transfer-type"><br>
+                                <div class="type-label">Transfer Type</div>
+                                <input type="radio" id="transfer"
+                                       name="transferType" value="transfer" checked>
+                                <label for="transfer">Money Transfer</label>
+
+                                <input type="radio" id="invoice"
+                                       name="transferType" value="invoice">
+                                <label for="invoice">Invoice</label>
+
+                                <input type="radio" id="fine"
+                                       name="transferType" value="fine">
+                                <label for="fine">Fine</label>
+                            </div>
+                            <div class="bank-transfer-type2"><br>
+                                <i class="bank-transfer-invoice-icon fas fa-file-invoice" id="bank-transfer-id-icon"></i>
+                                <input type="text" id="bank-transfer-id" class="bank-transfer-invoice" placeholder="Invoice/fine ID" required spellcheck="false">
+                            </div>
+
+
+                            <i class="fas fa-comment bank-transfer-description-icon"></i>
+                            <input class="bank-transfer-description" type="text" placeholder="Description" id="description" name="desc" required spellcheck="false">
+                            <div class="bank-app-transfer-buttons">
+                                <div class="bank-app-transfer-button" id="accept-transfer">Transfer</div>
+                                <i class="bank-app-transfer-button bank-transfer-mycontacts-icon fas fa-address-book"></i>
+                                <div class="bank-app-transfer-button" id="cancel-transfer">Cancel</div>
+                            </div>
+                        </div>
+
+                        <div class="bank-app-invoices">
+                            <div class="bank-app-invoices-list">
+                                <!-- <div class="bank-app-invoice"> <div class="bank-app-invoice-title">Betaalverzoek <span style="font-size: 1vh; color: gray;">(Afzender: 0612345678)</span></div> <div class="bank-app-invoice-amount">&#36; 5000,-</div> <div class="bank-app-invoice-buttons"> <i class="fas fa-check-circle pay-invoice"></i> <i class="fas fa-times-circle decline-invoice"></i> </div> </div> -->
+                            </div>
+                        </div>
+
+                        <div class="bank-app-fines">
+                            <div class="bank-app-fines-list">
+                                <!-- <div class="bank-app-invoice"> <div class="bank-app-invoice-title">Betaalverzoek <span style="font-size: 1vh; color: gray;">(Afzender: 0612345678)</span></div> <div class="bank-app-invoice-amount">&#36; 5000,-</div> <div class="bank-app-invoice-buttons"> <i class="fas fa-check-circle pay-invoice"></i> <i class="fas fa-times-circle decline-invoice"></i> </div> </div> -->
+                            </div>
+                        </div>
+
+                        <div class="bank-app-fine-details">
+                        </div>
+                        <div class="bank-app-invoice-details">
+                            <div class="bank-app-transfer-header">Invoice Details</div>
+                            <label for="SenderName">Sender Name:</label>
+                            <input type="text" class="bank-app-account-SenderName" id="SenderName" value='' readonly spellcheck="false">
+                            <br>
+                            <label for="OwnerName">Receiver Name:</label>
+                            <input type="text" class="bank-app-account-OwnerName" id="OwnerName" value='' readonly spellcheck="false">
+                            <br>
+                            <label for="idInvoice">ID:</label>
+                            <input type="text" class="bank-app-account-idInvoice" id="idInvoice" value='' readonly spellcheck="false">
+                            <br>
+                            <label for="bank">Bank:</label>
+                            <input type="text" class="bank-app-account-bank" id="bank" value='' readonly spellcheck="false">
+                            <br>
+                            <label for="date">Date:</label>
+                            <input type="text" class="bank-app-account-date" id="date" value='' readonly spellcheck="false">
+                            <br>
+                            <label for="price">Price:</label>
+                            <input type="text" class="bank-app-account-price" id="price" value='' readonly spellcheck="false">
+                        </div>
+                    </div>
+
+                    <div class="bank-app-my-contacts">
+                        <div class="bank-app-my-contacts-header">My Contacts</div>
+                        <div class="bank-app-my-contacts-list-header">
+                            <input type="text" id="bank-app-my-contact-search" placeholder="Contact name" spellcheck="false">
+                        </div>
+                        <div class="bank-app-my-contacts-list">
+                            <!-- <div class="bank-app-my-contact"> <div class="bank-app-my-contact-firstletter">P</div> <div class="bank-app-my-contact-name">Pieter Post</div> </div> -->
+                        </div>
+                        <div class="bank-app-my-contacts-list-back">Return</div>
+                    </div>
+                </div>
+
+                <div class="whatsapp-app">
+                    <div class="whatsapp-header">
+                        <div class="whatsapp-header-top"></div>
+                        <div class="whatsapp-header-footer">
+                            <p>Whatsapp</p>
+                            <i id="whatsapp-search-chats" class="fas fa-search"></i>
+                            <input type="text" id="whatsapp-search-input" placeholder="Contactname" spellcheck="false">
+                        </div>
+                    </div>
+                    <div class="whatsapp-chats">
+                        <!-- <div class="whatsapp-chat">
+                                <div class="whatsapp-chat-picture"></div>
+                                <div class="whatsapp-chat-name"><p>Testt</p></div>
+                                <div class="whatsapp-chat-lastmessage"><p>This is a hardcoded test message! 1111111111111111111111111111111111111</p></div>
+                                <div class="whatsapp-chat-lastmessagetime"><p>07:53</p></div>
+                            </div> -->
+                    </div>
+                    <div class="whatsapp-openedchat">
+                        <div class="whatsapp-header-openedchat">
+                            <div class="whatsapp-header-top-openedchat"></div>
+                            <div class="whatsapp-header-footer-openedchat">
+                                <div class="whatsapp-openedchat-picture"></div>
+                                <div class="whatsapp-openedchat-name">
+                                    <p></p>
+                                </div>
+                                <i id="whatsapp-openedchat-back" class="fas fa-arrow-left"></i>
+                            </div>
+                        </div>
+                        <div class="whatsapp-openedchat-messages">
+
+                        </div>
+                        <div class="whatsapp-openedchat-input">
+                            <div class="whatsapp-extra-buttons">
+                                <div class="whatsapp-extra-button" id="send-location"><i class="fas fa-map-marker-alt"></i></div>
+                                <!-- <div class="whatsapp-extra-button" id="send-image"><i class="fas fa-map-marker-alt"></i></div> -->
+                                <!-- <div class="whatsapp-extra-button" id="send-location"><i class="fas fa-money-bill"></i></div> -->
+                            </div>
+                            <input type="text" id="whatsapp-openedchat-message" placeholder="Message" spellcheck="false">
+                            <i class="fas fa-paper-plane" id="whatsapp-openedchat-send"></i>
+                            <i class="fas fa-ellipsis-v" id="whatsapp-openedchat-message-extras"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phone-currentcall-container">
+                <div class="phone-currentcall-icon"><i class="fas fa-phone"></i></div>
+                <div class="phone-currentcall-title">Outgoing call</div>
+                <div class="phone-currentcall-contact">with 0612345678</div>
+            </div>
+
+            <!-- Phone Home Button -->
+            <div class="phone-footer">
+                <div class="phone-home-container">
+                    <div class="phone-home-button"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="screen-notifications-container">
+        <div class="screen-notification-icon"><i class="fab fa-twitter"></i></div>
+        <div class="screen-notification-title">
+            <p>New Tweet!</p>
+        </div>
+        <div class="screen-notification-content">
+            <p>This is a test notification </p>
+        </div>
+    </div>
+
+    <div class="call-notifications">
+        <div class="call-notifications-icon"><i class="fas fa-phone"></i></div>
+        <div class="call-notifications-title">
+            <p>Incoming Call</p>
+        </div>
+        <div class="call-notifications-content">
+            <p>You have an incoming call from Test</p>
+        </div>
+    </div>
+
+    <div class="racing-notification">
+        <div class="racing-notification-icon"><i class="fas fa-flag-checkered"></i></div>
+        <div class="racing-notification-title">
+            <p>Racing Track Setup</p>
+        </div>
+        <div class="racing-notification-content">
+            <p>You are currently in racing track setup, please open map.
+                <br><span style="color:green;">[E]</span> to save.
+                <br><span style="color:green;">[K]</span> to close.</p>
+        </div>
+    </div>
+
+    <!-- <div class="emergency-button">
+            <div class="emergency-button-header">
+                <img src="./img/politie-2.png" class="police-logo-2">
+            </div>
+            <div class="emergency-button-footer">
+                <img src="./img/politie-3.png" class="police-logo-3">
+            </div>
+        </div> -->
+
+    <!-- JavaScript File's -->
+    <script src="./js/config.js"></script>
+    <script src="./js/app.js"></script>
+
+    <script src="./js/settings.js"></script>
+    <script src="./js/phone.js"></script>
+    <script src="./js/twitter.js"></script>
+    <script src="./js/bank.js"></script>
+    <script src="./js/whatsapp.js"></script>
+    <script src="./js/garage.js"></script>
+    <script src="./js/mail.js"></script>
+    <script src="./js/meos.js"></script>
+    <script src="./js/crypto.js"></script>
+    <script src="./js/racing.js"></script>
+    <script src="./js/houses.js"></script>
+    <script src="./js/services.js"></script>
+    <script src="./js/qstore.js"></script>
+    <script src="./js/trucker.js"></script>
+    <script src="./js/security.js"></script>
+</body>
+
+</html>

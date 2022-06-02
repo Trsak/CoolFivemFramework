@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>WiWang Insurance</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="css/styles.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+        <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+        <script type="text/javascript" src="nui://insurance/cfg.json" async></script>
+        <script type="text/javascript" src="nui://insurance/nui/js/listener.js" async></script>
+    </head>
+
+    <body>
+    <img src="img/tablet.png" alt="Tablet" class="Tablet">
+    <img src="img/background.png" alt="background" class="background" width="1050px" height="650px">
+    <div class="tablet">
+        <form action="/action_page.php" method="post">
+            <div class="imgcontainer">
+                <img src="img/avatar.png" alt="Avatar" class="avatar">
+                <h2>Wiwang Insurance Login </h2>
+            </div>
+
+            <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+
+                <button type="submit">Login</button>
+                <label>
+                    <span class="close">&times;</span>
+                </label>
+            </div>
+        </form>
+        </div>
+    </body>
+</html>

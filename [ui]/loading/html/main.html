@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="cs">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Rubik:ital,wght@0,300;0,400;1,300;1,400"
+          rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.5.10/plyr.css"/>
+    <link rel="stylesheet" href="style.css">
+
+    <title>server.CZ Loading</title>
+</head>
+
+<body onmousemove="moveImg(event)">
+<img src='img/cursor.png' id='cursor'/>
+<div id="vidtop-content">
+    <div id="brand">
+        <div id="brandText">
+            <img src="img/server.png"></span>
+        </div>
+    </div>
+    <div id="playerDiv">
+        <div id="player">
+            <audio id="audioPlayer" allow="autoplay" autoplay controls>
+            </audio>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+</script>
+<script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/1.0.0/dist/progressbar.js">
+</script>
+<script src="https://cdn.plyr.io/3.5.10/plyr.js"></script>
+<script type="text/javascript">
+    var bgImages = Array.from(Array(36).keys());
+    bgImages.shift();
+    var currentBackground = 0;
+
+    function changeBackground() {
+        currentBackground++;
+        if (currentBackground >= bgImages.length) currentBackground = 0;
+
+        $('body').css({
+            'background-image': "url('./img/" + bgImages[currentBackground] + ".webp')"
+        });
+
+        setTimeout(changeBackground, 5000);
+    }
+
+    function moveImg(event) {
+        var x = event.clientX + 1;
+        var y = event.clientY + 1;
+        var cursor = document.getElementById("cursor");
+        cursor.style.left = x + 'px';
+        cursor.style.top = y + 'px';
+    }
+
+    bgImages = bgImages.sort(function () {
+        return .5 - Math.random();
+    });
+    changeBackground();
+
+    $(document).ready(function () {
+
+        const player = new Plyr('#audioPlayer', {
+            volume: 0.5,
+        });
+
+        var music = [{
+            src: 'https://static.server.cz/sounds/loading/01.ogg',
+            type: 'audio/ogg',
+        }, {
+            src: 'https://static.server.cz/sounds/loading/02.ogg',
+            type: 'audio/ogg',
+        }, {
+            src: 'https://static.server.cz/sounds/loading/03.ogg',
+            type: 'audio/ogg',
+        }, {
+            src: 'https://static.server.cz/sounds/loading/04.ogg',
+            type: 'audio/ogg',
+        }, {
+            src: 'https://static.server.cz/sounds/loading/05.ogg',
+            type: 'audio/ogg',
+        }, {
+            src: 'https://static.server.cz/sounds/loading/06.ogg',
+            type: 'audio/ogg',
+        }, {
+            src: 'https://static.server.cz/sounds/loading/07.ogg',
+            type: 'audio/ogg',
+        }, {
+            src: 'https://static.server.cz/sounds/loading/08.ogg',
+            type: 'audio/ogg',
+        }, {
+            src: 'https://static.server.cz/sounds/loading/09.ogg',
+            type: 'audio/ogg',
+        }, {
+            src: 'https://static.server.cz/sounds/loading/10.ogg',
+            type: 'audio/ogg',
+        }, {
+            src: 'https://static.server.cz/sounds/loading/11.ogg',
+            type: 'audio/ogg',
+        }, {
+            src: 'https://static.server.cz/sounds/loading/12.ogg',
+            type: 'audio/ogg',
+        }, {
+            src: 'https://static.server.cz/sounds/loading/13.ogg',
+            type: 'audio/ogg',
+        }, {
+            src: 'https://static.server.cz/sounds/loading/14.ogg',
+            type: 'audio/ogg',
+        }, {
+            src: 'https://static.server.cz/sounds/loading/15.ogg',
+            type: 'audio/ogg',
+        }, {
+            src: 'https://static.server.cz/sounds/loading/16.ogg',
+            type: 'audio/ogg',
+        }, {
+            src: 'https://static.server.cz/sounds/loading/17.ogg',
+            type: 'audio/ogg',
+        }, {
+            src: 'https://static.server.cz/sounds/loading/18.ogg',
+            type: 'audio/ogg',
+        }];
+
+        music = shuffle(music);
+
+        player.source = {
+            type: 'audio',
+            sources: music,
+        };
+
+        document.addEventListener("DOMContentLoaded", function () {
+            player.play();
+        });
+    });
+
+    /*
+    const handlers = {
+        loadProgress(data) {
+            if (data.loadFraction) {
+                var loadProgress = ((data.loadFraction * 100)).toFixed(0) + "%";
+
+                $('#loader').data("percent", loadProgress);
+                $('#loader .skill-bar-percent').html(loadProgress);
+                $('#loader .skillbar-bar').width(loadProgress);
+
+                if (loadProgress == "100%") {
+                    $('#loader .skillbar-title span').html("Čekám na načtení klienta...");
+                }
+            }
+        }
+    };
+
+    window.addEventListener('message', function (e) {
+        (handlers[e.data.eventName] || function () {})(e.data);
+    });*/
+
+    function shuffle(array) {
+        var currentIndex = array.length,
+            temporaryValue, randomIndex;
+
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            // And swap it with the current element.
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+
+        return array;
+    }
+</script>
+</body>
+
+</html>

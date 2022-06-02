@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="boosttrap.css">
+    <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+    <script src="listener.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script src="https://kit.fontawesome.com/9586a73469.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="box" style="display: none;">
+
+        <div class="sidebar">
+
+            <div class="sidebar-name">
+
+                <h2><i class="fas fa-briefcase"></i>Boss menu</h2>
+            </div>
+            <div class="sidebar-menu">
+                <ul>
+                    <li>
+                        <a onclick="openMenu('dashboard')"><i class="fas fa-globe"></i><span>Přehled</span></a>
+                    </li>
+                    <li>
+                        <a onclick="openMenu('employes')"><i class="fas fa-users"></i><span>Zaměstanci</span></a>
+                    </li>
+                    <li>
+                        <a onclick="openMenu('grades')"><i class="fas fa-id-badge"></i><span>Správa pozic</span></a>
+                    </li>
+                    <li>
+                        <a onclick="openMenu('buy')"><i class="fas fa-car"></i><span>Koupě vozidel</span></a>
+                    </li>
+                    <li>
+                        <a onclick="openMenu('vehicles')"><i class="fas fa-car"></i><span>Firemní vozidla</span></a>
+                    </li>
+                    <li>
+                        <a onclick="openMenu('invoices')"><i class="fas fa-receipt"></i><span>Nezaplacené faktury</span></a>
+                    </li>
+                    <li>
+                        <a onclick="openMenu('applications')"><i class="fas fa-envelope"></i><span>Žádosti o
+                                práci</span></a>
+                    </li>
+                    <li>
+                        <a onclick="openMenu('logs')"><i class="fas fa-user-clock"></i><span>Příchody /
+                                odchody</span></a>
+                    </li>
+                    <li>
+                        <a onclick="openMenu('settings')"><i class="fas fa-cogs"></i><span>Nastavení</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-content ">
+            <header>
+                <h2 id="description">
+
+                </h2>
+                <div class="user" id="user-details">
+                </div>
+            </header>
+            <main id="main-place">
+
+            </main>
+        </div>
+    </div>
+
+</body>
+
+</html>

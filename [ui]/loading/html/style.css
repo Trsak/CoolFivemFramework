@@ -1,0 +1,222 @@
+* {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+html,
+body {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background-image: url("./img/1.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Montserrat', sans-serif;
+    transition: background 0.5s linear;
+    -moz-transition: background 0.5s linear;
+    /* Firefox 4 */
+    -webkit-transition: background 0.5s linear;
+    /* Safari and Chrome */
+    -o-transition: background 0.5s linear;
+}
+
+body {
+    background-size: 110% 110%;
+    background-position: center center;
+}
+
+.video-background {
+    background: #000;
+    z-index: -99;
+}
+
+.video-foreground,
+.video-background iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+#vidtop-content {
+    color: #fff;
+    width: 100%;
+}
+
+#loader {
+    width: 90%;
+    bottom: 8%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#logo img {
+    width: 200px;
+    position: relative;
+    left: -50%;
+}
+
+#logo {
+    position: absolute;
+    left: 50%;
+    top: 5%;
+}
+
+#brand {
+    position: absolute;
+    left: 93%;
+    bottom: 5%;
+}
+
+#brandText {
+    position: relative;
+    left: -50%;
+    color: white;
+    text-transform: uppercase;
+    font-size: 48px;
+    text-shadow: -0.5px -0.5px 0 #000,
+    0.5px -0.5px 0 #000,
+    -0.5px 0.5px 0 #000,
+    0.5px 0.5px 0 #000;
+}
+
+.badge {
+    font-size: 100%;
+}
+
+#soundDiv {
+    position: absolute;
+    left: 50%;
+    bottom: 3%;
+}
+
+#sound {
+    position: relative;
+    left: -50%;
+    color: white;
+    text-transform: uppercase;
+}
+
+#playerDiv {
+    position: absolute;
+    left: 50%;
+    bottom: 1%;
+}
+
+#player {
+    position: relative;
+    left: -100%;
+    color: white;
+}
+
+.plyr__menu,
+.plyr__progress__container,
+.plyr__time {
+    display: none;
+}
+
+
+.plyr--audio .plyr__controls {
+    background: transparent;
+}
+
+button.plyr__control {
+    color: rgb(255, 255, 255);
+}
+
+.plyr--full-ui input[type=range] {
+    width: 500px;
+    color: #6d50a0;
+}
+
+button.plyr__control:hover {
+    background: #6d50a0;
+}
+
+.plyr--audio .plyr__control.plyr__tab-focus,
+.plyr--audio .plyr__control:hover,
+.plyr--audio .plyr__control[aria-expanded=true] {
+    background: #6d50a0;
+}
+
+.plyr__controls .plyr__controls__item:first-child {
+    margin-right: 0
+}
+
+#video {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.skillbar {
+    position: relative;
+    display: block;
+    margin-bottom: 15px;
+    width: 100%;
+    background: #eee;
+    height: 35px;
+    -webkit-transition: 0.4s linear;
+    -moz-transition: 0.4s linear;
+    -ms-transition: 0.4s linear;
+    -o-transition: 0.4s linear;
+    transition: 0.4s linear;
+    -webkit-transition-property: width, background-color;
+    -moz-transition-property: width, background-color;
+    -ms-transition-property: width, background-color;
+    -o-transition-property: width, background-color;
+    transition-property: width, background-color;
+}
+
+.skillbar-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 13px;
+    color: #fff;
+    background: #6d50a0;
+}
+
+.skillbar-title span {
+    display: block;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 0 20px;
+    height: 35px;
+    line-height: 35px;
+}
+
+.skillbar-bar {
+    height: 35px;
+    width: 0px;
+    background: #6d50a0;
+    -webkit-transition: width 1s ease-in-out;
+    -moz-transition: width 1s ease-in-out;
+    -o-transition: width 1s ease-in-out;
+    transition: width 1s ease-in-out;
+}
+
+.skill-bar-percent {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    font-size: 11px;
+    height: 35px;
+    line-height: 35px;
+    color: rgba(8, 8, 8, 0.5);
+}
+
+#cursor {
+    z-index: 1000;
+    position: absolute;
+}

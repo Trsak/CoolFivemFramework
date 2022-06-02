@@ -1,0 +1,42 @@
+<html>
+
+<head>
+	<script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+	<!--<link rel="stylesheet" href="nui://scoreboard/html/style.css">-->
+</head>
+
+<body style="background-color: transparent;">
+</body>
+
+</html>
+
+
+<script>
+
+	$(function () {
+		window.addEventListener('message', function (event) {
+
+			switch (event.data.action) {
+				case 'copy':
+					copyToClipboard(event.data.data)
+					break;
+
+				default:
+					break;
+			}
+		}, false);
+	});
+
+	function copyToClipboard(text) {
+		var dummy = document.createElement("textarea");
+		// to avoid breaking orgain page when copying more words
+		// cant copy when adding below this code
+		// dummy.style.display = 'none'
+		document.body.appendChild(dummy);
+		//Be careful if you use texarea. setAttribute('value', value), which works with "input" does not work with "textarea". – Eduard
+		dummy.value = text;
+		dummy.select();
+		document.execCommand("copy");
+		document.body.removeChild(dummy);
+	}
+</script>

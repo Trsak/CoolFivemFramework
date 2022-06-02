@@ -1,0 +1,118 @@
+body {
+  position: relative;
+  font-family: sans-serif;
+  overflow: hidden;
+  display: none;
+  top: 0;
+}
+
+/*
+.radio {
+ background-image: url("../img/radio.png");
+ background-repeat: no-repeat;
+ background-size: auto;
+ background-attachment: fixed;
+
+}
+*/
+
+#cursor {
+  position: absolute;
+  z-index: 999999;
+  display: none;
+}
+
+#radio {
+  width: 367px;
+  height: 795px;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+
+#onoff {
+  position: absolute;
+  top: 32%;
+  right: 0;
+  padding: 40px 40px;
+  opacity: .0;
+}
+
+.onoff button {
+  padding: 40px 55px;
+
+  opacity: .0;
+}
+
+.ekran {
+  position: absolute;
+  background-color: #c6cb3b00;
+  padding: 95px 100px;
+  top: 71%;
+  left: 22.5%;
+}
+
+.channel {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  text-align: center;
+}
+
+.channel span {
+  text-align: center;
+}
+
+.channel input {
+  text-align: center;
+  border: none;
+  background-color: #c6cb3b00;
+  padding: 5px 10px;
+  font-size: 34px;
+  outline: none;
+}
+
+.channel input:focus {
+  outline: none;
+}
+
+.volumeSpan {
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+#volume {
+  width: 50px;
+  font-size: 20px;
+}
+
+#submit {
+  border-radius: 0.25em;
+  border-style: solid;
+  border-width: 1px;
+  color: #111;
+  display: inline-block;
+  font-family: avenir, helvetica, roboto, arial, sans-serif;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.5em;
+  padding: 1em 1.5em;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-transition: color 0.4s, background-color 0.4s, border 0.4s;
+  transition: color 0.4s, background-color 0.4s, border 0.4s;
+  background-color: #f0f0f0;
+  border-color: #f0f0f0;
+  color: #555;
+}
+
+#submit:hover {
+  background-color: #ddd;
+  border-color: #ddd;
+  color: #444;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  opacity: 1;
+}

@@ -1,0 +1,105 @@
+@font-face {
+	font-family: 'gs';
+	src: url('fonts/gs.ttf');
+}
+
+html {
+	color: white;
+	text-shadow: -1px 1px 2px #000, 1px 1px 2px #000, 1px -1px 0 #000, -1px -1px 0 #000;
+}
+
+#main{
+	font-family: 'gs';
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	text-align: justify;
+}
+
+#main a{
+	text-decoration: none;
+	color: white;
+}
+
+#box{
+	width: 45%;
+	height: 35%;
+	top: 40%;
+	left: 28%;
+	position: absolute;
+	background-color: rgba(226, 226, 226, 0.815);
+}
+
+#leftmenu{
+	float:left;
+	width: 40%;
+	height: 100%;
+	
+	background-color: rgba(226, 226, 226, 0.815);
+}
+
+#content{
+	float:right;
+	width: 60%;
+	height: 100%;
+	overflow-y: auto;
+	overflow-x: auto;
+	background-color: rgba(197, 196, 196, 0.815);
+}
+
+.menu-title{
+	list-style: none;
+	float:left;
+	width: 95%;
+	display: block;
+	font-size: 18pt;
+	padding: 0.8vw 0.0vw 0.8vw 0.8vw;
+	margin: 0px;
+}
+
+.menu-title:hover{
+	background-color: rgba(158, 158, 158, 0.815);
+}
+
+.active{
+	background-color: rgba(197, 196, 196, 0.815);
+	box-shadow: -2px 2px 3px rgba(158, 158, 158, 0.815);
+}
+
+.menu-button{
+	list-style: none;
+	display: inline-block;
+	font-size: 12pt;
+	width: 80%;
+	padding: 0.8vw;
+	margin: 5px;
+	border: 1px solid rgba(158, 158, 158, 0.815);
+}
+
+.menu-button:hover{
+	background-color: rgba(158, 158, 158, 0.815);
+}
+
+.cash{
+	float:right;
+	color: rgb(9, 167, 9);
+}
+
+::-webkit-scrollbar {
+	width: 0.3vw;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	border: 0;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: rgba(226, 226, 226, 0.815);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: rgba(149, 149, 149, 0.815);
+}

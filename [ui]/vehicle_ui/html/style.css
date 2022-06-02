@@ -1,0 +1,280 @@
+* {
+	padding: 0;
+	margin: 0;
+	font-family: 'Signika', sans-serif;
+	text-transform: uppercase;
+	text-shadow:
+		-0.5px -0.5px 0 #000,
+		0.5px -0.5px 0 #000,
+		-0.5px 0.5px 0 #000,
+		0.5px 0.5px 0 #000;
+}
+
+html {
+	text-shadow: -1px 1px 2px #000, 1px 1px 2px #000, 1px -1px 0 #000, -1px -1px 0 #000;
+	color: #ffffff;
+}
+
+#main {
+	display: none;
+	width: 100%;
+	height: 100%;
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+
+#damage {
+	top: 83%;
+	left: 17%;
+}
+
+#gps {
+	top: 68%;
+	left: 2%;
+}
+
+#gpsdistance {
+	top: 72%;
+	left: 2%;
+}
+
+#street {
+	top: 76%;
+	left: 2%;
+}
+
+#gas {
+	top: 87%;
+	left: 17%;
+}
+
+#seatbelt {
+	top: 91%;
+	left: 17%;
+}
+
+#vehicleData {
+	bottom: 2.8%;
+	left: 17%;
+	width: 100%;
+	position: absolute;
+}
+
+#vehicleData div {
+	float: left;
+}
+
+#toolsData {
+	bottom: 5.9%;
+	left: 17%;
+	width: 100%;
+	position: absolute;
+}
+
+#toolsData div {
+	float: left;
+}
+
+#feetslabel {
+	display: none;
+}
+
+#speed {
+	font-size: 30px;
+}
+
+#mph {
+	margin-left: 2px;
+	font-size: 14px;
+	position: relative;
+	height: 100%;
+}
+
+#speedType {
+	margin-top: 16px;
+}
+
+#feets {
+	font-size: 30px;
+	display: none;
+}
+
+#gas {
+	font-size: 30px;
+	margin-left: 5px;
+}
+
+#fuel {
+	margin-left: 2px;
+	font-size: 14px;
+	position: relative;
+	height: 100%;
+}
+
+#fuelType {
+	margin-top: 16px;
+}
+
+
+#belt {
+	font-size: 18px;
+	text-shadow: none;
+	margin-right: 5px;
+	border: none;
+}
+
+#belt.on {
+	color: rgba(87, 219, 60, 0.8);
+}
+
+#belt.off {
+	color: rgba(214, 66, 66, 0.8);
+}
+
+#belt img {
+	height: 24px;
+}
+
+#limit {
+	font-size: 18px;
+	text-shadow: none;
+	margin-right: 5px;
+	border: none;
+}
+
+#limit img {
+	height: 28px;
+}
+
+#limit.on {
+	color: rgba(87, 219, 60, 0.8);
+}
+
+#limit.off {
+	color: rgba(214, 66, 66, 0.8);
+}
+
+#currentPosition {
+	position: absolute;
+	bottom: 0.4%;
+	left: 17%;
+	width: 50%;
+}
+
+#position {
+	white-space: nowrap;
+	width: 100%;
+	padding-top: 4px;
+}
+
+.value {
+	color: white;
+}
+
+.seatbelton {
+	color: white;
+}
+
+.seatbeltoff {
+	color: grey;
+}
+
+.vehicleDamaged {
+	display: inline;
+	color: rgb(114, 15, 15);
+}
+
+.vehicleNotDamaged {
+	display: none;
+}
+
+.cruiserOn {
+	color: rgb(114, 15, 15);
+}
+
+.cruiserOff {
+	color: white;
+}
+
+.waypointActive {
+	color: rgb(96, 40, 148);
+}
+
+.waypointDistance {
+	color: rgb(161, 88, 28);
+}
+
+@media screen and (min-width: 2500px) {
+	#speed {
+		font-size: 60px !important;
+	}
+
+	#mph {
+		font-size: 24px !important;
+	}
+
+	#feets {
+		font-size: 60px !important;
+	}
+
+	#gas {
+		font-size: 60px !important;
+	}
+
+	#fuel {
+		font-size: 30px !important;
+	}
+
+	#belt {
+		font-size: 40px !important;
+	}
+
+	#limit {
+		font-size: 40px !important;
+	}
+
+	#position {
+		font-size: 24px !important;
+	}
+
+	#currentPosition {
+		bottom: 0.8%;
+	}
+
+	#vehicleData {
+		bottom: 2.6%;
+	}
+
+	#toolsData {
+		bottom: 6.8%;
+	}
+
+	#belt img {
+		height: 28px;
+	}
+
+	#limit img {
+		height: 32px;
+	}
+}
+
+.direction {
+	color: #111111;
+	background-color: rgba(226, 226, 226, 0);
+	/* border-radius: 5px; */
+	width: 100px;
+	height: 26px;
+	overflow: hidden;
+	float: left;
+	margin-right: 15px;
+}
+
+.direction>.image {
+	height: 100%;
+	background-position: center center;
+	background-size: 400px;
+	background-repeat: repeat;
+	width: 800%;
+	z-index: 1;
+	background-image: url('img/compass.png');
+}

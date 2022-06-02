@@ -1,0 +1,352 @@
+.services-app {
+    display: none;
+    height: 100%;
+    width: 100%;
+    background: rgb(243, 243, 243);
+}
+
+.services-header {
+    position: absolute;
+    width: 100%;
+    height: 15vh;
+    background-color: rgba(38, 212, 206, 0.35);
+    top: 0;
+    border-bottom: .3vh solid #26d4ce;
+    color: white;
+    font-family: 'Samsung Sans Medium';
+    font-size: 1.8vh;
+}
+
+.services-header > p {
+    padding-top: 4vh;
+    line-height: 6vh;
+    text-indent: 2vh;
+}
+
+.services-header-tab  {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    position: relative;
+    float: left;
+    gap:3.8vw;
+    padding-left: .5vw;
+    height: 20%;
+    text-align: center;
+    line-height: 5vh;
+    font-size: 2.5vh;
+    color: rgba(20, 23, 26, 0.685);
+    transition: .07s;
+}
+
+.services-header-tab :hover {
+    color: #ffffff;
+}
+
+.selected-services-header-tab  {
+    color: #ff0000;
+}
+
+.services-list-tab  {
+    display:block;
+    position: absolute;
+    top:15.5vh;
+    width: 100%;
+    height: 72%;
+    background-color: rgba(0, 0, 0, 0.89);
+    overflow: hidden;
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+    border-radius: .5vh;
+}
+
+.service-list {
+    position: relative;
+    width: 95%;
+    height: 6vh;
+    background-color: rgba(31, 31, 31, 0.89);
+    margin: 2.5%;
+    border-radius: .5vh;
+}
+
+.service-list-firstletter {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3.5vh;
+    height: 3.5vh;
+    background-color: rgb(42, 137, 214);
+    text-align: center;
+    left: 1vh;
+    line-height: 3.5vh;
+    border-radius: 50%;
+    font-family: 'Samsung Sans Medium';
+    font-size: 1.8vh;
+    color: rgb(255, 255, 255);
+}
+
+.service-list-fullname {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 5.5vh;
+    font-family: 'Samsung Sans Medium';
+    font-size: 1.5vh;
+    max-width: 14vh;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    color: rgb(255, 255, 255);
+}
+
+.service-list-reportAll {
+    color: white;
+    position: absolute;
+    top: 8%;
+    transform: translateY(-50%);
+    right: 2vh;
+    font-size: 2vh;
+    transform: rotate(90deg);
+    transition: .08s ease-in-out;
+}
+
+.service-list-reportAll:hover {
+    color: rgb(49, 214, 60);
+    opacity: .8;
+    transform: rotate(0deg);
+    cursor: pointer;
+}
+
+.service-list-report {
+    color: white;
+    position: absolute;
+    top: 25%;
+    transform: translateY(-50%);
+    right: 2vh;
+    font-size: 2vh;
+    transform: rotate(90deg);
+    transition: .08s ease-in-out;
+}
+
+.service-list-report:hover {
+    color: rgb(49, 214, 60);
+    opacity: .8;
+    transform: rotate(0deg);
+    cursor: pointer;
+}
+
+.no-services {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Samsung Sans Medium';
+    font-size: 1.3vh;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    max-width: 14vh;
+    color: rgb(255, 255, 255);
+}
+
+
+.services-list-tab::-webkit-scrollbar {
+    display: none;
+}
+
+.services-messages-tab  {
+    display:none;
+    position: absolute;
+    top:15.5vh;
+    width: 100%;
+    height: 72%;
+    overflow: hidden;
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+    background-color: rgba(0, 0, 0, 0.89);
+    border-radius: .5vh;
+}
+
+.service-message {
+    position: relative;
+    width: 95%;
+    height: 12vh;
+    background-color: rgba(31, 31, 31, 0.89);
+    margin: 2.5%;
+    border-radius: .5vh;
+}
+
+.service-message-header {
+    position: relative;
+    bottom:1%;
+    width: 80%;
+    margin: 2.5%;
+    font-size: 1.4rem;
+    font-weight: bolder;
+    color:white;
+    word-wrap: break-word;
+}
+
+.service-message-message {
+    position: relative;
+    width: 80%;
+    margin: 2.5%;
+    color:white;
+    word-wrap: break-word;
+    overflow: hidden;
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+}
+
+.service-message-message::-webkit-scrollbar {
+    display: none;
+}
+
+.service-message-details {
+    position: absolute;
+    bottom:1%;
+    width: 100%;
+    margin: 2.5%;
+    font-size: .8rem;
+    opacity:0.2;
+    color:white;
+    word-wrap: break-word;
+}
+
+.service-message-call {
+    color: white;
+    position: absolute;
+    transform: translateY(-50%);
+    right: 2vh;
+    font-size: 2vh;
+    transform: rotate(90deg);
+    transition: .08s ease-in-out;
+}
+
+.service-message-call:hover {
+    color: rgb(49, 214, 60);
+    opacity: .8;
+    transform: rotate(0deg);
+    cursor: pointer;
+}
+
+.services-messages-tab::-webkit-scrollbar {
+    display: none;
+}
+
+.services-settings-tab  {
+    display:none;
+    position: absolute;
+    top:15.5vh;
+    width: 100%;
+    height: 72%;
+    background-color: rgba(0, 0, 0, 0.89);
+    border-radius: .5vh;
+}
+
+.services-settings-tab::-webkit-scrollbar {
+    display: none;
+}
+
+.new-services-message {
+    position: absolute;
+    display: block;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background: #f2f2f2;
+    left: -30vh;
+}
+
+.new-services-message-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 5vh;
+    background-color: rgb(234, 234, 234);
+}
+
+.new-services-message-footer-item {
+    position: relative;
+    float: left;
+    width: 50%;
+    height: 100%;
+    background-color: rgb(234, 234, 234);
+    text-align: center;
+    line-height: 5vh;
+    font-size: 2.2vh;
+    transition: .1s linear;
+    color: rgb(48, 48, 48);
+}
+
+.new-services-message-footer-item:hover {
+    background-color: rgb(214, 214, 214);
+    transition: .1s linear;
+}
+
+.new-services-message-footer-item:hover .new-advert-icon {
+    color: rgb(32, 32, 32);
+    animation: Shake 1s infinite;
+}
+
+.new-services-message-header {
+    position: absolute;
+    width: 100%;
+    height: 10vh;
+    top: 5vh;
+    left:2vw;
+}
+
+#new-services-message-header-text {
+    position: absolute;
+    top: 5vh;
+    left: 2vh;
+    font-family: 'Samsung Sans Regular';
+    font-size: 1.8vh;
+    color: black;
+}
+
+#new-services-message-subtext {
+    position: absolute;
+    top: 10vh;
+    left: 3vh;
+    font-family: 'Samsung Sans Regular';
+    font-size: 1.4vh;
+    color: black;
+}
+
+.new-services-message-counters {
+    position: absolute;
+    bottom: 8vh;
+    right: 2vh;
+    font-family: 'Samsung Sans Regular';
+    font-size: 1.0vh;
+    color: black;
+}
+
+.new-services-message-textarea {
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 15vh;
+    height: 30vh;
+    width: 80%;
+    outline: none;
+    border: none;
+    resize: none;
+    /* border-radius: 1.5vh 1.5vh 1.5vh 1.5vh; */
+    box-shadow: 0px 0 1px .5px rgba(0, 0, 0, 0.233);
+    padding: 1.5vh;
+    font-family: 'Samsung Sans Regular';
+    border-bottom: 0.5vh solid #000;
+    transition: .1s linear;
+}
+
+.new-services-message-textarea:focus {
+    border-bottom: 0.5vh solid #ff8f1a;
+}
+
+.new-services-message-textarea:valid {
+    border-bottom: 0.5vh solid #29b417;
+}

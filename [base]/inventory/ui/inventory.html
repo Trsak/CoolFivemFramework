@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="cs">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Signika" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Arimo&display=swap" rel="stylesheet">
+
+    <link href="css/style.css" rel="stylesheet">
+    <title>server.CZ Inventář</title>
+</head>
+
+<body>
+    <div class="h-100 row align-items-center text-center justify-content-md-center">
+        <div class="col-5 inventory" id="mainInventory">
+            <div class="inventoryData">
+                <div class="row">
+                    <div class="col-12 text-right">
+                        <div class="storage">
+                            <i class="fas fa-box"></i> <span class="currentStorage">0</span> / <span
+                                class="maxStorage">65</span>
+                        </div>
+                        <div class="weight">
+                            <i class="fas fa-weight-hanging"></i> <span class="currentWeight">0.0</span> / <span
+                                class="maxWeight">120.0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row inventoryGrid">
+            </div>
+        </div>
+        <div class="col-5 inventory" id="secondInventory">
+            <div class="inventoryData">
+                <div class="row">
+                    <div class="col-12 text-right">
+                        <div class="storage">
+                            <i class="fas fa-box"></i> <span class="currentStorage">0</span> / <span
+                                class="maxStorage">65</span>
+                        </div>
+                        <div class="weight">
+                            <i class="fas fa-weight-hanging"></i> <span class="currentWeight">0.0</span> / <span
+                                class="maxWeight">120.0</span>
+                        </div>
+                        <div class="info" style="display:none">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row inventoryGrid">
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="mainModal" tabindex="-1" role="dialog" aria-labelledby="mainModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="form-row">
+                        <div class="col-9">
+                            <input id="modalInput" type="text" class="form-control">
+                        </div>
+                        <div class="col-3">
+                            <button type="button" class="btn btn-primary" id="modalConfirm">Potvrdit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+        integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/scripts.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,183 @@
+* {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+#hud {
+    position: absolute;
+    bottom: 0.2%;
+    left: 1.5%;
+    width: 20%;
+}
+
+#statusHud {
+    width: 100%;
+    position: relative;
+}
+
+.bar {
+    float: left;
+    width: 35px;
+    height: 35px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    font-family: sans-serif;
+    font-weight: normal;
+    font-size: 1.2em;
+    color: #FFF;
+    text-align: center;
+    margin-right: 3.2px;
+    text-align: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: rgba(56, 56, 56, 0.7);
+}
+
+.status-inside {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    padding: 9px 0px;
+    width: 100%;
+    height: 16px;
+    text-align: center;
+}
+
+.health {
+    background-image: linear-gradient(to right, rgba(166, 16, 30, 0.7), rgba(166, 16, 30, 0.7));
+}
+
+.armour {
+    background-image: linear-gradient(to right, rgba(12, 86, 160, 0.7), rgba(12, 86, 160, 0.7));
+}
+
+.hunger {
+    background-image: linear-gradient(to right, rgba(245, 212, 66, 0.7), rgba(245, 212, 66, 0.7));
+}
+
+.thirst {
+    background-image: linear-gradient(to right, rgba(143, 172, 250, 0.7), rgba(143, 172, 250, 0.7));
+}
+
+.stamina {
+    background-image: linear-gradient(to right, rgba(72, 184, 165, 0.7), rgba(72, 184, 165, 0.7));
+}
+
+.oxygen {
+    background-image: linear-gradient(to right, rgba(119, 192, 216, 0.7), rgba(119, 192, 216, 0.7));
+}
+
+.stress {
+    background-image: linear-gradient(to right, rgba(192, 59, 59, 0.7), rgba(192, 59, 59, 0.7));
+}
+
+.voice {
+    background-image: linear-gradient(to right, rgba(109, 80, 160, 0.7), rgba(109, 80, 160, 0.7));
+}
+
+.drunk {
+    background-image: linear-gradient(to right, rgba(228, 151, 15, 0.7), rgba(228, 151, 15, 0.7));
+}
+
+.active {
+    color: #FFC45F !important;
+}
+
+.ui {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+    user-select: none;
+    display: none;
+}
+
+.fa-pulsing {
+    animation: fa-beat 5s ease infinite;
+}
+
+@keyframes fa-beat {
+    0% {
+        transform: scale(1);
+    }
+
+    5% {
+        transform: scale(1.025);
+    }
+
+    10% {
+        transform: scale(1.05);
+    }
+
+    15% {
+        transform: scale(1.075);
+    }
+
+    20% {
+        transform: scale(1.05);
+    }
+
+    25% {
+        transform: scale(1.025);
+    }
+
+    30% {
+        transform: scale(1.00);
+    }
+
+    40% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.025);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    55% {
+        transform: scale(1.075);
+    }
+
+    60% {
+        transform: scale(1.05);
+    }
+
+    65% {
+        transform: scale(1.025);
+    }
+
+    70% {
+        transform: scale(1.00);
+    }
+
+    75% {
+        transform: scale(1);
+    }
+
+    80% {
+        transform: scale(1.025);
+    }
+
+    85% {
+        transform: scale(1.05);
+    }
+
+    90% {
+        transform: scale(1.075);
+    }
+
+    95% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1.025);
+    }
+}

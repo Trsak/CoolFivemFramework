@@ -1,0 +1,147 @@
+html {
+    color: white;
+}
+
+html,
+body {
+    background-color: transparent;
+}
+
+#main {
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    text-align: justify;
+}
+
+#main a {
+    text-decoration: none;
+    color: white;
+}
+
+#box {
+    width: 400px;
+    height: 70%;
+    top: 15%;
+    left: 78%;
+    overflow-y: scroll;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.25);
+    text-align: center;
+    color: white;
+    padding: 0 !important;
+}
+
+.vehicleName {
+    background-color: rgba(12, 12, 12, 0.65);
+    width: 100%;
+    position: aboslute;
+    padding: 3px;
+    top: 0;
+}
+
+.vehicleSPZ {
+    background-color: rgba(12, 12, 12, 0.65);
+    width: 100%;
+    position: aboslute;
+    padding: 3px;
+    bottom: 0;
+}
+
+.menu-point {
+    width: 100%;
+    list-style: none;
+    position: relative;
+    color: white;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+.menu-point.access {
+    width: 100%;
+    list-style: none;
+    position: relative;
+    color: rgb(3, 194, 13);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.menu-point:not(:last-child) {
+    border-bottom: 4px solid rgb(12, 12, 12);
+}
+
+.menu-point .vehicleText {
+    display: none;
+}
+
+.menu-point:hover .vehicleImage {
+    display: none;
+}
+
+.vehicleTextWrapper {
+    height: 160px;
+}
+
+.menu-point:hover .vehicleText {
+    background-color: rgba(12, 12, 12, 0.65);
+    display: flex;
+    text-align: left;
+    height: 160px;
+    width: 400px;
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.menu-point:hover {
+    background-color: rgba(20, 20, 20, 0.4);
+}
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: rgba(20, 20, 20, 0.664);
+}
+
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(46, 46, 46, 0.664);
+}
+
+.wrapper {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.progress-bar {
+    width: 100%;
+    background-color: #e0e0e0;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, .2);
+}
+
+.progress-bar-fill {
+    display: block;
+    height: 14px;
+    background-color: #659cef;
+    transition: width 500ms ease-in-out;
+}

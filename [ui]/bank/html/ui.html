@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+    <title>Banka</title>
+    <link rel='stylesheet'
+          href='https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i'
+          type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/fontawesome-iconpicker.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/stylesheet.css"/>
+    <script src="https://kit.fontawesome.com/9586a73469.js" crossorigin="anonymous"></script>
+</head>
+<body style="display: none;">
+<div id="box" style="display: none;">
+    <div id="main-wrapper" class="boxed">
+        <header id="header">
+            <div class="container">
+                <div class="header-row">
+                    <div class="header-column justify-content-start">
+                        <div class="logo"><img id="logoImage" src="img/fleeca.png"/></div>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#header-nav">
+                            <span></span> <span></span> <span></span></button>
+                        <nav class="primary-menu navbar navbar-expand-lg">
+                            <div id="header-nav" class="collapse navbar-collapse">
+                                <ul class="navbar-nav mr-auto">
+                                    <li id="navAllList"><a href="#" onclick="showBank()">Seznam všech účtů</a></li>
+                                    <li id="navInvoicesList"><a href="#" onclick="loadInvoices()">Nezaplacené faktury</a></li>
+                                    <li id="navFinesList"><a href="#" onclick="loadFines()">Nezaplacené pokuty</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="bg-primary" id="subHeader" style="display: none;">
+            <div class="container d-flex justify-content-center">
+                <ul class="nav secondary-nav">
+                    <li class="nav-item" id="navDetail"><a class="nav-link" href="#">Přehled účtu</a></li>
+                    <li class="nav-item" id="navGraph"><a class="nav-link" href="#">Graf zůstatku</a></li>
+                    <li class="nav-item" id="navSend"><a class="nav-link" data-target="#bank-account-send"
+                                                         data-toggle="modal" href="#">Zadat příkaz</a></li>
+                    <li class="nav-item" id="navEdit"><a class="nav-link" data-target="#bank-account-edit"
+                                                         data-toggle="modal" href="#">Upravit účet</a></li>
+                    <li class="nav-item" id="navCards"><a class="nav-link" href="#">Debetní karty</a></li>
+                    <li class="nav-item" id="navAccess"><a class="nav-link" href="#">Přístupy</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="content" class="py-4">
+            <div class="container">
+                <div class="row" id="invoicesListDetail" style="display: none;">
+                    <div class="col-lg-12">
+                        <div class="bg-white shadow-sm rounded py-4 mb-4">
+                            <h3 class="text-5 font-weight-400 px-4 mb-4">Nezaplacené faktury</h3>
+                            <hr class="mb-0">
+                            <div class="notifications-list" id="invoicesListUnpaid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="finesListDetail" style="display: none;">
+                    <div class="col-lg-12">
+                        <div class="bg-white shadow-sm rounded py-4 mb-4">
+                            <h3 class="text-5 font-weight-400 px-4 mb-4">Nezaplacené pokuty</h3>
+                            <hr class="mb-0">
+                            <div class="notifications-list" id="finesListUnpaid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="bankAccountDetail" style="display: none;">
+                    <aside class="col-lg-3">
+                        <div class="bg-white shadow-sm rounded text-center p-3 mb-4">
+                            <p class="text-3 font-weight-500 mb-2" id="bankAccountDetailName"></p>
+                            <p class="text-muted opacity-8 mb-4" id="bankAccountDetailDescription"></p>
+                            <p class="text-muted opacity-8 mb-4" id="bankAccountDetailNumber"></p>
+                            <a href="#" class="btn copy btn-primary btn-block"
+                               data-clipboard-target="#bankAccountDetailNumber">Zkopírovat číslo</a>
+                        </div>
+                        <div class="bg-white shadow-sm rounded text-center p-3 mb-4">
+                            <div class="text-17 text-light my-3"><i class="fas fa-wallet"></i></div>
+                            <h3 class="text-9 font-weight-400" id="bankAccountDetailBalance"></h3>
+                            <p class="mb-2 text-muted opacity-8">Dostupný zůstatek</p>
+                            <hr class="mx-n3" id="accountActionsHr">
+                            <div class="d-flex" id="accountActions">
+                                <a href="#" id="accountActionsWithdraw" data-target="#bank-account-withdraw"
+                                   data-toggle="modal"
+                                   class="btn-link mr-auto">Výběr hotovosti</a>
+                                <a href="#" id="accountActionsDeposit" data-target="#bank-account-deposit"
+                                   data-toggle="modal"
+                                   class="btn-link ml-auto">Vklad hotovosti</a>
+                            </div>
+                        </div>
+                        <a href="#" id="removeAccountButton" onclick="removeAccountModal()"
+                           class="btn copy btn-danger btn-block">Odstranit účet</a>
+                    </aside>
+                    <div class="col-lg-9" id="bankAccountDetailAccesses">
+                        <div class="col-12 text-right" style="margin: 0 0 10px; padding: 0 0 10px;">
+                            <button type="button" class="btn btn-primary" onclick="createNewAccess()">Přidat přístup
+                            </button>
+                        </div>
+                        <div id="bankAccountDetailAccessesList"></div>
+                    </div>
+                    <div class="bg-white shadow-sm rounded p-4 col-lg-9" id="bankAccountDetailCards">
+                        <h3 class="text-5 font-weight-400 mb-4">Debetní karty</h3>
+                        <hr class="mb-4 mx-n4">
+                        <div class="row" id="cardsList">
+                            <div class="col-12 col-sm-6 col-lg-6"><a href="" data-target="#add-new-bank-card"
+                                                                     data-toggle="modal"
+                                                                     class="account-card-new d-flex align-items-center rounded h-100 p-3 mb-4 mb-lg-0">
+                                <p class="w-100 text-center line-height-4 m-0"><span class="text-3"><i
+                                        class="fas fa-plus-circle"></i></span> <span class="d-block text-body text-3">Vytvořit novou kartu (<span id="cardPriceText"></span>)</span>
+                                </p>
+                            </a></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-9" id="bankAccountDetailTransactionsGraph">
+                        <h2 class="font-weight-400 mb-3">Graf zůstatku</h2>
+                        <div class="row">
+                            <canvas id="balanceChart" width="110" height="70"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-9" id="bankAccountDetailTransactions">
+                        <h2 class="font-weight-400 mb-3">Přehled transakcí</h2>
+                        <div class="row">
+                            <div class="col mb-2">
+                                <form id="filterTransactions" method="post">
+                                    <div class="form-row">
+                                        <div class="col-12 mb-3" id="allFilters">
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" id="allTransactions" name="allFilters"
+                                                       class="custom-control-input" checked value="all">
+                                                <label class="custom-control-label" for="allTransactions">Všechny
+                                                    transakce</label>
+                                            </div>
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" id="transactionsDeposits" name="allFilters"
+                                                       class="custom-control-input" value="deposit">
+                                                <label class="custom-control-label"
+                                                       for="transactionsDeposits">Vklady</label>
+                                            </div>
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" id="transactionWithdraws" name="allFilters"
+                                                       class="custom-control-input" value="withdraw">
+                                                <label class="custom-control-label"
+                                                       for="transactionWithdraws">Výběry</label>
+                                            </div>
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" id="transactionIn" name="allFilters"
+                                                       class="custom-control-input" value="in">
+                                                <label class="custom-control-label"
+                                                       for="transactionIn">Příchozí platby</label>
+                                            </div>
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" id="transactionOut" name="allFilters"
+                                                       class="custom-control-input" value="out">
+                                                <label class="custom-control-label"
+                                                       for="transactionOut">Odchozí platby</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="bg-white shadow-sm rounded mb-4">
+                            <div class="transaction-title py-2 px-4">
+                                <div class="row">
+                                    <div class="col-2 col-sm-1 text-center"><span class="">Datum</span></div>
+                                    <div class="col col-sm-9">Akce</div>
+                                    <div class="col-2 col-sm-2 text-right">Částka</div>
+                                </div>
+                            </div>
+                            <div class="transaction-list" id="transactions">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" id="bankAccounts" style="display: none;">
+                    <div class="bg-white shadow-sm rounded p-4 mb-4 col-12" id="bankAccountsList">
+                        <h3 class="text-5 font-weight-400 mb-4">Dostupné bankovní účty</h3>
+                        <hr class="mb-4 mx-n4">
+                        <div class="row" id="bankAccountsListRows">
+                            <div class="col-12 col-sm-6" id="addNewBankAccountButton"><a href=""
+                                                                                         data-target="#add-new-bank-account"
+                                                                                         data-toggle="modal"
+                                                                                         class="account-new d-flex align-items-center rounded p-3 mb-4 mb-lg-0">
+                                <p class="w-100 text-center line-height-4 m-0"><span class="text-3"><i
+                                        class="fas fa-plus-circle"></i></span>
+                                    <span class="d-block text-body text-3">Vytvořit nový bankovní účet (<span
+                                            class="accountsLeft">0</span>)</span>
+                                </p>
+                            </a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="add-new-bank-account" class="modal fade" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title font-weight-400">Vytvořit bankovní účet</h5>
+                    <button type="button" class="close font-weight-400" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="alert alert-warning" role="alert">
+                        Můžete vytvořit jen omezený počet účtů.<br><strong>Zbývající počet účtů:</strong> <span
+                            class="accountsLeft">0</span>
+                    </div>
+                    <form id="addbankaccount" method="post">
+                        <div class="form-group">
+                            <label for="accountIcon">Ikonka účtu</label><br>
+                            <div class="btn-group">
+                                <button type="button"
+                                        class="icp icp-dd btn btn-primary dropdown-toggle iconpicker-component"
+                                        data-selected="fa-university" data-toggle="dropdown" id="accountIcon">
+                                    <i id="accountIconIcon" class="fas fa-university"></i>
+                                    <span class="caret"></span>
+                                    <span class="sr-only"></span>
+                                </button>
+                                <div class="dropdown-menu"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="accountName">Název účtu</label>
+                            <input type="text" class="form-control" data-bv-field="accountDescription" id="accountName"
+                                   required value="" maxlength="20">
+                        </div>
+                        <div class="form-group">
+                            <label for="accountDescription">Popis účtu</label>
+                            <input type="text" class="form-control" data-bv-field="accountDescription"
+                                   id="accountDescription" required value="" maxlength="50">
+                        </div>
+                        <button class="btn btn-primary btn-block" type="submit">Vytvořit účet</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="edit-bank-access" class="modal fade" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title font-weight-400">Upravit přístup</h5>
+                    <button type="button" class="close font-weight-400" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="editbankaccess" method="post">
+                        <div class="form-group">
+                            <label for="accessEditPriority">Priorita</label>
+                            <input type="number" class="form-control" data-bv-field="accessEditPriority"
+                                   id="accessEditPriority"
+                                   required value="" min="-1000" max="1000">
+                        </div>
+                        <div class="form-check custom-control custom-checkbox">
+                            <input id="accessEditRoot" name="notifications" class="custom-control-input"
+                                   type="checkbox">
+                            <label class="custom-control-label text-3" for="accessEditRoot">Plná práva</label>
+                            <p class="text-muted line-height-3 mt-2">Uživatel s plnými právy má přístup ke všem
+                                akcím</p>
+                        </div>
+                        <div class="form-check custom-control custom-checkbox">
+                            <input id="accessEditView" name="notifications" class="custom-control-input"
+                                   type="checkbox">
+                            <label class="custom-control-label text-3" for="accessEditView">Zobrazení zůstatku a
+                                transakcí</label>
+                            <p class="text-muted line-height-3 mt-2">Uživatel vidí zůstatek účtu a přehled transakcí.
+                                <strong>Bez tohoto práva jsou ostatní bezpředmětná!</strong></p>
+                        </div>
+                        <div class="form-check custom-control custom-checkbox">
+                            <input id="accessEditCards" name="notifications" class="custom-control-input"
+                                   type="checkbox">
+                            <label class="custom-control-label text-3" for="accessEditCards">Správa karet účtu</label>
+                            <p class="text-muted line-height-3 mt-2">Možnost vytvářet, mazat a upravovat debetní
+                                karty</p>
+                        </div>
+                        <div class="form-check custom-control custom-checkbox">
+                            <input id="accessEditWithdraw" name="notifications" class="custom-control-input"
+                                   type="checkbox">
+                            <label class="custom-control-label text-3" for="accessEditWithdraw">Výběry v bance</label>
+                            <p class="text-muted line-height-3 mt-2">Možnost vybírat hotovost v bance</p>
+                        </div>
+                        <div class="form-check custom-control custom-checkbox">
+                            <input id="accessEditDeposit" name="notifications" class="custom-control-input"
+                                   type="checkbox">
+                            <label class="custom-control-label text-3" for="accessEditDeposit">Vklady v bance</label>
+                            <p class="text-muted line-height-3 mt-2">Možnost vkládat hotovost v bance</p>
+                        </div>
+                        <div class="form-check custom-control custom-checkbox">
+                            <input id="accessEditEdit" name="notifications" class="custom-control-input"
+                                   type="checkbox">
+                            <label class="custom-control-label text-3" for="accessEditEdit">Úprava účtu</label>
+                            <p class="text-muted line-height-3 mt-2">Možnost upravovat účet</p>
+                        </div>
+                        <div class="form-check custom-control custom-checkbox">
+                            <input id="accessEditSend" name="notifications" class="custom-control-input"
+                                   type="checkbox">
+                            <label class="custom-control-label text-3" for="accessEditSend">Vytvoření příkazu</label>
+                            <p class="text-muted line-height-3 mt-2">Možnost vytvářet příkazy k úhradě</p>
+                        </div>
+                        <div class="form-check custom-control custom-checkbox">
+                            <input id="accessEditAccesses" name="notifications" class="custom-control-input"
+                                   type="checkbox">
+                            <label class="custom-control-label text-3" for="accessEditAccesses">Správa přístupů</label>
+                            <p class="text-muted line-height-3 mt-2">Možnost spravovat přístupy</p>
+                        </div>
+                        <div class="modal-footer" style="display: flex;">
+                            <button class="btn btn-primary" type="submit" style="flex: 1;">Upravit přístup</button>
+                            <button class="btn btn-danger" type="button" style="flex: 0;"
+                                    onclick="confirmRemoveAccess()">
+                                Odebrat
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="edit-bank-card" class="modal fade" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title font-weight-400">Upravit debetní kartu</h5>
+                    <button type="button" class="close font-weight-400" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="editbankcard" method="post">
+                        <div class="form-group">
+                            <label for="cardNameEdit">Název karty</label>
+                            <input type="text" class="form-control" data-bv-field="cardNameEdit" id="cardNameEdit"
+                                   required value="" maxlength="20">
+                        </div>
+                        <div class="form-group">
+                            <label for="cardPinEdit">PIN (4 číslice)</label>
+                            <input type="password" class="form-control" data-bv-field="cardPinEdit" id="cardPinEdit"
+                                   required value="" maxlength="4" minlength="4">
+                        </div>
+                        <div class="form-group">
+                            <label for="cardWithdrawLimitEdit">Denní limit výběrů (0 = neomezený)</label>
+                            <input type="number" class="form-control" data-bv-field="cardWithdrawLimitEdit"
+                                   id="cardWithdrawLimitEdit" required value="0" min="0">
+                        </div>
+                        <button class="btn btn-primary btn-block" type="submit">Upravit kartu</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="add-new-bank-card" class="modal fade" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title font-weight-400">Vytvořit debetní kartu</h5>
+                    <button type="button" class="close font-weight-400" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="addbankcard" method="post">
+                        <div class="form-group">
+                            <label for="cardName">Název karty</label>
+                            <input type="text" class="form-control" data-bv-field="cardName" id="cardName"
+                                   required value="" maxlength="20">
+                        </div>
+                        <div class="form-group">
+                            <label for="cardPin">PIN (4 číslice)</label>
+                            <input type="password" class="form-control" data-bv-field="cardPin" id="cardPin"
+                                   required value="" maxlength="4" minlength="4">
+                        </div>
+                        <div class="form-group">
+                            <label for="cardWithdrawLimit">Denní limit výběrů (0 = neomezený)</label>
+                            <input type="number" class="form-control" data-bv-field="cardWithdrawLimit"
+                                   id="cardWithdrawLimit" required value="0" min="0">
+                        </div>
+                        <button class="btn btn-primary btn-block" type="submit">Vytvořit kartu</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="remove-bank-card" class="modal fade" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title font-weight-400">Smazat kartu</h5>
+                    <button type="button" class="close font-weight-400" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="alert alert-danger" role="alert">
+                        Opravdu si přeješ smazat kartu <strong id="removeCardName"></strong> s číslem <strong
+                            id="removeCardNumber"></strong>?<br><br>
+                        <strong>Tato akce je nevratná!</strong>
+                    </div>
+                </div>
+                <div class="modal-footer" style="display: flex;">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" style="flex: 1;">Zrušit</button>
+                    <button type="button" class="btn btn-danger" style="flex: 0;" onclick="confirmRemoveCard()">Smazat
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="remove-bank-account" class="modal fade" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title font-weight-400">Smazat bankovní účet</h5>
+                    <button type="button" class="close font-weight-400" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="alert alert-danger" role="alert">
+                        Opravdu si přeješ smazat účet <strong id="removeAccountName"></strong> s číslem <strong
+                            id="removeAccountNumber"></strong>?<br><br>
+                        <strong>Tato akce je nevratná! Smazáním účtu přijdeš o veškerý zůstatek na něm!</strong>
+                    </div>
+                </div>
+                <div class="modal-footer" style="display: flex;">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" style="flex: 1;">Zrušit</button>
+                    <button type="button" class="btn btn-danger" style="flex: 0;" onclick="confirmRemoveAccount()">
+                        Smazat
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="bank-account-edit" class="modal fade" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title font-weight-400">Upravit účet</h5>
+                    <button type="button" class="close font-weight-400" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="editbankaccount" method="post">
+                        <div class="form-group">
+                            <label for="accountIconEdit">Ikonka účtu</label><br>
+                            <div class="btn-group">
+                                <button type="button"
+                                        class="icp icp-dd btn btn-primary dropdown-toggle iconpicker-component"
+                                        data-selected="fa-university" data-toggle="dropdown" id="accountIconEdit">
+                                    <i id="accountIconEditIcon" class="fas fa-university"></i>
+                                    <span class="caret"></span>
+                                    <span class="sr-only"></span>
+                                </button>
+                                <div class="dropdown-menu"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="accountNameEdit">Název účtu</label>
+                            <input type="text" class="form-control" data-bv-field="accountNameEdit" id="accountNameEdit"
+                                   required value="" maxlength="20">
+                        </div>
+                        <div class="form-group">
+                            <label for="accountDescriptionEdit">Popis účtu</label>
+                            <input type="text" class="form-control" data-bv-field="accountDescriptionEdit"
+                                   id="accountDescriptionEdit" required value="" maxlength="50">
+                        </div>
+                        <button class="btn btn-primary btn-block" type="submit">Upravit účet</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="bank-account-send" class="modal fade" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title font-weight-400">Odeslat peníze</h5>
+                    <button type="button" class="close font-weight-400" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="send" method="post">
+                        <div class="form-group">
+                            <label for="sendAcountNumber">Číslo účtu</label>
+                            <input type="text" value="" class="form-control" data-bv-field="sendAcountNumber"
+                                   id="sendAcountNumber" required placeholder="Zadejte číslo účtu příjemce">
+                        </div>
+                        <div class="form-group">
+                            <label for="sendAmount">Částka</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+                                <input type="number" class="form-control" data-bv-field="sendAmount"
+                                       id="sendAmount"
+                                       value="" placeholder="" min="1">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="sendDescriptionReciever">Poznámka příjemci</label>
+                            <input type="text" value="" class="form-control" data-bv-field="sendDescriptionReciever"
+                                   id="sendDescriptionReciever" placeholder="Zadaná poznámka se zobrazí příjemci">
+                        </div>
+                        <div class="form-group">
+                            <label for="sendDescriptionSender">Poznámka odesílatele</label>
+                            <input type="text" value="" class="form-control" data-bv-field="sendDescriptionSender"
+                                   id="sendDescriptionSender" placeholder="Zadaná poznámka se zobrazí vám">
+                        </div>
+                        <button class="btn btn-primary btn-block" type="submit">Odeslat</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="bank-account-withdraw" class="modal fade" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title font-weight-400">Vybrat hotovost</h5>
+                    <button type="button" class="close font-weight-400" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="withdraw" method="post">
+                        <div class="form-group">
+                            <label for="withdrawAmount">Částka</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+                                <input type="number" class="form-control" data-bv-field="withdrawAmount"
+                                       id="withdrawAmount"
+                                       value="" placeholder="" min="1">
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-block" type="submit">Vybrat</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="bank-account-deposit" class="modal fade" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title font-weight-400">Vložit hotovost</h5>
+                    <button type="button" class="close font-weight-400" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="deposit" method="post">
+                        <div class="form-group">
+                            <label for="depositAmount">Částka</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+                                <input type="number" class="form-control" data-bv-field="depositAmount"
+                                       id="depositAmount"
+                                       value="" placeholder="" min="1">
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-block" type="submit">Vložit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="transaction-detail" class="modal fade" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title font-weight-400">Informace o transkaci</h5>
+                    <button type="button" class="close font-weight-400" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body p-4">
+                    <p>
+                        <strong>Datum a čas zpracování:</strong> <span class="float-right" id="transactionDateTime"></span>
+                    </p>
+                    <hr>
+                    <p>
+                        <strong>Popis transakce:</strong> <span class="float-right" id="transactionDesccription"></span>
+                    </p>
+                    <hr>
+                    <p id="transactionTargetBox">
+                        <strong><span id="transactionTargetLabel">Z účtu:</span></strong> <span class="float-right" id="transactionTarget"></span>
+                    </p>
+                    <hr>
+                    <p>
+                        <strong>Částka:</strong> <span class="float-right" id="transactionAmount"></span>
+                    </p>
+                    <hr>
+                    <p>
+                        <strong>Zůstatek po zaúčtování:</strong> <span class="float-right" id="transactionBalance"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="credit-card-modal" class="modal fade" role="dialog" aria-hidden="true" data-backdrop="static"
+     data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title font-weight-400">Bankomat</h5>
+                <button type="button" class="close font-weight-400" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <p>Debetní karta <span class="float-right" id="cardModalCardNumber"></span></p>
+                <hr>
+                <p>Číslo účtu <span class="float-right" id="cardModalAccountNumber"></span></p>
+                <hr>
+                <p>Název účtu <span class="float-right" id="cardModalAccountName"></span></p>
+                <hr>
+                <p>Zůstatek na účtu <span class="float-right" id="cardModalAccountBalance"></span></p>
+                <hr>
+                <p>Limit pro výběry <span class="float-right" id="cardModalAccountWithdrawalLimit"></span></p>
+                <hr>
+                <form id="credit-card-modal-form" method="post">
+                    <label for="cardModalAmount">Částka</label>
+                    <div class="input-group" style="margin-bottom: 10px;">
+                        <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+                        <input type="number" class="form-control" data-bv-field="sendAmount"
+                               id="cardModalAmount"
+                               value="" placeholder="" min="1">
+                    </div>
+                    <div style="display: flex;">
+                        <button class="btn btn-primary" type="submit" style="flex: 1; margin-right: 5px;"
+                                id="cardModalWithdrawalButton" value="withdraw">Vybrat
+                        </button>
+                        <button class="btn btn-primary" type="submit" style="flex: 1; margin-left: 5px;"
+                                id="cardModalDepositButton" value="deposit">Vložit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/fontawesome-iconpicker.min.js"></script>
+<script src="js/theme.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js" integrity="sha512-TW5s0IT/IppJtu76UbysrBH9Hy/5X41OTAbQuffZFU6lQ1rdcLHzpU5BzVvr/YFykoiMYZVWlr/PX1mDcfM9Qg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="js/listener.js"></script>
+</body>
+</html>

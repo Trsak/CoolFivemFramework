@@ -1,0 +1,30 @@
+<html>
+
+<head>
+	<script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+	<!--<link rel="stylesheet" href="nui://scoreboard/html/style.css">-->
+</head>
+
+<body style="display: none; background-image: url('https://static.server.cz/img/sack.png');">
+</body>
+
+</html>
+
+<script>
+
+	$(function () {
+		window.addEventListener('message', function (event) {
+			switch (event.data.action) {
+				case 'takeon':
+					$("body").show();
+					break;
+				case 'takeoff':
+					$("body").hide();
+					break;
+
+				default:
+					break;
+			}
+		}, false);
+	});
+</script>

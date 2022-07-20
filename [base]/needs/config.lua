@@ -40,6 +40,30 @@ Config.Needs = {
         max = 30.0,
         default = 0.0,
         reducer = 1.0
+    },
+    super_pills_blue = {
+        min = 0.0,
+        max = 20.0,
+        default = 0.0,
+        reducer = 1.0
+    },
+    super_pills_orange = {
+        min = 0.0,
+        max = 20.0,
+        default = 0.0,
+        reducer = 1.0
+    },
+    super_pills_white = {
+        min = 0.0,
+        max = 20.0,
+        default = 0.0,
+        reducer = 1.0
+    },
+    super_pills_purple = {
+        min = 0.0,
+        max = 20.0,
+        default = 0.0,
+        reducer = 1.0
     }
 }
 

@@ -23,5 +23,7 @@ List of people that have contributed in a period of longer time:
 - NewEdit
 
 ## How to run it?
-Figure it on your own, or just use its parts. This will need some work to get it all working together, as some partsw are missing.    
-There is no support for this, so please do **not contact us**.
+~~Figure it on your own, or just use its parts. This will need some work to get it all working together, as some parts are missing.    
+There is no support for this, so please do **not contact us**.~~
+
+Everything is explained in the [Setup Guide](docs/HOWTO.md)
